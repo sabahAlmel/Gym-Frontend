@@ -1,0 +1,18 @@
+:root {
+  --main-bg-clr: #090909;
+  --main-text-color: #fff;
+  --red-text-clr: #dc0000;
+  --footer-clr: #610000;
+  --black-text-clr: #090909;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--main-bg-clr);
+  margin: 2rem;
+  color: var(--main-text-color);
+}
