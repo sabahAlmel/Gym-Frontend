@@ -1,8 +1,11 @@
 import React from 'react'
+import ServicesSection from '../../components/NavBar/ServicesSection'
 
 function Home() {
   return (
-    <div>Home</div>
+    <>
+    <ServicesSection />
+    </>
   )
 }
 
