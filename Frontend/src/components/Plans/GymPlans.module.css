@@ -1,0 +1,31 @@
+.gymPlans {
+    background-color: var(--main-bg-clr);
+    color: var(--main-text-clr);
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+}
+
+.gymPlansDescription {
+    width: 20%;
+    height: 90%;
+}
+
+.gymPlan {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    height: 90%;
+}
+
+.descriptionText {
+    color: white;
+}
+
+.check {
+    margin-top: 50px;
+}
+
+.descriptionArray {
+    display: flex;
+}

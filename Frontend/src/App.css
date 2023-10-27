@@ -1,3 +1,60 @@
+/*
+HINTS:
+
+Homepage fonts
+nav links in the header -- size: 1em
+h1 -- size: 3em for (Reasons to join and Services)
+h2 -- size: 2.5em
+button -- size: 1.5em for (join us)
+p -- size: 1.13em (first paragraph inside Reasons to join)
+p -- size: 0.88em (second paragraph inside Reasons to join)
+GYM -- size: 2.25em (inside Services)
+paragraph beside GYM -- size: 1em
+h3 -- size: 2em for (card's headings inside services)
+button -- size: 0.88em for (Explore and Learn more)
+p -- size: 0.88em for (paragraphs inside footer)
+h4 -- size: 1.13em (headings inside footer)
+@copyrights -- size: 1em
+
+Portfolio fonts
+h1 -- size: 4.1em for (Easy with Fithub Gym)
+texts below the h1 -- size: 2.5em
+h2 -- size: 1.9em
+p -- size: 1.43em
+h4 and sub-paragraphs -- size: 1.2em
+p -- size: 0.94em for (paragraphs in the testimonials)
+
+Services fonts
+h1 -- size: 3em for (Make Your Dream Body)
+h2 -- size: 3em
+below the heading Services -- size: 1.75em
+span -- size: 2.6em for (core, boxing and stretching)
+p -- size: 1.13em for (description inside product's cards)
+p -- size: 1.25em for (price inside product's cards)
+button -- size : 0.88em (Get Now)
+below the section Services -- size: 2em
+h3 -- size: 2.13em for (regime's cards title)
+p -- size: 1.5em for (description inside regime's cards)
+
+About us fonts
+h1 -- size: 3.13em
+button -- size: 1.13em (See More)
+p -- size: 1.5em for (paragraph below OUR STORY)
+h2 -- size: 1.75em (Created to help you live ....)
+p -- size: 1.25em for (texts below h2, Our value, Our people and Our culture)
+h3 -- size: 1.5em
+p -- size: 1.5em (the 3 paragraphs below h3) and (this whole section is below the paragraph of Our value)
+
+Contact us fonts
+h1 -- size: 3em for (Take The Next Step)
+p -- size: 1.13em for (below h1)
+h2 -- size: 4.43em for (DON'T WAIT A DAY LONGER!)
+p -- size: 1.18em for (below h2)
+labels -- size: 1em
+button -- size: 1.25em for (Submit)
+
+*/
+
 :root {
   --main-bg-clr: #090909;
   --main-text-color: #fff;
