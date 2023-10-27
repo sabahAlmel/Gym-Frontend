@@ -1,5 +1,5 @@
 import React from 'react'
-import ServicesSection from '../../components/NavBar/ServicesSection'
+import ServicesSection from '../../components/ServicesSection/ServicesSection'
 
 function Home() {
   return (
