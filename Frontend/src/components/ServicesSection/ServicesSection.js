@@ -16,6 +16,7 @@ function ServicesSection() {
             </p>
           </span>
         </section>
+          <section className={style.basisFlexContainer}>
 
         <section className={style.serviceImageContainer}>
           <section className={`${style.serviceImage} ${style.gymProducts}`}>
@@ -44,6 +45,7 @@ function ServicesSection() {
               <button>Learn More</button>
             </section>
           </section>
+        </section>
         </section>
       </section>
     </section>
