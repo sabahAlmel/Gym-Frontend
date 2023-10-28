@@ -1,4 +1,4 @@
-import Service from "../../components/ServicesSection/Service";
+import Service from "../../components/Services/Service";
 import style from "./servicesSection.module.css";
 
 function ServicesSection() {
