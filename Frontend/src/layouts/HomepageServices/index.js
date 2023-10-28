@@ -1,10 +1,25 @@
 import Service from "../../components/Services/Service";
 import style from "./servicesSection.module.css";
+import gymProducts from "../../assets/images/HomepageImages/GymProducts.png";
+import personalTraining from "../../assets/images/HomepageImages/PersonalTraining.png";
+import regimePlans from "../../assets/images/HomepageImages/RegimePlans.png";
 
 function ServicesSection() {
-    const fakeServicesData = {}
-    
-    
+  const fakeServicesData = [
+    {
+      name: "Gym Products",
+      image: gymProducts,
+    },
+    {
+      name: "Personal Training",
+      image: personalTraining,
+    },
+    {
+        name:'Regime Plans',
+        image: regimePlans
+    }
+  ];
+
   return (
     <section className={style.servicesSection}>
       <h3>Services</h3>
@@ -20,8 +35,10 @@ function ServicesSection() {
             </p>
           </span>
         </section>
-          <section className={style.basisFlexContainer}>
-            <Service />
+        <section className={style.basisFlexContainer}>
+          {fakeServicesData.map(item => (
+            <Service name={item.name} image={item.image} />
+          ))}
         </section>
       </section>
     </section>
