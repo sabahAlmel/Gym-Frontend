@@ -4,7 +4,7 @@
   background-color: red;
   flex-basis: 14%;
   max-height:100%;
-  transition: flex-basis .5s;
+  transition: flex-basis .5s ease-out;
   min-width: 150px;
 }
 .serviceImage{
@@ -53,5 +53,5 @@ gap: 1rem;
   background-color: var(--btn-hover-clr)
 }
 .serviceImageContainer:hover{
-  flex-basis: 30%;
+  flex-basis: 60%;
 }

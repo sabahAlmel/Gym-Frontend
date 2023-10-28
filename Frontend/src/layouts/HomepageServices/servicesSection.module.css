@@ -12,10 +12,11 @@
     width:100%;
     display: flex;
     gap: 3rem;
+    justify-content: center;
   }
   
   .heroImageContainer{
-    flex-basis: 30%;
+    flex-basis: 45%;
     min-width: 500px;
     width: fit-content;
   }
@@ -47,5 +48,5 @@
   .basisFlexContainer{
     display: flex;
     gap: 3rem;
-    flex-basis: 70%;
+    flex-basis: 55%;
   }

@@ -78,7 +78,6 @@ button -- size: 1.25em for (Submit)
 }
 body {
   background-color: var(--main-bg-clr);
-  margin: 0 8rem;
   color: var(--main-text-color);
   font-size: 1rem;
 }
