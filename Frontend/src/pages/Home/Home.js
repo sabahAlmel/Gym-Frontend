@@ -1,5 +1,5 @@
 import React from 'react'
-import ServicesSection from '../../components/NavBar/ServicesSection'
+import ServicesSection from '../../layouts/HomepageServices/index'
 import GymPlans from '../../components/Plans/GymPlans'
 
 function Home() {
