@@ -15,4 +15,9 @@ body {
   background-color: var(--main-bg-clr);
   margin: 2rem;
   color: var(--main-text-color);
+  font-size: 1.2rem;
+  line-height: 1.3;
+
 }
+
+

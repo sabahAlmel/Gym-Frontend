@@ -2,7 +2,7 @@
 function ServicesSection() {
 
   return (
-    <div>ServicesSection</div>
+    <div></div>
   )
 }
 
