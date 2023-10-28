@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.footer {
+    max-width: 1442;
+    height: 211;
+    left: calc(50% - 1442px/2 - 1px);
+    background: #610000;
+    margin: auto;
+
+}
+.footerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2% 8%;
+    gap: 48px;
+    background: #610000;
+}
+
+.logo {
+    width: 127.55px;
+    height: 53.72px;
+}
+.a {
+    position: absolute;
+    top: 43.4%;
+    left: 10.85%;
+}
+
+.firstPara {
+    font-family: 'Saira Stencil One';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #F5F5F5;
+}
+.firstSpan {
+    font-family: 'Saira Stencil One';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 25px;
+    text-transform: uppercase;
+    color: #DC0000;
+
+}
+
+.description {
+
+    width: 275px;
+    height: 68px;
+
+}
+
+.secondPara {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.88em;
+    color: #FFFFFF;
+}
+
+.address {
+
+    width: 174px;
+    height: 99px;
+    padding-bottom: 5%;
+}
+
+.h4 {
+    /* font-family: 'outfit'; */
+    font-size: 1.13em;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    color: #FFFFFF;
+    padding-bottom: 6%;
+
+}
+
+.p3 {
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.88em;
+    line-height: 18px;
+    color: #FFFFFF;
+}
+
+.contact {
+    width: 232px;
+    height: 99px;
+
+}
+
+.span {
+    color: #FFFFFF;
+    position: absolute;
+    right: 36.5%;
+    font-family: 'Abel';
+    font-style: normal;
+    font-weight: 0.88em;
+    font-size: 14px;
+    line-height: 18px;
+
+}
+
+.follow {
+    width: 332px;
+    height: 89px;
+
+
+}
+
+.socialIcon {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.followUs {
+
+    font-size: 1.13em;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    color: #FFFFFF;
+    position: absolute;
+    left: 76%
+}
+
+.instagram {
+    position: absolute;
+    left: 73%;
+    bottom: 47%;
+}
+
+.facebook {
+    position: absolute;
+    left: 76%;
+    bottom: 47%;
+}
+
+.twitter {
+    position: absolute;
+    left: 79%;
+    bottom: 47%;
+}
+
+.youtube {
+    position: absolute;
+    left: 82%;
+    bottom: 47%;
+}
+.copyRight{
+position: absolute;
+top: 54.5%;
+left:40%;
+font-family: 'Outfit';
+font-style: normal;
+font-weight: 500;
+font-size: 1em;
+line-height: 166.5%;
+text-align: center;
+color: rgba(255, 255, 255, 0.7);
+}
+@media screen and (max-width: 768px) {
+    .footerContainer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        width: 80px;
+        height: auto;
+    }
+    
+    .firstPara, .firstSpan {
+        font-size: 14px;
+    }
+    
+    .description {
+        width: 100%;
+    }
+    
+    .address {
+        width: 100%;
+    }
+    
+    .h4, .p3 {
+        font-size: 16px;
+    }
+    
+    .contact {
+        width: 100%;
+    }
+    
+    .follow {
+        width: 100%;
+    }
+    
+    .followUs {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .socialIcon {
+        justify-content: center;
+    }
+    
+    .copyRight {
+        top: auto;
+        bottom: 10px;
+    }
+}

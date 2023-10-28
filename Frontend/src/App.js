@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './layouts/Footer/Footer';
-import Header from './layouts/Header/Header';
+import Header from './components/NavBar/Header';
 import Home from './pages/Home/Home';
 import Portfolio from './pages/Portfolio/Portfolio';
 import Services from './pages/Services/Services';
@@ -21,7 +21,7 @@ function App() {
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
       </Routes>
-      <Footer></Footer>
+      <Footer/>
     </div>
   );
 }
