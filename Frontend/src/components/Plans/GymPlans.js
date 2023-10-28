@@ -10,15 +10,47 @@ const GymPlans = () => {
     <>
         <div className={style.gymPlans}>
             <div className={style.gymPlansDescription}>
-              <h2 className='gym-plan-description-topic'>Unlock Your Fitness Journey with Our Membership Tiers</h2>
+              <h2 className={style.gymPlanDescriptionTitle}>Unlock Your Fitness Journey with Our Membership Tiers</h2>
             </div>
+
             <div className={style.gymPlan}>
-              <h3 className='gym-plan-type'>FIT..</h3>
-              <h3 className='gym-plan-price'>$.. Per Month</h3>
+              <h3 className={style.gymPlanType}>FitStart</h3>
+              <p className={style.membership}>Membership</p>
+              <h3 className={style.gymPlanPrice}>$<span className={style.price}>30</span> Per Month</h3>
               <div className={style.check}>
               {plans.map((plan, i) => (
                 <div className={style.descriptionArray} key={i}>
-                  <img src={CheckIcon} alt='check' />
+                  <img className={style.checkIcon} src={CheckIcon} alt='check' />
+                  <p className={style.descriptionText}>{plan}</p>
+                </div>
+                ))}
+              </div>
+                <button>Subscribe</button>
+            </div>
+
+            <div className={style.gymPlan}>
+              <h3 className={style.gymPlanType}>FitPro</h3>
+              <p className={style.membership}>Membership</p>
+              <h3 className={style.gymPlanPrice}>$<span className={style.price}>50</span> Per Month</h3>
+              <div className={style.check}>
+              {plans.map((plan, i) => (
+                <div className={style.descriptionArray} key={i}>
+                  <img className={style.checkIcon} src={CheckIcon} alt='check' />
+                  <p className={style.descriptionText}>{plan}</p>
+                </div>
+                ))}
+              </div>
+                <button>Subscribe</button>
+            </div>
+
+            <div className={style.gymPlan}>
+              <h3 className={style.gymPlanType}>FitElite</h3>
+              <p className={style.membership}>Membership</p>
+              <h3 className={style.gymPlanPrice}>$<span className={style.price}>80</span> Per Month</h3>
+              <div className={style.check}>
+              {plans.map((plan, i) => (
+                <div className={style.descriptionArray} key={i}>
+                  <img className={style.checkIcon} src={CheckIcon} alt='check' />
                   <p className={style.descriptionText}>{plan}</p>
                 </div>
                 ))}
