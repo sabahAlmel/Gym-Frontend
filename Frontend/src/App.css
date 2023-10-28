@@ -1,8 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 :root {
   --main-bg-clr: #090909;
   --main-text-color: #fff;
   --red-text-clr: #dc0000;
+  --red-btn-clr: #dc0000;
+  --btn-hover-clr:#fa2a2a;
   --footer-clr: #610000;
   --black-text-clr: #090909;
 }
@@ -11,26 +13,26 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+  font-family: "Outfit", sans-serif;
   font-weight: 200;
 }
 body {
   background-color: var(--main-bg-clr);
-  margin: 2rem;
+  margin: 0 8rem;
   color: var(--main-text-color);
 }
-h1{
+h1 {
   font-weight: 600;
 }
-h2{
+h2 {
   font-weight: 500;
 }
-h3{
+h3 {
   font-weight: 400;
 }
-h4{
+h4 {
   font-weight: 300;
 }
-h5{
+h5 {
   font-weight: 20000;
 }
