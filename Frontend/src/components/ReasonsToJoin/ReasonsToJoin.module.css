@@ -1,0 +1,75 @@
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    padding: 20px; /* Add padding for better spacing */
+}
+
+.columns {
+    display: flex;
+    flex-direction: row; /* Display columns in a row */
+    justify-content: space-around;
+    width: 100%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    margin-right: 1rem; /* Space between columns */
+}
+
+.title {
+    font-size: 48px;
+    font-weight: 500;
+    font-family: Outfit;
+    color: white;
+    word-wrap: break-word;
+    margin-bottom: 1rem; /* Space between title and reasons */
+}
+
+.icon {
+    width: 50px; /* Adjust the width as per your icon size */
+    height: 50px; /* Adjust the height as per your icon size */
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.reason {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem; /* Space between each reason pair */
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+.text h3,
+.text p {
+    margin: 0.5rem 0; /* Consistent margin for both h3 and p elements */
+}
+
+@media screen and (max-width: 720px) {
+    .reason {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Align items to the left */
+        margin-bottom: 2rem; /* Space between each reason pair */
+    }
+
+    .text h3,
+    .text p {
+        margin: 0; /* Reset margin for h3 and p elements */
+        padding: 0.5rem 0; /* Add padding for spacing between h3 and p elements */
+    }
+
+    .icon {
+        width: 50px; /* Adjust the width as per your icon size */
+        height: 50px; /* Adjust the height as per your icon size */
+        margin-bottom: 0.5rem; /* Space between icon and text */
+    }
+}
