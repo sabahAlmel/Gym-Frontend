@@ -1,0 +1,72 @@
+.valueSection {
+    height: 20%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 2rem;
+}
+
+.ourValue {
+    height: 43%;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.valueTitle {
+    font-size: 3.13em;
+    padding-bottom: 0.3rem;
+    border-bottom: 1px solid var(--red-text-clr);
+    color: var(--red-text-clr);
+    width: 25%;
+    text-align: center;
+    font-weight: 500;
+}
+
+.valueDescription {
+    font-size: 1.25em;
+    text-align: center;
+    width: 60%;
+}
+
+.valueVariants {
+    display: flex;
+    justify-content: space-between;
+    height: 53%;
+    width: 70%;
+    gap: 0.2rem;
+}
+
+.valueVariant {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 25%;
+    gap: 1rem;
+}
+
+.variantImage {
+    height: 27%;
+    width: 27%;
+}
+
+.variantTitle {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    height: 20%;
+    width: 80%;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.variantDescription {
+    height: auto;
+    font-size: 1.5em;
+    font-weight: 400;
+}

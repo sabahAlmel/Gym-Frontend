@@ -1,8 +1,9 @@
 import React from 'react'
+import OurValue from './OurValue'
 
 function AboutUs() {
   return (
-    <div>AboutUs</div>
+    <OurValue />
   )
 }
 
