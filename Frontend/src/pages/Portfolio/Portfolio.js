@@ -1,9 +1,13 @@
 import React from 'react'
+import FitnessJourneySection from './FitnessJourney';
 
 function Portfolio() {
   return (
-    <div>Portfolio</div>
-  )
+    <section className='FitnessJourneySection'>
+      <FitnessJourneySection/>
+    </section>
+
+  );
 }
 
 export default Portfolio
