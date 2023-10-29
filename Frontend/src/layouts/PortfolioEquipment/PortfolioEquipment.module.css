@@ -1,0 +1,19 @@
+.gymEquipmentSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+.gymEquipmentSection > h2{
+  color: var(--red-text-clr);
+  font-weight: 800;
+}
+.gymEquipmentFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.gymEquipmentFlex > p{
+    width: 40%;
+    line-height: 2.5;
+}

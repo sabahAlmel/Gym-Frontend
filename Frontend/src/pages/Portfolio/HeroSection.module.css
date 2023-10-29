@@ -4,6 +4,7 @@
 
     .heroSection {
         background-image: url('../../assets/images/PortfolioImages/portfolio-hero.png');
+        background-repeat: no-repeat;
         width: 100vw;
         height: 797px;
         display: flex;
