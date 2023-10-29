@@ -38,9 +38,9 @@ function Footer() {
         </div>
         <div className={FooterCss.contact}>
           <h4 className={FooterCss.h4}>Contact</h4>
-          <div>
-            <p>
-              <a href="link to phone" target="-blank">
+          <div>   
+            <div className={FooterCss.phone}>
+              <a href="link to phone" target="-blank" className={FooterCss.email}>
                 <svg
                   width="21"
                   height="21"
@@ -53,11 +53,11 @@ function Footer() {
                     fill="white"
                   />
                 </svg>
-                <span className={FooterCss.span}>+375(44)-777-24-12</span>
               </a>
-            </p>
-            <p>
-              <a href="link to message" target="-blank">
+              <span className={FooterCss.span}>+375(44)-777-24-12</span>
+            </div>
+            <div className={FooterCss.phone}>
+              <a href="link to message" target="-blank" className={FooterCss.email}>
                 <svg
                   width="25"
                   height="26"
@@ -109,15 +109,15 @@ function Footer() {
                     </filter>
                   </defs>
                 </svg>
-                <span className={FooterCss.span}>gym24@gmail.com</span>
               </a>
-            </p>
+              <span className={FooterCss.span}>gym24@gmail.com</span>
+            </div>
           </div>
         </div>
         <div className={FooterCss.follow}>
           <h4 className={FooterCss.followUs}>Follow Us</h4>
           <div className={FooterCss.socialIcon}>
-                <a href="link to instagram" target="-blank" className={FooterCss.instagram}>
+                <a href="link to instagram" target="-blank" className={FooterCss.icon}>
                   <svg
                     width="41"
                     height="41"
@@ -134,7 +134,7 @@ function Footer() {
                     <circle cx="20.5508" cy="20.5" r="19.5" stroke="white" />
                   </svg>
                 </a>
-                <a href="link to facebook" target="-blank" className={FooterCss.facebook}>
+                <a href="link to facebook" target="-blank" className={FooterCss.icon}>
                   <svg
                     width="41"
                     height="41"
@@ -154,7 +154,7 @@ function Footer() {
                     <circle cx="20.5508" cy="20.5" r="19.5" stroke="white" />
                   </svg>
                 </a>
-                <a href="link to twitter" target="-blank" className={FooterCss.twitter}>
+                <a href="link to twitter" target="-blank" className={FooterCss.icon}>
                   <svg
                     width="41"
                     height="41"
@@ -171,7 +171,7 @@ function Footer() {
                     <circle cx="20.5508" cy="20.5" r="19.5" stroke="white" />
                   </svg>
                 </a>
-                <a href="link to youtybe" target="-blank" className={FooterCss.youtube}>
+                <a href="link to youtybe" target="-blank" className={FooterCss.icon}>
                   <svg
                     width="41"
                     height="41"
