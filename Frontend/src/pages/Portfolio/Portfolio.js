@@ -1,10 +1,12 @@
-import React from 'react'
-import HeroSection from './HeroSection'
+import React from "react";
+import HeroSection from "./HeroSection";
 
 function Portfolio() {
   return (
-    <HeroSection />
-  )
+    <section className="portfolioWrapper">
+      <HeroSection />
+    </section>
+  );
 }
 
-export default Portfolio
+export default Portfolio;

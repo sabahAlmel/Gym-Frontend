@@ -96,3 +96,9 @@ h4 {
 h5 {
   font-weight: 20000;
 }
+.homeWrapper, .servicesWrapper, .portfolioWrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+  margin: 4rem 8rem;
+}

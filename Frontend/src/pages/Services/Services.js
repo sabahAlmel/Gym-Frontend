@@ -3,7 +3,9 @@ import Products from './Products'
 
 function Services() {
   return (
+    <section className='servicesWrapper'>
     <Products />
+    </section>
   )
 }
 
