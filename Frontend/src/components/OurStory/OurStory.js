@@ -1,5 +1,6 @@
 import React from "react"
 import styles from '../../components/OurStory/OurStory.module.css'
+import image from '../../assets/images/AboutUsImages/3 1.png'
 
 const OurStory=()=>{
     return (
@@ -12,7 +13,18 @@ const OurStory=()=>{
               the industry.
           </p>
           <button className={styles.seeMoreButton}>See More</button>
+          <div className={styles.secondContainer}>
+        <div className={styles.textContainer}>
+          <h1>Created to help you live a better, happier, healthier life.</h1>
+          <p>
+            We believe fitness should be accessible to everyone, everywhere, regardless of income level or access to a gym. That's why we offer hundreds of free, full-length workout videos, the most affordable and effective workout programs on the web, meal plans, and helpful health, nutrition and fitness information.
+          </p>
         </div>
+        <div className={styles.imageContainer}>
+          <img src={image} alt="ourstory" className={styles.image} />
+        </div>
+      </div>
+    </div>
         
       );
     };
