@@ -6,7 +6,7 @@ const HeroSectionHomepage = () => {
         <div className={HeroSectionHomepageCss.containerHero}>
             <div className={HeroSectionHomepageCss.backgroundImage}>
                 <div className={HeroSectionHomepageCss.content}>
-                    <h1 className={HeroSectionHomepageCss.tite}>work<span className={HeroSectionHomepageCss.span}>harder</span>get stronger</h1>
+                    <h1 className={HeroSectionHomepageCss.title}>work <span className={HeroSectionHomepageCss.spann}>harder </span>get stronger</h1>
                     <button className={HeroSectionHomepageCss.button}>join us</button>
                 </div>   
             </div>
