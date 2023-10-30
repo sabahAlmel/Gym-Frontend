@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=M+PLUS+Rounded+1c:wght@300;400;800&family=Outfit:wght@300;400&family=Saira+Stencil+One&display=swap');
 
 .fitnessSection {
-    width: 75%;
+    
     height: 53.6%;
     margin: auto;
 }
-h2 {
+.fitnessSection > h2 {
     text-align: center;
     color: #FF0A0A;
     font-family: Rounded Mplus 1c;
@@ -16,17 +16,16 @@ h2 {
     line-height: 170.9%;
     letter-spacing: 0.02em;
 }
-
 .content {
     display: flex;
     justify-content: space-between;
+    gap: 7rem;
+    align-items: center;
 }
 
-.p {
+.content > p {
     width: 65.625%;
     height: 41.25%;
-    padding-top: 8%;
-    padding-right: 27%;
     margin-right: auto;
     font-family: Outfit;
     font-style: normal;
