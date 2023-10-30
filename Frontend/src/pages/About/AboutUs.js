@@ -11,5 +11,5 @@ function AboutUs() {
     <OurValue />
     </>
   )
-
+  }
 export default AboutUs;
