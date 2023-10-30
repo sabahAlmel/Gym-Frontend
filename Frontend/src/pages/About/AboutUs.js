@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+import Hero from '../../components/HeroAboutUs/HeroAbouUs'; // Import the Hero component
+import OurStory from '../../components/OurStory/OurStory'
+
 
 function AboutUs() {
-  return (
-    <div>AboutUs</div>
-  )
+  return (<div>
+   
+    <Hero />
+    <OurStory />
+  </div>
+
+
+
+  );
 }
 
-export default AboutUs
+export default AboutUs;

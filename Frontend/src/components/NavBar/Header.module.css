@@ -4,9 +4,12 @@
   justify-content: space-between;
   position: fixed;/* Set the header to fixed position */
   top: 0;/* Stick the header to the top of the viewport */
-  width: 98%;
+  width: 100%;
   height: 70px;
   padding:1rem;
+  z-index: 1000;
+  background-color:#090909;
+ 
 
 }
 

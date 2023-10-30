@@ -1,0 +1,15 @@
+
+.hero {
+    background-size:cover;
+    background-position: center;
+    background-image: url('../../assets/images/AboutUsImages/muv-tribe-team-training-in-gym-near-me-irmo\ 1.png');
+    height: 600px; 
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+
+  }
+  
