@@ -28,7 +28,7 @@
     width: 127.55px;
     height: 53.72px;   
 }
-.footera {
+.logoo{
     margin-left: 24px;
 }
 .firstPara {
@@ -75,7 +75,7 @@
     color: #FFFFFF;
     padding-bottom: 6%;
 }
-.adressp3 {
+.p3 {
     font-family: 'Abel';
     font-style: normal;
     font-weight: 400;
@@ -153,7 +153,7 @@ color: rgba(255, 255, 255, 0.7);
         height: auto; 
     }
 
-    .a {
+    .logoo {
         margin-top: 12px;
     }
 
@@ -165,7 +165,7 @@ color: rgba(255, 255, 255, 0.7);
         max-width: 100%; 
     }
 
-    .h4, .p3 {
+    .adressh4, .p3 {
         font-size: 14px; 
     }
 
