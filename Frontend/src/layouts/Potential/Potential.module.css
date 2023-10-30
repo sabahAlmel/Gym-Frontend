@@ -1,0 +1,27 @@
+.potentialContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    line-height: 2;
+}
+.potentialContainer > h2{
+    color: var(--red-text-clr);
+    text-align: center;
+}
+.potentialContainer > p{
+ width: 80%;
+ font-size: 1.5em;
+}
+.potentialItemWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.redPotentialItem{
+    color: var(--red-text-clr);
+    font-size: 1.5em;
+    font-weight: 500;
+}
+.textPotentialItem{
+    font-size: 1em;
+}
