@@ -1,0 +1,26 @@
+.servicesHeroImage{
+    width: 100%;
+    height: 650px;
+    background-image:url('../../assets/images/ServicesImages/servicesHero.png') ;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    position: relative;
+}
+.servicesHeroTextContainer{
+    display: block;
+    position: absolute;
+    left: 10%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+}
+@media (max-width: 700px) {
+    .servicesHeroImage{
+        height: 400px;
+    }
+    .servicesHeroTextContainer{
+        font-size: 2.5em;
+    }
+}
