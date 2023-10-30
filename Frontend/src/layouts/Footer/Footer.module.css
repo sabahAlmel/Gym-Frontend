@@ -14,7 +14,6 @@
     left: calc(50% - 1442px/2 - 1px);
     background: #610000;
     margin: auto;
-
 }
 .footerContainer {
     display: flex;
@@ -29,12 +28,11 @@
     width: 127.55px;
     height: 53.72px;   
 }
-.a {
+.logoo{
     margin-left: 24px;
 }
 .firstPara {
     margin-top: -11px;
-    
     font-family: 'Saira Stencil One';
     font-style: normal;
     font-weight: bold;
@@ -68,8 +66,7 @@
     height: 99px;
     padding-bottom: 5%;
 }
-.h4 {
-    /* font-family: 'outfit'; */
+.adressh4 {
     font-size: 1.13em;
     font-family: 'Outfit';
     font-style: normal;
@@ -156,7 +153,7 @@ color: rgba(255, 255, 255, 0.7);
         height: auto; 
     }
 
-    .a {
+    .logoo {
         margin-top: 12px;
     }
 
@@ -168,7 +165,7 @@ color: rgba(255, 255, 255, 0.7);
         max-width: 100%; 
     }
 
-    .h4, .p3 {
+    .adressh4, .p3 {
         font-size: 14px; 
     }
 
