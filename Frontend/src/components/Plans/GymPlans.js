@@ -25,7 +25,7 @@ const GymPlans = () => {
                 </div>
                 ))}
               </div>
-                <button>Subscribe</button>
+                <button className={style.gymPlanButton}>Subscribe</button>
             </div>
 
             <div className={style.gymPlan}>
@@ -40,7 +40,7 @@ const GymPlans = () => {
                 </div>
                 ))}
               </div>
-                <button>Subscribe</button>
+                <button className={style.gymPlanButton}>Subscribe</button>
             </div>
 
             <div className={style.gymPlan}>
@@ -55,7 +55,7 @@ const GymPlans = () => {
                 </div>
                 ))}
               </div>
-                <button>Subscribe</button>
+                <button className={style.gymPlanButton}>Subscribe</button>
             </div>
         </div>
     </>

@@ -1,13 +1,25 @@
-import React from 'react'
+
+
+
+
+import React from "react";
 import FitnessJourneySection from './FitnessJourney';
+import HeroSection from "./HeroSection";
+import GymEquipmentSection from "../../layouts/PortfolioEquipment/index.js";
+import PortfolioTestimonials from "../../layouts/PortfolioTestimonials/index";
 
 function Portfolio() {
   return (
-    <section className='FitnessJourneySection'>
-      <FitnessJourneySection/>
+    <>
+    
+      <HeroSection />
+      <section className="portfolioWrapper">
+        <FitnessJourneySection/>
+        <GymEquipmentSection /> 
+        <PortfolioTestimonials />
     </section>
-
+    </>
   );
 }
 
-export default Portfolio
+export default Portfolio;

@@ -1,8 +1,11 @@
 import React from 'react'
+import Products from './Products'
 
 function Services() {
   return (
-    <div>Services</div>
+    <section className='servicesWrapper'>
+    <Products />
+    </section>
   )
 }
 
