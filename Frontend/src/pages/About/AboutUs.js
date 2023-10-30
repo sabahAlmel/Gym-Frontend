@@ -10,9 +10,11 @@ function AboutUs() {
   return (
     <>
     <Hero />
+    <section className='aboutUsWrapper'>
     <OurStory/>
     <OurValue />
     <OurCulture/>
+    </section>
     </>
   )
   }
