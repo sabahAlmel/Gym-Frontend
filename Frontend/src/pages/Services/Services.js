@@ -1,5 +1,5 @@
 import React from 'react'
-import Products from './Products'
+import Products from '../../layouts/Products/Products'
 
 function Services() {
   return (
