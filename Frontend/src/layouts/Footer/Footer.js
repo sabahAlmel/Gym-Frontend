@@ -6,7 +6,7 @@ function Footer() {
     <footer className={FooterCss.footer}>
       <div className={FooterCss.footerContainer}>
         <div className={FooterCss.logo}>
-          <a a href="#logo" className={FooterCss.a}>
+          <a a href="#logo" className={FooterCss.logoo}>
             <svg
               width="36"
               height="26"
@@ -31,13 +31,13 @@ function Footer() {
           </p>
         </div>
         <div className={FooterCss.address}>
-          <h4 className={FooterCss.h4}>Address</h4>
+          <h4 className={FooterCss.adressh4}>Address</h4>
           <p className={FooterCss.p3}>Republic of Belarus</p>
           <p className={FooterCss.p3}>Minsk city</p>
           <p className={FooterCss.p3}>Dzerzhinsky Avenue 15</p>
         </div>
         <div className={FooterCss.contact}>
-          <h4 className={FooterCss.h4}>Contact</h4>
+          <h4 className={FooterCss.adressh4}>Contact</h4>
           <div>   
             <div className={FooterCss.phone}>
               <a href="link to phone" target="-blank" className={FooterCss.email}>
