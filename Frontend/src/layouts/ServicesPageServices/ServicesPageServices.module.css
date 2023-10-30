@@ -1,0 +1,25 @@
+.personalTrainingContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.personalTrainingFlex{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+
+}
+.personalTrainingHeader{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.personalTrainingHeader > h2{
+    font-size: 2em;
+}
+.personalTrainingHeader > p{
+align-self:center ;
+font-size: 24px;
+}
