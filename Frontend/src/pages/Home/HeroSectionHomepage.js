@@ -5,7 +5,7 @@ const HeroSectionHomepage = () => {
     return(
         <div className={HeroSectionHomepageCss.hero}>
             <div className={HeroSectionHomepageCss.content}>
-                <h1 className={HeroSectionHomepage.h1}>work<span className={HeroSectionHomepage.span}>harder</span>getstronger</h1>
+                <h1 className={HeroSectionHomepage.title}>work<span className={HeroSectionHomepage.word}>harder</span>getstronger</h1>
                 <button>join us</button>
             </div>
 
