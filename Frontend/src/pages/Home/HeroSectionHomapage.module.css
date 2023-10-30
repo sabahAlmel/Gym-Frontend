@@ -1,0 +1,13 @@
+.containerHero {
+    margin: 0;
+}
+
+.backgroundImage {
+    width: 100%;
+    height: 800px;
+    background-image:url('../../assets/images/HomepageImages/coach.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+
+}

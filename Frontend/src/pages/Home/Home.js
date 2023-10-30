@@ -9,7 +9,7 @@ import './home.css';
 function Home() {
   return (
     <>
-    <HeroSectionHomepage/>
+    <HeroSectionHomepage />
     <section className='homeWrapper'> 
     <ReasonsToJoin />
     <ServicesSection />
