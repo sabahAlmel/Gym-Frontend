@@ -5,7 +5,8 @@
     .heroSection {
         background-image: url('../../assets/images/PortfolioImages/portfolio-hero.png');
         background-repeat: no-repeat;
-        width: 100vw;
+        background-size: cover;
+        width: 100%;
         height: 797px;
         display: flex;
         flex-direction: column;
@@ -17,8 +18,8 @@
         font-size: 4.1em;
         text-transform: uppercase;
         font-family: 'Outfit', sans-serif;
-        width: 55vw;
-        height: 12.5vh;
+        width: 55%;
+        height: 12.5%;
         font-weight: 400;
     }
 
@@ -32,123 +33,13 @@
         margin-left: 7rem;
         display: flex;
         justify-content: space-between;
-        width: 50vw;
-        height: 14vh;
+        width: 50%;
+        height: 14%;
     }
 
     .statistic {
-        width: 30vw;
-        height: 14vh;
-    }
-
-    .statisticNumber, .statisticDescription {
-        font-size: 2.5em;
-        font-weight: 400;
-    }
-
-    .statisticNumber {
-        color: var(--red-text-clr);
-    }
-
-    .statisticDescription {
-        text-transform: capitalize;
-    }
-}
-
-
-@media screen and (min-width: 770px) {
-
-    .heroSection {
-        background-image: url('../../assets/images/PortfolioImages/portfolio-hero.png');
-        width: 100vw;
-        height: 797px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .heroSectionTitle {
-        margin-top: 18rem;
-        margin-left: 7rem;
-        font-size: 4.1em;
-        text-transform: uppercase;
-        font-family: 'Outfit', sans-serif;
-        width: 55vw;
-        height: 12.5vh;
-        font-weight: 400;
-    }
-
-    .fitTitle {
-        color: var(--red-text-clr);
-        font-weight: 400;
-    }
-
-    .portfolioStatistics {
-        margin-top: 7rem;
-        margin-left: 7rem;
-        display: flex;
-        justify-content: space-between;
-        width: 50vw;
-        height: 14vh;
-    }
-
-    .statistic {
-        width: 30vw;
-        height: 14vh;
-    }
-
-    .statisticNumber, .statisticDescription {
-        font-size: 2.5em;
-        font-weight: 400;
-    }
-
-    .statisticNumber {
-        color: var(--red-text-clr);
-    }
-
-    .statisticDescription {
-        text-transform: capitalize;
-    }
-}
-
-
-@media screen and (max-width: 769px) {
-
-    .heroSection {
-        background-image: url('../../assets/images/PortfolioImages/portfolio-hero.png');
-        width: 100vw;
-        height: 797px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .heroSectionTitle {
-        margin-top: 18rem;
-        margin-left: 7rem;
-        font-size: 4.1em;
-        text-transform: uppercase;
-        font-family: 'Outfit', sans-serif;
-        width: 55vw;
-        height: 12.5vh;
-        font-weight: 400;
-    }
-
-    .fitTitle {
-        color: var(--red-text-clr);
-        font-weight: 400;
-    }
-
-    .portfolioStatistics {
-        margin-top: 7rem;
-        margin-left: 7rem;
-        display: flex;
-        justify-content: space-between;
-        width: 50vw;
-        height: 14vh;
-    }
-
-    .statistic {
-        width: 30vw;
-        height: 14vh;
+        width: 30%;
+        height: 14%;
     }
 
     .statisticNumber, .statisticDescription {
