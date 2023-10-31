@@ -7,21 +7,24 @@ import Portfolio from './pages/Portfolio/Portfolio';
 import Services from './pages/Services/Services';
 import AboutUs from './pages/About/AboutUs';
 import ContactUs from './pages/ContactUs/ContactUs';
+import Dashboard from './pages/Dashboard/dashboard';
+import { useState } from 'react';
 
 function App() {
-
+const [isOnDashboard, setIsOnDashboard] = useState(false)
   
   return (
     <div className="App">
-     <Header/>
+     {!isOnDashboard? <Header/> : ''}
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/portfolio' element={<Portfolio/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
+        <Route path='/dashAdmin&1212' element={<Dashboard setIsOnDashboard={setIsOnDashboard} />} />
       </Routes>
-      <Footer/>
+      {!isOnDashboard ? <Footer/> : ''}
     </div>
   );
 }
