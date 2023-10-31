@@ -1,9 +1,10 @@
-import React from "react";
-
-import servicesHero from "../../assets/images/ServicesImages/servicesHero.png";
-import Products from "../../layouts/Products/Products";
-import style from "./Services.module.css";
+import React from 'react'
+import servicesHero from '../../assets/images/ServicesImages/servicesHero.png'
+import Products from '../../layouts/Products/Products'
+import RegimeServices from './RegimeService'
+import style from './Services.module.css'
 import ServicesPageServices from "../../layouts/ServicesPageServices/index";
+
 
 function Services() {
   return (
@@ -17,6 +18,7 @@ function Services() {
       <section className="servicesWrapper">
         <Products />
         <ServicesPageServices />
+        <RegimeServices/>
       </section>
     </>
   );
