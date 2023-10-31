@@ -13,7 +13,7 @@ const RegimeServices = () => {
       <div className={style.content}>
         <div className={style.part}>
           <img src={image1} alt="food" className={style.img}></img>
-          <h4 className={style.title1}>Expert Guidance</h4>
+          <h4 className={style.title}>Expert Guidance</h4>
           <p className={style.text}>
             You'll receive one-on-one guidance from certified trainers who will
             create and adjust your plan to maximize your results
@@ -21,7 +21,7 @@ const RegimeServices = () => {
         </div>
         <div className={style.part}>
           <img src={image2} alt="soup" className={style.img}></img>
-          <h4 className={style.title2}>Ongoing Support</h4>
+          <h4 className={style.title}>Ongoing Support</h4>
           <p className={style.text}>
             Your journey is ongoing, and so is our support. We're here to help
             you overcome plateaus and achieve your goals.
@@ -29,7 +29,7 @@ const RegimeServices = () => {
         </div>
         <div className={style.part}>
           <img src={image3} alt="fruits" className={style.img}></img>
-          <h4 className={style.title3}>Real Results</h4>
+          <h4 className={style.title}>Real Results</h4>
           <p className={style.text}>
             Our clients have achieved remarkable results, and you can see their
             transformations in our success stories.
