@@ -1,52 +1,87 @@
-.servicesSection{
-    display: flex;
+.servicesSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 2rem;
+}
+.servicesSection > h3 {
+  font-size: 68px;
+}
+
+.imagesContainer {
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+}
+
+.heroImageContainer {
+  flex-basis: 45%;
+  min-width: 500px;
+  width: fit-content;
+}
+
+.heroImage {
+  position: relative;
+  height: 370px;
+  background-image: url("../../assets/images/HomepageImages/ServicesHero.png");
+  background-size: cover;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border-top-left-radius: 120px;
+  box-shadow: inset 0 -149px 100px -35px var(--main-bg-clr);
+}
+
+.heroSectionText {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+  margin: 0 1rem;
+}
+.heroTitle {
+  font-size: 32px;
+  font-weight: 200;
+}
+.heroSectionText > p {
+  font-size: 18px;
+}
+.basisFlexContainer {
+  display: flex;
+  gap: 3rem;
+  flex-basis: 55%;
+}
+@media (max-width: 1440px) {
+  .basisFlexContainer {
     flex-direction: column;
-    justify-content: flex-start;
-    gap: 2rem;
   }
-  .servicesSection > h3{
-    font-size: 68px;
+}
+@media (max-width: 1130px) {
+  .imagesContainer {
+    flex-direction: column;
+    gap: 6rem;
   }
-  
-  .imagesContainer{
-    width:100%;
-    display: flex;
-    gap: 3rem;
-    justify-content: center;
-  }
-  
-  .heroImageContainer{
-    flex-basis: 45%;
-    min-width: 500px;
-    width: fit-content;
-  }
-  
   .heroImage{
-    position: relative;
-    height: 370px;
-    background-image: url('../../assets/images/HomepageImages/ServicesHero.png');
-    background-size: cover;
-    background-position:left top;
-    background-repeat: no-repeat;
-    border-top-left-radius:120px ;
-    box-shadow: inset 0 -149px 100px -35px var(--main-bg-clr)
+    background-position: 10% 50%;
   }
-  
-  .heroSectionText{
-    display: flex;
+  .basisFlexContainer {
+    height: 600px;
+  }
+  .basisFlexContainer {
+    flex-direction: column;
     gap: 4rem;
     align-items: center;
-    margin: 0 1rem;
   }
-  .heroTitle{
-    font-size: 32px;
-    font-weight: 200;
+  .heroImageContainer {
+    min-width: 20%;
   }
-  .heroSectionText > p{
-    font-size: 18px;
+  .heroSectionText {
+    gap: 2rem;
+    margin: 0;
   }
-  .basisFlexContainer{
-    display: flex;
-    gap: 3rem;
-    flex-basis: 55%;
+  .heroSectionText > p {
+    font-size: 12px;
   }
+  .heroTitle {
+    font-size: 28px;
+  }
+}

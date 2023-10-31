@@ -55,3 +55,33 @@ gap: 1rem;
 .serviceImageContainer:hover{
   flex-basis: 60%;
 }
+@media (max-width:1440px) {
+  .serviceImageContainer{
+    flex-basis: 30%;
+  }
+  .serviceItem > span{
+    font-size: 20px;
+  }
+  .serviceItem{
+    flex-direction: row;
+    align-items: center;
+    margin: 1rem;
+    width: 100%;
+  }
+  .serviceItem > button{
+    font-size: 10px;
+    margin: .4rem;
+    padding: .5rem;
+    width: 20%;
+  }
+}
+@media (max-width: 1130px) {
+    .serviceImage{
+      min-height: 200px;
+    }
+    .serviceImageContainer{
+      flex-basis: 30%;
+      width: 90%;
+    }
+    
+}

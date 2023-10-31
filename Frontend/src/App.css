@@ -111,3 +111,8 @@ h5 {
     margin: 4rem 5rem;
   }
 }
+@media (max-width: 700px) {
+  .homeWrapper, .servicesWrapper, .portfolioWrapper, .aboutUsWrapper{
+    margin: 4rem 2rem;
+  }
+}
