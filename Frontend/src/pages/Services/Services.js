@@ -18,6 +18,7 @@ function Services() {
       <section className="servicesWrapper">
         <Products />
         <ServicesPageServices />
+        <RegimeServices/>
       </section>
     </>
   );
