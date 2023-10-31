@@ -1,0 +1,190 @@
+@media screen and (min-width: 770px) {
+
+    .modal {
+        width: auto;
+        height: 70vh;
+        width: 50vw;
+        background-color: #FFFFFF;
+        border: 5px solid #DC0000;
+        color: #222222;
+        font-family: 'Outfit', sans-serif;
+        position: relative;
+    }
+
+    .modalContent {
+        height: auto;
+        width: 80%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3rem;
+    }
+
+    .modalClose {
+        position: absolute;
+        top: 1%;
+        right: 1%;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+    }
+
+    .modalContentOne {
+        width: 100%;
+        flex: 1 0 60%
+    }
+
+    .modalContentTwo {
+        width: 100%;
+        margin-top: 4rem;
+        height: 40%;
+    }
+
+    .modalFirstDiv {
+        height: 50%;
+        width: 100%;
+        display: flex;
+        gap: 8rem;
+    }
+
+    .modalImage {
+        height: 100%;
+        border-right: 5px solid #DC0000;
+        border-bottom: 5px solid #DC0000;
+        padding-right: 0.8rem;
+        padding-bottom: 0.8rem;
+    }
+
+    .modalDetails {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .modalDetailsFirst {
+        width: 100%;
+        height: 30%;
+        display: flex;
+        flex: 1 0 50%;
+        justify-content: space-between;
+        gap: 2rem;
+    }
+
+    .modalProductTitle, .modalProductPrice {
+        height: 100%;
+        flex: 1 0 50%;
+    }
+
+    .modalH3 {
+        height: 30%;
+        width: inherit;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .modalTitleParagraph, .modalPriceParagraph {
+        width: inherit;
+        height: auto;
+        background-color: #D9D9D9;
+        border-left: 5px solid #DC0000;
+        border-bottom: 5px solid #DC0000;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #090909;
+    }
+
+    .modalTitleParagraph, .modalCategoryParagraph {
+        padding: 1rem;
+    }
+
+    .modalPriceParagraph {
+        padding: 0.4rem;
+        width: 83%;
+    }
+
+    .modalDetailsSecond {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 30%;
+        flex: 1 0 50%;
+        justify-content: space-between;
+    }
+
+    .modalProductCategory, .modalProductDescription {
+        height: 50%;
+        flex: 1 0 50%;
+    }
+
+    .modalProductCategory {
+        align-self: flex-end;
+        width: 42%;
+    }
+
+    .modalProductDescription {
+        width: 100%;
+    }
+
+    .modalCategoryParagraph, .modalDescriptionParagraph {
+        background-color: #D9D9D9;
+        border-left: 5px solid #DC0000;
+        border-bottom: 5px solid #DC0000;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #090909;
+    }
+
+    .modalDescriptionParagraph {
+        padding-bottom: 4.5rem;
+        padding-left: 0.5rem;
+    }
+
+    .modalSecondDiv {
+        height: auto;
+        width: auto;
+        display: flex;
+    }
+
+    .recommended {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        height: inherit;
+        gap: 0.2rem;
+    }
+
+    .recommendedContent {
+        background-color: #D9D9D9;
+        border-top: 5px solid #DC0000;
+        border-bottom: 5px solid #DC0000;
+        flex: 1 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .modalImageFlex {
+        height: 60%;
+        width: 17%;
+    }
+
+    .addToCart {
+        position: absolute;
+        bottom: 1%;
+        right: 2%;
+        margin-right: 1rem;
+        margin-bottom: 0.2rem;
+        background-color: var(--red-text-clr);
+        border: none;
+        border-radius: 0.7rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        height: 2.5rem;
+        width: 8rem;
+        cursor: pointer;
+    }
+}

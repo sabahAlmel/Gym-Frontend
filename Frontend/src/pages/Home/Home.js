@@ -2,7 +2,7 @@ import React from 'react';
 import HeroSectionHomepage from './HeroSectionHomepage';
 
 import ServicesSection from '../../layouts/HomepageServices/index'
-import GymPlans from '../../components/Plans/GymPlans'
+import GymPlans from '../../layouts/GymPlans/GymPlans'
 import ReasonsToJoin from '../../components/ReasonsToJoin/ReasonsToJoin'
 import './home.css';
 

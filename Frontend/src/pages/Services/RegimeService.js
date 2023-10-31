@@ -1,8 +1,9 @@
 import React from "react";
 import style from "./RegimeServices.module.css";
-import image1 from "../../assets/images/ServicesImages/Rectangle 1.png";
-import image2 from "../../assets/images/ServicesImages/Rectangle 1-1.png";
-import image3 from "../../assets/images/ServicesImages/Rectangle 1-2.png";
+import image1 from "../../assets/images/ServicesImages/Rectangle 1.png"
+import image2 from "../../assets/images/ServicesImages/Rectangle 1-1.png"
+import image3 from "../../assets/images/ServicesImages/Rectangle 1-2.png"
+
 
 const RegimeServices = () => {
   return (
@@ -39,5 +40,6 @@ const RegimeServices = () => {
     </div>
   );
 };
+
 
 export default RegimeServices;
