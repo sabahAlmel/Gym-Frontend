@@ -1,8 +1,12 @@
 import React from 'react'
-
+import HeroContactUs from '../../components/HeroContact/HeroContactUs'
+import FormContactUs from '../../components/FormContactUs/FormContactUs'
 function ContactUs() {
   return (
-    <div>ContactUs</div>
+    <div>   <HeroContactUs />
+      <FormContactUs />
+    </div>
+
   )
 }
 
