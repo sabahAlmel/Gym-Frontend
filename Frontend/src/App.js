@@ -17,7 +17,7 @@ const [isOnDashboard, setIsOnDashboard] = useState(false)
     <div className="App">
      {!isOnDashboard? <Header/> : ''}
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path='/' element={<Home />}/>
         <Route path='/portfolio' element={<Portfolio/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/about' element={<AboutUs/>}/>

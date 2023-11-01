@@ -1,5 +1,4 @@
 import React from 'react'
-import servicesHero from '../../assets/images/ServicesImages/servicesHero.png'
 import Products from '../../layouts/Products/Products'
 import RegimeServices from './RegimeService'
 import style from './Services.module.css'
