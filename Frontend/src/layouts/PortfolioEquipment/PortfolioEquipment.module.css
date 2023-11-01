@@ -13,7 +13,25 @@
   align-items: center;
   justify-content: space-between;
 }
+.gymEquipmentFlex > img{
+  width: 50%
+}
 .gymEquipmentFlex > p{
     width: 40%;
     line-height: 2.5;
+    font-size: 1.5vw;
+}
+@media (max-width: 1000px) {
+  .gymEquipmentFlex{
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
+  .gymEquipmentFlex > img{
+    width: 70%;
+  }
+  .gymEquipmentFlex p{
+    font-size: 1.5em;
+    width: 100%;
+  }
+  
 }

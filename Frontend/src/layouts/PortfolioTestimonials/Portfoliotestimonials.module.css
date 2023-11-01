@@ -10,13 +10,14 @@
 }
 .testimonialsContainer{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .testimonial{
     background-color: var(--card-bg-clr);
-    padding: 3rem;
-    width: 20%;
+    padding: 2.5rem;
+    width: 370px;
     border-radius: 30px;
+    margin: 0 .7rem;
 }
 
 .testimonialContentWrapper{
@@ -33,4 +34,11 @@
 .testimonialContentWrapper > span{
     align-self: flex-end;
     color: var(--red-text-clr);
+}
+@media (max-width: 1400px) {
+    .testimonialsContainer{
+        flex-direction: column;
+        align-self: center;
+        gap: 4rem;
+    }
 }

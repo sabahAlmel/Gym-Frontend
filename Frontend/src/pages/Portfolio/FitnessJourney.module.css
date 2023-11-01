@@ -1,19 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=M+PLUS+Rounded+1c:wght@300;400;800&family=Outfit:wght@300;400&family=Saira+Stencil+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=M+PLUS+Rounded+1c:wght@300;400;800&family=Outfit:wght@300;400&family=Saira+Stencil+One&display=swap');
 
 .fitnessSection {
-    height: 53.6%;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
 }
 .fitnessSection > h2 {
     text-align: center;
-    color: #FF0A0A;
-    font-family: Rounded Mplus 1c;
-    font-style: normal;
+    color: var(--red-text-clr);
     font-weight: 800;
-    font-size: 1.875em;
     line-height: 170.9%;
-    letter-spacing: 0.02em;
 }
 .content {
     display: flex;
@@ -23,21 +18,26 @@
 }
 
 .content > p {
-    width: 65.625%;
-    height: 41.25%;
-    margin-right: auto;
-    font-family: Outfit;
-    font-style: normal;
-    font-weight: 400;
+    width: 50%;
     font-size: 1.43em;
-    line-height: 170.9%;
+    line-height: 1.5;
     letter-spacing: 0.02em;
     color: #FFFFFF;  
 }
 .image {
-    max-width: 76.5%;
-    max-height: 51%;
-    margin-left: auto;
-    padding-top: 5.3%;
-    border-radius: 5%;
+ width: 50%;   
+}
+@media (max-width:1200px) {
+    .content{
+        flex-direction: column-reverse;
+        width: 100%;
+        gap: 1.5rem;
+    }
+    .content p{
+        width: 100%;
+    }
+    .image{
+        width: 70%;
+    }
+    
 }
