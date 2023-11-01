@@ -2,7 +2,6 @@ import style from "./service.module.css";
 
 function Service(props) {
   const {name, image} = props
-  console.log(image)
   return (
     <>
       <section className={style.serviceImageContainer}>

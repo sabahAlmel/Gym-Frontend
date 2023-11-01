@@ -18,8 +18,8 @@ const GymPlan = ({ title, price, plans }) => {
             </div>
           ))}
         </div>
-        <div class={style.buttonSubscribe}>
-          <button className={style.gymPlanButton}>Subscribe</button>
+        <div className={style.buttonSubscribe}>
+          <button className={style.gymPlanButton}>Subscribe</button>  
         </div>
       </div>
     </>

@@ -36,8 +36,8 @@ function ServicesSection() {
           </span>
         </section>
         <section className={style.basisFlexContainer}>
-          {fakeServicesData.map(item => (
-            <Service name={item.name} image={item.image} />
+          {fakeServicesData.map((item, key) => (
+            <Service key={key} name={item.name} image={item.image} />
           ))}
         </section>
       </section>
