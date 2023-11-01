@@ -1,0 +1,34 @@
+.NotFoundContainer{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.NotFoundWrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.NotFoundText > h1{
+    margin-bottom: 2rem;
+    font-size: 4vw;
+}
+.NotFoundText > p{
+    font-size: 3.5vw;
+    color: var(--red-text-clr);
+}
+.notFoundButton{
+    text-decoration: none;
+    background-color: var(--red-text-clr);
+    color: wheat;
+    width: fit-content;
+    align-self: center;
+    padding: 2rem;
+    border-radius: 50px;
+    transition: background-color .2s ease-out;
+}
+.notFoundButton:hover{
+    background-color: rgb(255, 72, 72);
+}

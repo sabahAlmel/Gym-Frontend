@@ -9,6 +9,7 @@ import AboutUs from './pages/About/AboutUs';
 import ContactUs from './pages/ContactUs/ContactUs';
 import Dashboard from './pages/Dashboard/dashboard';
 import { useState } from 'react';
+import NotFound from './pages/Not Found/NotFound';
 
 function App() {
 const [isOnDashboard, setIsOnDashboard] = useState(false)
@@ -17,12 +18,14 @@ const [isOnDashboard, setIsOnDashboard] = useState(false)
     <div className="App">
      {!isOnDashboard? <Header/> : ''}
       <Routes>
+
         <Route path='/' element={<Home />}/>
         <Route path='/portfolio' element={<Portfolio/>}/>
         <Route path='/services' element={<Services/>}/>
         <Route path='/about' element={<AboutUs/>}/>
         <Route path='/contact' element={<ContactUs/>}/>
-        <Route path='/dashAdmin&1212' element={<Dashboard setIsOnDashboard={setIsOnDashboard} />} />
+        <Route path='/DashTah' element={<Dashboard setIsOnDashboard={setIsOnDashboard} />} />
+        <Route path='/*' element={<NotFound setIsOnDashboard={setIsOnDashboard} />} />
       </Routes>
       {!isOnDashboard ? <Footer/> : ''}
     </div>
