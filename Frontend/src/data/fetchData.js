@@ -1,12 +1,11 @@
 import axios from "axios";
 
-export async function fetchRegime() {
+export async function fetchGymPlans() {
   try {
     const data = await axios.get(`http://localhost:5000/gymPlans/read`);
-    console.log('fetchRegime')
+    console.log('fetch')
     if (data) {
-      console.log(data) ;
-      return data
+      console.log(data.data) ;
     }
   } catch (error) {
     console.log(error);

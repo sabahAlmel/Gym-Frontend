@@ -43,8 +43,8 @@ const GymPlans = () => {
           <h3 className={style.gymPlanDescriptionTitle}>Unlock Your Fitness Journey with Our Membership Tiers</h3>
         </div>
           {
-            plans.map((plan, i) => (
-              <GymPlan title={plan.title} price={plan.price} plans={plans} />
+            plans.map((plan, key) => (
+              <GymPlan key={key} title={plan.title} price={plan.price} plans={plans} />
             ))
           }
       </div>

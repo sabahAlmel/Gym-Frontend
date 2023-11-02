@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@media screen and (min-width: 1440px) {
-
     .heroSection {
         background-image: url('../../assets/images/PortfolioImages/portfolio-hero.png');
         background-repeat: no-repeat;
@@ -52,4 +50,3 @@
     .statisticDescription {
         text-transform: capitalize;
     }
-}

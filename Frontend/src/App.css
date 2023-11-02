@@ -97,27 +97,10 @@ h4 {
 h5 {
   font-weight: 20000;
 }
-.homeWrapper, .servicesWrapper, .portfolioWrapper, .aboutUsWrapper{
+.homeWrapper, .servicesWrapper, .portfolioWrapper, .aboutUsWrapper, .contactUsWrapper{
   display: flex;
   flex-direction: column;
   gap: 8rem;
-  margin: 4rem 8rem;
-}
-@media (max-width: 1150px) {
-  .servicesWrapper{
-    margin: 4rem 5rem
-  }
-}
-@media (max-width: 850px) {
-  .homeWrapper, .servicesWrapper, .portfolioWrapper, .aboutUsWrapper{
-    display: flex;
-    flex-direction: column;
-    gap: 6rem;
-    margin: 4rem 5rem;
-  }
-}
-@media (max-width: 700px) {
-  .homeWrapper, .servicesWrapper, .portfolioWrapper, .aboutUsWrapper{
-    margin: 4rem 2rem;
-  }
+  width: 90%;
+  margin: auto;
 }
