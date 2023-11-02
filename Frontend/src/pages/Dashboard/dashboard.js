@@ -4,9 +4,6 @@ import dash from "../../assets/icons/dashLogo.svg";
 import contentLogo from "../../assets/icons/ContentLogo.svg";
 import { NavLink } from "react-router-dom";
 function Dashboard(props) {
-  const { setIsOnDashboard } = props;
-  setIsOnDashboard(true);
-
   const [isSideItem, setIsSideItem] = useState(false);
   function toggleItems() {
     setIsSideItem(!isSideItem);

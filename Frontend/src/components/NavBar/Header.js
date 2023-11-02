@@ -17,7 +17,9 @@ const Header = () => {
 
 
   return (
-    <header className={styles.navbar}>
+    <header className={styles.headerContainer}>
+      <div className={styles.navbar}>
+
       <img src={logo} alt="/" />
       <nav>
         <ul className={nav ? [styles.menu, styles.active].join(' ') : [styles.menu]}>
@@ -29,6 +31,7 @@ const Header = () => {
         </ul>
 
       </nav>
+      </div>
       <div onClick={() => setnav(!nav)} className={styles.mobile_btn}>
         {nav ? <AiOutlineClose size={25} /> : <AiOutlineMenu size={25} />}
 

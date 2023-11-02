@@ -3,8 +3,6 @@ import { NavLink } from "react-router-dom";
 import style from "./NotFound.module.css";
 
 export default function NotFound(props) {
-  const { setIsOnDashboard } = props;
-  setIsOnDashboard(true);
   return (
     <div className={style.NotFoundContainer}>
       <div className={style.NotFoundWrapper}>
@@ -12,7 +10,7 @@ export default function NotFound(props) {
           <h1>{"Couldn't Find The Dumbbell :("}</h1>
           <p>404</p>
         </div>
-        <NavLink to={"/"} onClick={() => setIsOnDashboard(false)} className={style.notFoundButton}>
+        <NavLink to={"/"} className={style.notFoundButton}>
           HomePage
         </NavLink>
       </div>
