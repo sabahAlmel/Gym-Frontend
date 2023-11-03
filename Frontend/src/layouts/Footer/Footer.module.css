@@ -1,71 +1,48 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Saira+Stencil+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Abel&family=Outfit:wght@300;400&family=Saira+Stencil+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&family=Outfit:wght@300;400&family=Saira+Stencil+One&display=swap'); */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 .footer {
-    max-width:1442%;
-    height: 211;
-    left: calc(50% - 1442px/2 - 1px);
-    background: #610000;
-    margin: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #610000;
+
 }
+
 .footerContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
+    width: 90%;
     align-items: center;
-    padding: 2% 8%;
-    gap: 48px;
-    background: #610000;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: #610000;
 }
-.logo {
-    width: 127.55px;
-    height: 53.72px;   
-}
-.logoo{
-    margin-left: 24px;
-}
-.firstPara {
-    margin-top: -11px;
-    font-family: 'Saira Stencil One';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 25px;
-    text-transform: uppercase;
-    color: #F5F5F5;
-}
-.firstSpan {
-    font-family: 'Saira Stencil One';
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 25px;
-    text-transform: uppercase;
-    color: #DC0000;
-}
+
 .description {
-    width: 275px;
-    height: 68px;
+    width: 200px;
+    /* height: 68px; */
 }
+
 .secondPara {
-    font-family: 'Abel';
     font-style: normal;
     font-weight: 400;
     font-size: 0.88em;
     color: #FFFFFF;
+    padding: 0;
 }
+
 .address {
-    width: 174px;
+    width: 200px;
     height: 99px;
     padding-bottom: 5%;
 }
+
 .adressh4 {
     font-size: 1.13em;
     font-family: 'Outfit';
@@ -75,46 +52,57 @@
     color: #FFFFFF;
     padding-bottom: 6%;
 }
+
 .p3 {
-    font-family: 'Abel';
     font-style: normal;
     font-weight: 400;
     font-size: 0.88em;
     line-height: 18px;
     color: #FFFFFF;
 }
+
 .contact {
-    width: 232px;
-    height: 99px;
+    width: 200px;
+    /* height: 99px; */
 }
 
-.phone{
+.phone {
     display: flex;
     flex-direction: row;
+    gap: 0, 5rem;
 }
-.email{
-    margin-right: 10px;
+
+.email {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2rem;
+    gap: 0.5rem;
 }
+
+
 .span {
     color: #FFFFFF;
     font-family: 'Abel';
     font-style: normal;
     font-weight: 0.88em;
     font-size: 14px;
-    line-height: 18px;   
+    line-height: 18px;
 }
+
 .follow {
-    width: 332px;
-    height: 89px;
+    width: 200px;
+    /* height: 90px; */
 }
 
 .socialIcon {
     display: flex;
-   justify-content: space-between;
+    justify-content: space-between;
+    gap: 0.1rem;
 }
-.icon {
+
+/* .icon {
     flex-basis: calc(33.33% - 1em); 
-}
+} */
 .followUs {
     font-size: 1.13em;
     font-family: 'Outfit';
@@ -123,73 +111,145 @@
     line-height: 23px;
     color: #FFFFFF;
     padding-bottom: 6%;
-    padding-left:30%;    
-}
-.copyRight{
-font-family: 'Outfit';
-font-style: normal;
-font-weight: 500;
-font-size: 1em;
-line-height: 166.5%;
-text-align: center;
-color: rgba(255, 255, 255, 0.7);
+
 }
 
-@media screen and (max-width: 768px) {
-    .footer {
-        height: auto;
-        max-width: 100%; 
-    }
+.copyRight {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-family: 'Outfit';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 166.5%;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    width: 87%;
+}
+
+
+@media screen and (max-width: 720px) {
+
 
     .footerContainer {
-        flex-direction: column; 
-        align-items: center; 
-        padding: 4% 8%; 
-        gap: 24px; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
     }
 
-    .logo {
-        width: 100px; 
-        height: auto; 
+
+
+
+
+    .firstPara,
+    .firstSpan {
+        font-size: 14px;
     }
 
-    .logoo {
-        margin-top: 12px;
+    .description,
+    .address,
+    .contact {
+        width: 50%;
     }
 
-    .firstPara, .firstSpan {
-        font-size: 14px; 
+    .adressh4,
+    .p3 {
+        font-size: 14px;
     }
 
-    .description, .address, .contact {
-        max-width: 100%; 
-    }
-
-    .adressh4, .p3 {
-        font-size: 14px; 
-    }
-
-    .phone, .email {
-        display: block; 
-        margin: 6px 0; 
+    .phone,
+    .email {
+        margin: 6px 0;
     }
 
     .span {
-        font-size: 14px; 
+        font-size: 14px;
     }
 
     .follow {
-        max-width: 100%; 
-        margin: 12px 0; 
+        width: 50%;
+        margin: 12px 0;
 
-    .icon {
-        flex-basis: calc(50% - 6px); 
+        .icon {
+            flex-basis: calc(50% - 6px);
+        }
+
+        .followUs {
+            font-size: 0.9em;
+
+        }
     }
-    .followUs {
-        font-size: 0.9em; 
-        padding-left: 10%; 
+
+    .copyRight {
+        justify-content: center;
+        align-items: center;
     }
-}}
+}
+
+@media screen and (max-width: 276px) {
 
 
-    
+    .footerContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+        width: 105%;
+    }
+
+    .footer {
+        width: 150%;
+    }
+
+
+
+    .firstPara,
+    .firstSpan {
+        font-size: 14px;
+    }
+
+    .description,
+    .address,
+    .contact {
+        width: 50%;
+    }
+
+    .adressh4,
+    .p3 {
+        font-size: 14px;
+    }
+
+    .phone,
+    .email {
+        display: block;
+        margin: 6px 0;
+    }
+
+    .span {
+        font-size: 14px;
+    }
+
+    .follow {
+        width: 50%;
+        margin: 12px 0;
+
+        .icon {
+            flex-basis: calc(50% - 6px);
+        }
+
+        .followUs {
+            font-size: 0.9em;
+
+        }
+    }
+
+    .copyRight {
+        width: 113%;
+        justify-content: center;
+        align-items: center;
+        background-color: #610000;
+    }
+}

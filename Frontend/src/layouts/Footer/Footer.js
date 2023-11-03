@@ -1,17 +1,18 @@
 import React from "react";
 import FooterCss from "./Footer.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInstagram, faFacebook, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
+import logo from '../../assets/images/logo/logo2.svg'
 
 function Footer() {
+  const iconStyle = { color: "white" };
   return (
     <footer className={FooterCss.footer}>
       <div className={FooterCss.footerContainer}>
         <div className={FooterCss.logo}>
-          <a href="#logo" className={FooterCss.logoo}>
-           
-          </a>
-          <p className={FooterCss.firstPara}>
-            FIT<span className={FooterCss.firstSpan}>HUB</span>
-          </p>
+          <img src={logo} alt="/" />
         </div>
         <div className={FooterCss.description}>
           <p className={FooterCss.secondPara}>
@@ -27,48 +28,34 @@ function Footer() {
         </div>
         <div className={FooterCss.contact}>
           <h4 className={FooterCss.adressh4}>Contact</h4>
-          <div>
-            <div className={FooterCss.phone}>
-              <a
-                href="link to phone"
-                target="-blank"
-                className={FooterCss.email}
-              ></a>
-              <span className={FooterCss.span}>+375(44)-777-24-12</span>
-            </div>
-            <div className={FooterCss.phone}>
-              <a
-                href="link to message"
-                target="-blank"
-                className={FooterCss.email}
-              ></a>
-              <span className={FooterCss.span}>gym24@gmail.com</span>
-            </div>
+          <div className={FooterCss.phone}>
+            <a href="tel:+375447772412" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faPhone} style={iconStyle} />
+            </a>
+            <span className={FooterCss.span}>+375(44)-777-24-12</span>
+          </div>
+          <div className={FooterCss.email}>
+            <a href="mailto:gym24@gmail.com" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faEnvelope} style={iconStyle} />
+            </a>
+            <span className={FooterCss.span}>gym24@gmail.com</span>
           </div>
         </div>
         <div className={FooterCss.follow}>
           <h4 className={FooterCss.followUs}>Follow Us</h4>
           <div className={FooterCss.socialIcon}>
-            <a
-              href="link to instagram"
-              target="-blank"
-              className={FooterCss.icon}
-            ></a>
-            <a
-              href="link to facebook"
-              target="-blank"
-              className={FooterCss.icon}
-            ></a>
-            <a
-              href="link to twitter"
-              target="-blank"
-              className={FooterCss.icon}
-            ></a>
-            <a
-              href="link to youtybe"
-              target="-blank"
-              className={FooterCss.icon}
-            ></a>
+            <a href="link to instagram" target="_blank" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faInstagram} size="2x" style={iconStyle} />
+            </a>
+            <a href="link to facebook" target="_blank" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faFacebook} size="2x" style={iconStyle} />
+            </a>
+            <a href="link to twitter" target="_blank" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faTwitter} size="2x" style={iconStyle} />
+            </a>
+            <a href="link to youtube" target="_blank" className={FooterCss.icon}>
+              <FontAwesomeIcon icon={faYoutube} size="2x" style={iconStyle} />
+            </a>
           </div>
         </div>
       </div>
