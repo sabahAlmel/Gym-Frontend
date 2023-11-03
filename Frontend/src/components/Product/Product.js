@@ -37,7 +37,7 @@ const Product = (props) => {
               onClick={() => toast.success("Added")}
               className={style.productButton}
             >
-              Add to Card
+              Add to Cart
             </Link>
           </section>
         </div>
