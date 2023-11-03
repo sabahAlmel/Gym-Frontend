@@ -15,3 +15,6 @@ function PersonalTraining(props) {
 }
 
 export default PersonalTraining;
+
+
+
