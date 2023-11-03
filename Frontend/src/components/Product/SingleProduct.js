@@ -15,15 +15,15 @@ const SingleProduct = (props) => {
         <section className={style.productDetailsWrapper}>
           <section className={style.productNameCat}>
             <p className={style.productName}>{name}</p>
-            <span className={style.productCategory}>{categoryId}</span>
-            <span>{price}</span>
+            <span className={style.productCategory}> A {categoryId} Product</span>
+            <span className={style.productPrice}>${price}</span>
           </section>
           <section className={style.productDescription}>
             <p>{description}</p>
           </section>
           <section className={style.productShareAndReviews}>
             <section className={style.productReviewsWrapper}>
-              <span>Stars</span> <p>546 Reviews</p>
+              <span>٭٭٭٭٭</span> <p>546 Reviews</p>
             </section>
             <button className={style.shareButton}>Share</button>
           </section>
