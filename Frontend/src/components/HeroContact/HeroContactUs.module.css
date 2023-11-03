@@ -1,39 +1,98 @@
-
-
 .backgroundImage {
     width: 100%;
     height: 700px;
-
-    background-image:url('../../assets/images/contactus/contactUsHero.png'); 
+    position: relative;
+    background-image: url('../../assets/images/contactus/contactUsHero.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: 50% 0;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    background-position: 50% 50%;
+
 }
-.content { 
+
+
+/* @media (max-width: 700px) {
+    .servicesHeroImage{
+        height: 400px;
+    }
+    .servicesHeroTextContainer{
+        font-size: 2.5em;
+    }
+} */
+
+.title {
+    color: #FFFFFF;
+    display: block;
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    display: flex;
+    flex-direction: column;
+    font-size: 3em;
+}
+.content {
+    position: absolute;
     display: flex;
     flex-direction: column;
     margin-right: 5rem;
     width: 13%;
     height: 40%;
-   
+    
+    
+
 }
-.title{
-    font-weight: 800;
-    font-size: 3em;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    height: 75%;
-    width: 100%;
-}
+
+
+
 .spann {
     font-weight: 800;
     text-transform: uppercase;
     color: #DC0000;
 }
 
-.paragraph{
+.paragraph {
     font-weight: bold;
+}
+
+@media screen and (max-width:1200px) {
+
+    .backgroundImage {
+        width: 100%;
+        height: 700px;
+
+        background-image: url('../../assets/images/contactus/contactUsHero.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin-right: 5rem;
+        width: 13%;
+        height: 40%;
+
+    }
+
+    .title {
+        font-weight: 800;
+        font-size: 3em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        height: 75%;
+        width: 100%;
+    }
+
+    .spann {
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #DC0000;
+    }
+
+    .paragraph {
+        font-weight: bold;
+    }
 }
