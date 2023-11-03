@@ -29,7 +29,7 @@ export default function ServicesPageServices() {
   return (
     <section className={style.personalTrainingContainer}>
         <section className={style.personalTrainingHeader}>
-      <h2>Services</h2>
+      <h2>Personal Trainings</h2>
       <p>
         Transform your potential into power with our training services and
         redefine what your body is capable of.
