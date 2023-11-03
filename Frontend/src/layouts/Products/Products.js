@@ -1,48 +1,44 @@
-import React from 'react'
-import style from '../../components/Product/Product.module.css'
-import Product from '../../components/Product/Product'
+import React, { useEffect, useState } from "react";
+import style from "../../components/Product/Product.module.css";
+import Product from "../../components/Product/Product";
+import { fetchProducts } from "../../db/productsData";
 
 const Products = () => {
-
-  const products = [
-    {
-      name: "Test",
-      price: 20,
-    },
-    {
-      name:'Test 2',
-      price: 50
-    },
-    {
-      name: "Test",
-      price: 20,
-    },
-    {
-      name:'Test 2',
-      price: 50
-    },
-    {
-      name: "Test",
-      price: 20,
-    },
-    {
-      name:'Test 2',
-      price: 50
+  const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
+  useEffect( () =>{
+    async function fetchData(){
+      try {
+        const data = await fetchProducts()
+        if (data) {
+          setProducts(data.data);
+          setIsLoading(false)
+        }else{
+        }
+      } catch (error) {
+      }
     }
-  ]
+    fetchData()
+  }, []);
   return (
     <div className={style.productsSection}>
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
-        {
-          products.map((product, i) => (
-            <Product name={product.name} price={product.price} key={i}/>
+        {isLoading ? <p>Loading.....</p> : 
+        products.map((product, i) => (
+          <Product
+          name={product.prodName}
+          price={product.prodPrice}
+          key={i}
+          image={product.prodImage}
+          description={product.prodDescription}
+          categoryId={product.prodCategory}
+          />
           ))
         }
       </div>
     </div>
-  )
-}
+  );
+};
 
-
-export default Products
+export default Products;
