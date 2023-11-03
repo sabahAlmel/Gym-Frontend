@@ -7,7 +7,7 @@ const SingleProduct = (props) => {
   const {data, imageSrc} = location.state
   const {name, price, description, categoryId } = data
   return (
-    <main className={style.productPageContainer}>
+    <main className={style.singleProductPageContainer}>
       <section className={style.productWrapper}>
         <figure className={style.productImage}>
           <img src={imageSrc} alt={name} />
