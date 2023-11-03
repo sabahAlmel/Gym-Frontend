@@ -3,27 +3,43 @@ import style from "./Product.module.css";
 import ProductImage from "../../assets/images/ServicesImages/product-protein.png";
 import SingleProduct from "./SingleProduct";
 import { Link, Route, Routes } from "react-router-dom";
+import { toast } from "react-hot-toast";
 
 const Product = (props) => {
   const { name, price, image } = props;
-  const imageSrc = `${process.env.REACT_APP_PATH}${image}`
+  const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
 
   return (
     <>
       <div className={style.productCard}>
         <div className={style.productBackground}>
-          <img className={style.productImage} src={imageSrc} alt="product-name" />
+          <img
+            className={style.productImage}
+            src={imageSrc}
+            alt="product-name"
+          />
         </div>
         <div className={style.productDetails}>
-          <h3 className={style.productName}>{name}</h3>
-          <h3 className={style.productPrice}>{price}</h3>
-          <Link
-            to="/services/singleProduct"
-            className={style.productButton}
-            state={{ data: props, imageSrc: imageSrc }}
-          >
-            Get Now
-          </Link>
+          <p className={style.productName}>{name}</p>
+          <span className={style.productPriceCat}>
+            <p className={style.productPrice}>${price}</p>
+            <p className={style.productCat}>Whey Protein</p>
+          </span>
+          <section className={style.buttonsWrapper}>
+            <Link
+              className={style.productButton}
+              to="/services/singleProduct"
+              state={{ data: props, imageSrc: imageSrc }}
+            >
+              View More
+            </Link>
+            <Link
+              onClick={() => toast.success("Added")}
+              className={style.productButton}
+            >
+              Add to Card
+            </Link>
+          </section>
         </div>
       </div>
     </>
