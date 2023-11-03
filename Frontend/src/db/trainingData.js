@@ -2,7 +2,7 @@ import axios from "axios";
 
 export async function fetchTraining() {
   try {
-    const data = await axios.get(`http://localhost:5000/training/read`);
+    const data = await axios.get(`${process.env.REACT_APP_PATH}training/read`);
     console.log('fetchTraining')
     if (data) {
       console.log(data) ;

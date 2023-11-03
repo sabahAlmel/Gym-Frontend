@@ -8,13 +8,13 @@ import './home.css';
 import { fetchGymPlans } from '../../data/fetchData';
 
 function Home() {
-  const [gymPlansData, setGymPlansData] = useState({})
-  useEffect(()=>{
-    try{
-      fetchGymPlans()
-    }catch(err){console.log(err)}
+  // const [gymPlansData, setGymPlansData] = useState({})
+  // useEffect(()=>{
+  //   try{
+  //     fetchGymPlans()
+  //   }catch(err){console.log(err)}
 
-  })
+  // })
 
 
   return (

@@ -2,10 +2,10 @@ import axios from "axios";
 
 export async function fetchProducts() {
   try {
-    const data = await axios.get(`localhost:5000/products/read`);
+    const data = await axios.get(`${process.env.REACT_APP_PATH}products/read`);
     console.log('fetchProducts')
     if (data) {
-      console.log(data) ;
+      // console.log(data) ;
       return data
     }
   } catch (error) {
