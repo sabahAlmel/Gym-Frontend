@@ -29,11 +29,7 @@
 .trainingComponentWrapper:hover .trainingComponentDescription{
     clip-path: inset(0 0 0 0 );
 }
-@media (max-width: 1100px) {
-    .trainingComponentWrapper{
 
-    }
-}
 @media (max-width:840px) {
     .trainingComponentWrapper{
         height: 195px;
