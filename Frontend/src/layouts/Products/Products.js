@@ -37,6 +37,7 @@ const Products = () => {
           image={product.prodImage}
           description={product.prodDescription}
           categoryId={product.prodCategory}
+          id={product._id}
           />
           ))  
         }
