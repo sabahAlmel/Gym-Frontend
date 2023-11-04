@@ -1,16 +1,72 @@
+.singleProductPageContainer {
+  width: 100%;
+  height: 100vh;
+  background-color: var(--card-bg-clr);
+}
 
 .productWrapper {
   width: 100%;
   display: flex;
-  justify-content: space-around;
-  background-color: var(--card-bg-clr);
+  justify-content: space-between;
   color: var(--main-text-clr);
   font-family: "Outfit", sans-serif;
   position: relative;
-}
-.singleProductPageContainer {
-  width: 100%;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  padding: 5rem 10rem;
 }
 
+.productDetailsWrapper{
+  flex-basis:70% ;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+.productNameCat{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.productName{
+  font-size: 3em;
+  font-weight: 500;
+  border-left: 10px solid var(--red-text-clr);
+  padding-left: 10px;
+}
+.productCategory{
+  font-size: 2em;
+  font-weight: 300;
+
+}
+.productPrice {
+  font-size: 1em;
+  font-weight: 400;
+  width: fit-content;
+  border: 1px solid white;
+  padding: 5px;
+}
+.productDescription{
+  font-size: 1.2em;
+}
+.productShareAndReviews{
+  display: flex;
+  gap: 10rem;
+}
+.productReviewsWrapper{
+  display: flex;
+  border: 1px solid rgba(185, 185, 185, 0.541);
+  align-items: center;
+  justify-content: center;
+  color: var(--red-text-clr);
+}
+.productReviewsWrapper > p{
+  padding: 10px;
+  font-weight: 400;
+  font-size: 1.2em;
+}
+.productReviewsWrapper > span{
+  padding: 10px;
+  font-size: 1.8em;
+  border-right: 3px solid rgba(185, 185, 185, 0.541);
+  background-color: #0e0e0e;
+
+}

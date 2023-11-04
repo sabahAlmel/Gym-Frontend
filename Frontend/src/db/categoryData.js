@@ -1,16 +1,14 @@
 import axios from "axios";
 
 export async function fetchOneCategory(id) {
-    try {
-        const data = await axios.get(`${process.env.REACT_APP_PATH}categories/readOne`,
-        {
-            id
-        });
-        console.log('fetch One Category')
-        console.log(id)
+  console.log(id);
+  try {
+    const data = await axios.get(
+      `${process.env.REACT_APP_PATH}categories/readOne/${id}`,
+    );
+    console.log("fetch One Category");
     if (data) {
-    //   console.log(data.name) ;
-      return data.name
+      return data;
     }
   } catch (error) {
     console.log(error);
