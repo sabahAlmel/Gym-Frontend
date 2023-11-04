@@ -38,9 +38,9 @@ const GymPlans = () => {
   return (
 
     <div className={style.gymPlans}>
+          <h2 className={style.gymPlanDescriptionTitle}>Our Membership Tiers</h2>
       <div className={style.gymPlan}>
         <div className={style.gymPlansDescription}>
-          <h3 className={style.gymPlanDescriptionTitle}>Unlock Your Fitness Journey with Our Membership Tiers</h3>
         </div>
           {
             plans.map((plan, key) => (
