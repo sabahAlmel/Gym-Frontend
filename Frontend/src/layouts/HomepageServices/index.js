@@ -22,7 +22,7 @@ function ServicesSection() {
 
   return (
     <section className={style.servicesSection}>
-      <h3>Services</h3>
+      <h2>Services</h2>
       <section className={style.imagesContainer}>
         <section className={style.heroImageContainer}>
           <section className={style.heroImage}></section>
