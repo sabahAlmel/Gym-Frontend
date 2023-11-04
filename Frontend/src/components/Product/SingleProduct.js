@@ -4,8 +4,10 @@ import { useLocation } from "react-router-dom";
 
 const SingleProduct = (props) => {
   const location = useLocation()
-  const {data, imageSrc} = location.state
+  const {data, imageSrc, category} = location.state
   const {name, price, description, categoryId } = data
+  
+  
   return (
     <main className={style.singleProductPageContainer}>
       <section className={style.productWrapper}>
@@ -15,7 +17,7 @@ const SingleProduct = (props) => {
         <section className={style.productDetailsWrapper}>
           <section className={style.productNameCat}>
             <p className={style.productName}>{name}</p>
-            <span className={style.productCategory}> A {categoryId} Product</span>
+            <span className={style.productCategory}> A {category} Product</span>
             <span className={style.productPrice}>${price}</span>
           </section>
           <section className={style.productDescription}>
