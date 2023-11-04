@@ -2,6 +2,7 @@
   width: 100%;
   height: 100vh;
   background-color: var(--card-bg-clr);
+  padding-top: 5rem;
 }
 
 .productWrapper {

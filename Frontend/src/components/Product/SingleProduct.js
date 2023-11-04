@@ -3,6 +3,7 @@ import style from "./SingleProduct.module.css";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getProductByCategory } from "../../db/productsData";
 import SimilarProduct from "./SimilarProduct/SimilarProduct";
+import Header from "../NavBar/Header";
 
 const SingleProduct = () => {
   const location = useLocation();
@@ -32,6 +33,7 @@ const SingleProduct = () => {
 
   return (
     <main className={style.singleProductPageContainer}>
+      <Header />
       <section className={style.productWrapper}>
           <img className={style.productImage} src={imageSrc} alt={name} />
         <section className={style.productDetailsWrapper}>

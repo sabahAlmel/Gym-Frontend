@@ -4,10 +4,7 @@
   gap: 4rem;
   align-items: center;
 }
-.gymEquipmentSection > h2{
-  color: var(--red-text-clr);
-  font-weight: 800;
-}
+
 .gymEquipmentFlex {
   display: flex;
   align-items: center;
