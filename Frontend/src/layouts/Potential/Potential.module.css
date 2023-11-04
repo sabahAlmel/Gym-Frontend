@@ -5,7 +5,6 @@
     line-height: 2;
 }
 .potentialContainer > h2{
-    color: var(--red-text-clr);
     text-align: center;
 }
 .potentialContainer > p{

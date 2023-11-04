@@ -5,8 +5,6 @@
 }
 .portfolioTestimonials > h2{
     align-self: center;
-    color: var(--red-text-clr);
-    font-weight: 800;
 }
 .testimonialsContainer{
     display: flex;

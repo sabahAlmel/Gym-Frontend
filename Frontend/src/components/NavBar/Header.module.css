@@ -38,10 +38,7 @@
   /* Transition the color property for smooth effect */
 }
 
-.menu a:hover {
-  color: red;
-  /* Change text color to red when the list item is hovered */
-}
+
 
 .menu a:after {
   content: "";
