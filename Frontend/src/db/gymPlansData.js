@@ -6,9 +6,11 @@ export async function fetchGymPlans() {
     console.log('fetch')
     if (data) {
       console.log(data) ;
-      return data
+      return data;
     }
   } catch (error) {
     console.log(error);
   }
 }
+
+

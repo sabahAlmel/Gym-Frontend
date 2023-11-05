@@ -34,12 +34,11 @@
     font-size: 20px;
     color:white;
   }
-
   @media screen  and (max-width:750px){
 
     .regimeplanImage {
-        width: 200px; /* Adjust the width of the images as needed */
-        height: 200px; /* Adjust the height of the images as needed */
+        width: 100px; /* Adjust the width of the images as needed */
+        height: 100px; /* Adjust the height of the images as needed */
         object-fit: cover;
         margin-right: 10px; /* Add some space between images */
       }
