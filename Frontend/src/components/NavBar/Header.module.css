@@ -11,7 +11,7 @@
   display: flex;
   align-items:center;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
   height: 70px;
   padding:1rem;
   z-index: 1000;
@@ -89,7 +89,7 @@
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    left: -100%;
+    left: -100%;  /* This line hides the menu off-screen */
     right: 0;
     bottom: 0;
     top: 0;
@@ -99,6 +99,7 @@
     z-index: 10;
     transition: left 1s;
   }
+  
   
 
   .active {

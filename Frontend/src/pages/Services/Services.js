@@ -2,7 +2,9 @@ import React from 'react'
 import Products from '../../layouts/Products/Products'
 import Regimeplansection from '../../layouts/regimeplan/regimeplan'
 import style from './Services.module.css'
+
 import PersonnalTraining from "../../layouts/PersonnalTraining/PersonnalTraining";
+
 
 
 function Services() {

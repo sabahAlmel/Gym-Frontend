@@ -4,43 +4,48 @@ import Product from "../../components/Product/Product";
 import { fetchProducts } from "../../db/productsData";
 import { fetchOneCategory } from "../../db/categoryData";
 
-const Products = () => {
+const Products = (props) => {
   const [products, setProducts] = useState([]);
-  const [isLoading, setIsLoading] = useState(true)
-  async function fetchData(){
+  const [isLoading, setIsLoading] = useState(true);
+  async function fetchData() {
     try {
-      const data = await fetchProducts()
+      const data = await fetchProducts();
       if (data) {
         setProducts(data.data);
-        setIsLoading(false)
-      }else{
+        setIsLoading(false);
+      } else {
       }
     } catch (error) {
+
       console.log(error) 
+
     }
   }
-  
-  useEffect( () =>{
-    fetchData()
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return (
     <div className={style.productsSection}>
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
-        {isLoading ? <p>Loading.....</p> : 
-        products.map((product, i) => (
-          <Product
-          name={product.prodName}
-          price={product.prodPrice}
-          key={i}
-          image={product.prodImage}
-          description={product.prodDescription}
-          categoryId={product.prodCategory}
-          id={product._id}
-          />
-          ))  
-        }
+        {isLoading ? (
+          <p>Loading.....</p>
+        ) : (
+          products.map((product, i) => (
+            <Product
+              name={product.prodName}
+              price={product.prodPrice}
+              key={i}
+              image={product.prodImage}
+              description={product.prodDescription}
+              categoryId={product.prodCategory}
+              id={product._id}
+              isOnDashboard={props.isOnDashboard}
+            />
+          ))
+        )}
       </div>
     </div>
   );
