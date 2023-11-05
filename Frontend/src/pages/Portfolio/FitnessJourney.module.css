@@ -6,9 +6,6 @@
 }
 .fitnessSection > h2 {
     text-align: center;
-    color: var(--red-text-clr);
-    font-weight: 800;
-    line-height: 170.9%;
 }
 .content {
     display: flex;

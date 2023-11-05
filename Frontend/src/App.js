@@ -24,7 +24,7 @@ function App() {
         </Route>
         <Route path="/services/singleProduct" element={<SingleProduct />} />
         <Route
-          path="/DashTah"
+          path="/Dash"
           element={<Dashboard  />}
         />
         <Route

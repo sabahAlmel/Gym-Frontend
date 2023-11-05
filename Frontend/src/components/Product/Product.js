@@ -7,25 +7,25 @@ import { toast } from "react-hot-toast";
 import { fetchOneCategory } from "../../db/categoryData";
 
 const Product = (props) => {
-  const { name, price, image, categoryId} = props;
+  const { name, price, image, categoryId } = props;
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState("");
   // console.log(categoryId)
-  
-  async function fetchCategoryName(categoryId){
+
+  async function fetchCategoryName(categoryId) {
     try {
-      const categoryName = await fetchOneCategory(categoryId)
-      if(categoryName){
-        setCategory(categoryName.data.data.name)
+      const categoryName = await fetchOneCategory(categoryId);
+      if (categoryName) {
+        setCategory(categoryName.data.data.name);
       }
     } catch (error) {
-        console.log(error)
+      console.log(error);
     }
   }
 
-  useEffect(()=>{
-    fetchCategoryName(categoryId)
-  },[])
+  useEffect(() => {
+    fetchCategoryName(categoryId);
+  }, []);
 
   return (
     <>
@@ -47,7 +47,7 @@ const Product = (props) => {
             <Link
               className={style.productButton}
               to="/services/singleProduct"
-              state={{ data: props, imageSrc: imageSrc, category: category }}
+              state={{ data: props, imageSrc, category, categoryId }}
             >
               View More
             </Link>

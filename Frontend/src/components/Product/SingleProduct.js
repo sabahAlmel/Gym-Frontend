@@ -1,19 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./SingleProduct.module.css";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { getProductByCategory } from "../../db/productsData";
+import SimilarProduct from "./SimilarProduct/SimilarProduct";
+import Header from "../NavBar/Header";
 
-const SingleProduct = (props) => {
-  const location = useLocation()
-  const {data, imageSrc, category} = location.state
-  const {name, price, description, categoryId } = data
+const SingleProduct = () => {
+  const location = useLocation();
+  const { data, imageSrc, category, categoryId } = location.state;
+  const { name, price, description, id } = data;
+  console.log(id)
   
-  
+  const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+  // const [isCatFetched, setIsCatFetched] = useState(false)
+
+  async function fetchProdByCategoty() {
+    try {
+      const data = await getProductByCategory(categoryId);
+      setProducts(data.data);
+      console.log(data.data);
+      // console.log('products');
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  useEffect(() => {
+    fetchProdByCategoty();
+  }, []);
+  const filteredProducts = products.filter(item => item._id !== id)
+  console.log(filteredProducts)
+
   return (
     <main className={style.singleProductPageContainer}>
+      <Header />
       <section className={style.productWrapper}>
-        <figure className={style.productImage}>
-          <img src={imageSrc} alt={name} />
-        </figure>
+          <img className={style.productImage} src={imageSrc} alt={name} />
         <section className={style.productDetailsWrapper}>
           <section className={style.productNameCat}>
             <p className={style.productName}>{name}</p>
@@ -27,7 +49,24 @@ const SingleProduct = (props) => {
             <section className={style.productReviewsWrapper}>
               <span>٭٭٭٭٭</span> <p>546 Reviews</p>
             </section>
-            <button className={style.shareButton}>Share</button>
+            <button className={style.backButton} onClick={() => navigate(-1)}>
+              Go Back
+            </button>
+            <section className={style.similarProductsContainer}>
+              {filteredProducts.length > 0
+                ? filteredProducts.map( item => (
+                    <SimilarProduct
+                      price={item.prodPrice}
+                      description={item.prodDescription}
+                      name={item.prodName}
+                      imageSrc={item.prodImage[0]}
+                      category={category}
+                      categoryId={categoryId}
+                      id={item._id}
+                    />
+                ))
+                : "Loading...."}
+            </section>
           </section>
         </section>
       </section>

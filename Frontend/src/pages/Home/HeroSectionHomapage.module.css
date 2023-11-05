@@ -1,7 +1,7 @@
-@media screen and (min-width: 770px) {
 
     .containerHero {
         margin: 0;
+        position: relative;
     }
 
     .backgroundImage {
@@ -17,16 +17,17 @@
     }
 
     .content {
+        font-size: 20px;
         display: flex;
         flex-direction: column;
         margin-right: 5rem;
         width: 13%;
-        height: 40%;
+        position: absolute;
+        right: 50px;
     }
 
     .title {
         font-weight: 800;
-        font-size: 3em;
         text-transform: uppercase;
         color: #FFFFFF;
         height: 75%;
@@ -56,6 +57,7 @@
         border-radius: 0.5rem;
         text-align: center;
     }
+
    
 }
 
@@ -98,16 +100,7 @@
         font-weight: 800;
         text-transform: uppercase;
         color: #DC0000;
-    }
 
-    .button {
-        background-color: #DC0000;
-        margin-top: 2rem;
-        width:8rem;
-        height: 13%;
-        font-size: 1.5rem;
-        text-transform: uppercase;
-        font-weight: 600;
-        border: none;
     }
 }
+

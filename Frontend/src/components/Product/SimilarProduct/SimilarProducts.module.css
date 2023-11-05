@@ -1,0 +1,39 @@
+.similarProductsWrapper {
+  position: relative;
+}
+.similarImageContainer {
+  width: fit-content;
+}
+.similarImageContainer > img {
+  width: 100px;
+}
+.similarProductsWrapper > p {
+}
+.boxContainer {
+  user-select: none;
+  transition: opacity 0.4s ease;
+  height: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+}
+.boxContent {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+.boxContent > a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  display: block;
+  width: 100px;
+}
+.boxContainer:hover{
+    opacity: 1;
+}
