@@ -27,25 +27,23 @@ export default function SideNav() {
             className={style.ContentManagementItemsWrapper}
             style={{ height: isSideItem ? "105px" : "0" }}
           >
-            <li className={`${style.sideBarItem} ${style.sideBarSubItem}`}>
+          
               <NavLink
                 exact
                 to='dashServices'
-                className={style.sideBarSubItem}
+                className={`${style.sideBarItem} ${style.sideBarSubItem}`}
                 activeClassName={style.activeSideBar}
               >
                 Services
               </NavLink>
-            </li>
-            <li className={`${style.sideBarItem} ${style.sideBarSubItem}`}>
+          
               <NavLink
                 to='dashProducts'
-                className={style.sideBarSubItem}
+                className={`${style.sideBarItem} ${style.sideBarSubItem}`}
                 activeClassName={style.activeSideItem}
               >
                 Products
               </NavLink>
-            </li>
           </ul>
         </section>
       </section>

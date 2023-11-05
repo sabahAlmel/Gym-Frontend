@@ -31,6 +31,9 @@ const Product = (props) => {
   function editMode(){
     console.log('Edit')
   }
+  function handleDelete(){
+    console.log('Delete')
+  }
 
   return (
     <>
@@ -43,13 +46,13 @@ const Product = (props) => {
           />
         </div>
         <div className={style.productDetails}>
-          <p className={style.productName}>{name}</p>
+          <input type="text" className={style.productName} disabled={isOnDashboard} value={name} />
           <span className={style.productPriceCat}>
-            <p className={style.productPrice}>${price}</p>
-            <p className={style.productCat}>{category}</p>
+            <input type="text" className={style.productPrice} disabled={isOnDashboard} value={price} />
+            <input type='text' className={style.productCat} disabled={isOnDashboard} value={category} />
           </span>
           <section className={style.buttonsWrapper}>
-            {!isOnDashboard &&
+            {!isOnDashboard ?
             <Link
             className={style.productButton}
             to="/services/singleProduct"
@@ -57,7 +60,7 @@ const Product = (props) => {
             >
               View More
             </Link>
-              }
+              : <div name="delete" className={style.productButton} onClick={()=> handleDelete()}> Delete</div>}
             <Link
               onClick={() => isOnDashboard ? editMode()  : toast.success("Added") }
               className={style.productButton}

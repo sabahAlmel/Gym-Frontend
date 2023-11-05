@@ -30,7 +30,6 @@ function App() {
             path="dashServices"
             element={
               <>
-                {" "}
                 <ServicesPageServices isOnDashboard /> <Regimeplansection isOnDashboard />
               </>
             }
