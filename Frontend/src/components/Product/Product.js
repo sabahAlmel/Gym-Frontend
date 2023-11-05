@@ -7,6 +7,7 @@ import { toast } from "react-hot-toast";
 import { fetchOneCategory } from "../../db/categoryData";
 
 const Product = (props) => {
+  const isOnDashboard = props.isOnDashboard;
   const { name, price, image, categoryId } = props;
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
   const [category, setCategory] = useState("");
@@ -27,6 +28,10 @@ const Product = (props) => {
     fetchCategoryName(categoryId);
   }, []);
 
+  function editMode(){
+    console.log('Edit')
+  }
+
   return (
     <>
       <div className={style.productCard}>
@@ -44,18 +49,20 @@ const Product = (props) => {
             <p className={style.productCat}>{category}</p>
           </span>
           <section className={style.buttonsWrapper}>
+            {!isOnDashboard &&
             <Link
-              className={style.productButton}
-              to="/services/singleProduct"
-              state={{ data: props, imageSrc, category, categoryId }}
+            className={style.productButton}
+            to="/services/singleProduct"
+            state={{ data: props, imageSrc, category, categoryId }}
             >
               View More
             </Link>
+              }
             <Link
-              onClick={() => toast.success("Added")}
+              onClick={() => isOnDashboard ? editMode()  : toast.success("Added") }
               className={style.productButton}
-            >
-              Add to Cart
+              >
+              {isOnDashboard ? 'Edit' : 'Add to Cart'}
             </Link>
           </section>
         </div>

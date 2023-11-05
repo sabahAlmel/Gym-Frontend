@@ -9,9 +9,11 @@ import Dashboard from "./pages/Dashboard/dashboard";
 import NotFound from "./pages/Not Found/NotFound";
 import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
+import ServicesPageServices from "./layouts/PersonnalTraining";
+import Products from "./layouts/Products/Products";
+import Regimeplansection from "./layouts/regimeplan/regimeplan";
 
 function App() {
-
   return (
     <div className="App">
       <Routes>
@@ -23,14 +25,19 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
         </Route>
         <Route path="/services/singleProduct" element={<SingleProduct />} />
-        <Route
-          path="/Dash"
-          element={<Dashboard  />}
-        />
-        <Route
-          path="/*"
-          element={<NotFound  />}
-        />
+        <Route path="/Dash" element={<Dashboard />}>
+          <Route
+            path="dashServices"
+            element={
+              <>
+                {" "}
+                <ServicesPageServices isOnDashboard /> <Regimeplansection isOnDashboard />
+              </>
+            }
+          />
+          <Route path="dashProducts" element={<Products isOnDashboard />} />
+        </Route>
+        <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
   );
