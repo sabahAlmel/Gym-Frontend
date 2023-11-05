@@ -2,7 +2,7 @@ import React from 'react'
 import Products from '../../layouts/Products/Products'
 import Regimeplansection from '../../layouts/regimeplan/regimeplan'
 import style from './Services.module.css'
-import ServicesPageServices from "../../layouts/ServicesPageServices/index";
+import ServicesPageServices from "../../layouts/PersonnalTraining/index";
 
 
 function Services() {

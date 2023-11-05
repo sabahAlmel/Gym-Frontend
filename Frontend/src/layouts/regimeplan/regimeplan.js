@@ -7,7 +7,8 @@ import Regimeplancomponent from "../../components/regimeplan/regimeplansection";
 
 
 
-export default function Regimeplansection() {
+export default function Regimeplansection(props) {
+    const isOnDashboard = props.isOnDashboard
     const fakeData = [
         {
             name: "Expert Guidance",
@@ -28,7 +29,7 @@ export default function Regimeplansection() {
     return (
         <section className={styles.RegimePlanContainer}>
             <section className={styles.RegimePlanHeader}>
-                <h2> Every Meals Counts: A Complete Body-Type Nutrition Guide!</h2>
+                <h2> {isOnDashboard ? 'Regime Plans' : "Every Meals Counts: A Complete Body-Type Nutrition Guide!" }</h2>
             </section>
             <section className={styles.RegimeplanFlex}>
                 {fakeData.map((item, key) => (
