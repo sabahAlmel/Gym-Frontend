@@ -40,67 +40,24 @@
         color: #DC0000;
     }
 
-
-    .button,
-    .button a { 
-        display: inline-block;
+    .button {
+        text-align: center;
+        color: white;
+        text-decoration: none;
         background-color: #DC0000;
         margin-top: 2rem;
         height: 13%;
         font-size: 1.5rem;
         text-transform: uppercase;
         font-weight: 600;
-        color: #ffffff; 
-        text-decoration: none; 
-        padding: 0.5rem 1rem; 
         border: none;
-        border-radius: 0.5rem;
-        text-align: center;
     }
-
-   
-}
-
-
-@media screen and (max-width: 769px) {
-
-    .containerHero {
-        margin: 0;
-    }
-    .backgroundImage {
-        width: 100%;
-        height: 800px;
-        background-image: url('../../assets/images/HomepageImages/coach.png');
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .content {
-        display: flex;
-        flex-direction: column;
-        margin-right: 5rem;
-        width: 13%;
-        height: 40%;
-    }
-
-    .title {
-        font-weight: 800;
-        font-size: 3em;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        height: 75%;
-        width: 100%;
-    }
-
-    .spann {
-        font-weight: 800;
-        text-transform: uppercase;
-        color: #DC0000;
-
+@media (max-width: 720px) {
+    .content{
+        width: fit-content;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 }
 
