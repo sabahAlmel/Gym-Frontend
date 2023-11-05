@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import HeroSectionHomepage from './HeroSectionHomepage';
 
 import ServicesSection from '../../layouts/HomepageServices/index'
@@ -7,7 +7,6 @@ import ReasonsToJoin from '../../components/ReasonsToJoin/ReasonsToJoin'
 import './home.css';
 
 function Home() {
-
 
 
   return (

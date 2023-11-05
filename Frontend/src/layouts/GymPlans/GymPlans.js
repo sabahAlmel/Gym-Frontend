@@ -1,55 +1,48 @@
-import React from 'react'
 import style from '../../components/Plans/GymPlan.module.css'
 import GymPlan from '../../components/Plans/GymPlan'
+import React, { useState, useEffect } from 'react';
+import { fetchGymPlans } from '../../db/gymPlansData'; 
+
 
 const GymPlans = () => {
+  const [loading, setLoading] = useState(true);
+  const [plans, setplans] = useState([]);
+  console.log('Fetched Plans:', plans);
 
-  const plans = [
-    {
-      title: 'FitStart',
-      price: 30,
-      feature: [
-        'Full access to our gym facilities during regular hours',
-        'Use of all cardio and strength training equipment',
-        'Month-to-month flexibility - no long-term commitment'
-      ]
-    },
-    {
-      title: 'FitPro',
-      price: 50,
-      feature: [
-        'FitStart  Membership',
-        'Use of the gym during extended hours',
-        'Priority booking for personal training sessions'
-      ]
-    },
-    {
-      title: 'FitElite',
-      price: 80,
-      feature: [
-        'FitPro  Membership',
-        'Priority access to all gym facilities and equipment',
-        'Unlimited access to all specialty classes, workshops, and events',
-        'Free monthly one-on-one session with a certified personal trainer'
-      ]
-    }
-  ]
+
+ 
+  async function fetchData(){
+      try {
+        const response = await fetchGymPlans();
+        if (response) {
+          console.log(response);
+          setplans(response.data);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.error(error);
+        setLoading(false);  
+      }}
+    
+      useEffect(() => {
+      fetchData();
+    }, []);
+
 
   return (
-
     <div className={style.gymPlans}>
       <div className={style.gymPlan}>
         <div className={style.gymPlansDescription}>
           <h3 className={style.gymPlanDescriptionTitle}>Unlock Your Fitness Journey with Our Membership Tiers</h3>
         </div>
-          {
-            plans.map((plan, key) => (
-              <GymPlan key={key} title={plan.title} price={plan.price} plans={plans} />
-            ))
-          }
+        {!loading ? 
+        plans.map((plan, key) => (
+          <GymPlan key={key} title={plan.title} price={plan.price} plans={plan.feature} />
+        )):'loading...'
+        }
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default GymPlans
+export default GymPlans;

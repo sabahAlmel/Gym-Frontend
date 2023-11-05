@@ -39,15 +39,24 @@
         color: #DC0000;
     }
 
-    .button {
+
+    .button,
+    .button a { 
+        display: inline-block;
         background-color: #DC0000;
         margin-top: 2rem;
         height: 13%;
         font-size: 1.5rem;
         text-transform: uppercase;
         font-weight: 600;
+        color: #ffffff; 
+        text-decoration: none; 
+        padding: 0.5rem 1rem; 
         border: none;
+        border-radius: 0.5rem;
+        text-align: center;
     }
+   
 }
 
 
