@@ -16,7 +16,9 @@ const Products = (props) => {
       } else {
       }
     } catch (error) {
-      console.log(error);
+
+      console.log(error) 
+
     }
   }
 

@@ -2,7 +2,9 @@ import React from 'react'
 import Products from '../../layouts/Products/Products'
 import Regimeplansection from '../../layouts/regimeplan/regimeplan'
 import style from './Services.module.css'
-import ServicesPageServices from "../../layouts/PersonnalTraining/index";
+
+import PersonnalTraining from "../../layouts/PersonnalTraining/PersonnalTraining";
+
 
 
 function Services() {
@@ -16,7 +18,7 @@ function Services() {
       </section>
       <section className="servicesWrapper">
         <Products />
-        <ServicesPageServices />
+        <PersonnalTraining />
         <Regimeplansection/>
       </section>
     </>
