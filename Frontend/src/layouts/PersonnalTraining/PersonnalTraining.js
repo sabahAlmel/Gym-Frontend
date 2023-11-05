@@ -11,7 +11,8 @@ export default function PersonnalTraining() {
     try {
       const data = await fetchTraining()
       if (data) {
-        setPersonnalTrainings(data.data)
+        setPersonnalTrainings(data.data.data)
+        console.log(data.data.data)
         setIsLoading(false)
       }
     }
