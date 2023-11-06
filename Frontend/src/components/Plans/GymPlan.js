@@ -30,3 +30,4 @@ const GymPlan = ({ title, price, plans }) => {
     </>
   )
 }
+export default GymPlan;
