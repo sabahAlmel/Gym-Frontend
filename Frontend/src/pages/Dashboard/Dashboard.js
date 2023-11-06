@@ -11,7 +11,10 @@ function Dashboard() {
     <div className={style.dashboardWrapper}>
       {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} /> : ''}
       <SideNav />
+      <section className={style.dashContentContainer}>
       <Outlet context={[isModalOpen, setIsModalOpen]} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />
+      </section>
+
     </div>
   );
 }
