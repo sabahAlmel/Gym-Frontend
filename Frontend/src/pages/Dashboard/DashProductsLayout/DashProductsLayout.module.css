@@ -1,0 +1,56 @@
+.productsSection {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+  }
+  
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin: auto 5rem;
+  }
+  .addProductCard{
+    border: 1px solid white;
+    border-radius: 15px;
+    width: 250px;
+    height: 470px;
+    position: relative;
+    flex-basis: 20%;
+    display: flex;
+    height: 470px;
+    border-radius: 15px;
+    min-width: 250px;
+}
+.addProductCard:hover{
+  cursor:pointer ;
+  background-color: black;
+}
+.addButton{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background-color:white;
+    clip-path: circle(14.9% at 50% 50%);
+    width: 300px;
+    height: 300px;
+}
+.addButtonText{
+  position: absolute;
+  top: 67%;
+  left: 75%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+}
+.plusIcon{
+    color: var(--main-bg-clr);
+    width: 70px;
+    height: 200px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}

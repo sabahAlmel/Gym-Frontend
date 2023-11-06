@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import style from "../../components/Product/Product.module.css";
-import { fetchProducts } from "../../db/productsData";
-import Product from "../../components/Product/Product";
+import Product from "../../../components/Product/Product";
+import { fetchProducts } from "../../../db/productsData";
+import style from "./DashProductsLayout.module.css";
+import { AiOutlinePlus } from "react-icons/ai";
+import { ProductsModal } from "../../../components/Product/ProductsModal/ProductsModal";
 
-
-const Products = (props) => {
+function DashProductsLayout(props) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = props.isModalOpen? props : ''
+  const [isModalOpen, setIsModalOpen] = useState(false)
   async function fetchData() {
     try {
       const data = await fetchProducts();
@@ -25,10 +26,24 @@ const Products = (props) => {
     fetchData();
   }, []);
 
+  function openModal(){
+    setIsModalOpen(true)
+    console.log('openModal')
+  }
+
   return (
     <div className={style.productsSection}>
+      {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} /> : ''}
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
+        <div className={style.addProductCard}  onClick={() => openModal()}>
+          <section className={style.addButton} >
+            <AiOutlinePlus
+              className={style.plusIcon}
+            />
+          </section>
+            <span className={style.addButtonText}>Add a Product</span>
+        </div>
         {isLoading ? (
           <p>Loading.....</p>
         ) : (
@@ -48,6 +63,6 @@ const Products = (props) => {
       </div>
     </div>
   );
-};
+}
 
-export default Products;
+export default DashProductsLayout;
