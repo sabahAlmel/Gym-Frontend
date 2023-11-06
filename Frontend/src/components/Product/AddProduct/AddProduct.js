@@ -12,7 +12,7 @@ function AddProduct({ products, setProducts }) {
   return (
     <div className={style.addProductCard}>
       <section className={style.addButton}>
-        <AiOutlinePlus className={style.plusIcon} onClick={openModal} />
+        <AiOutlinePlus className={style.plusIcon} onClick={()=> openModal()} />
       </section>
     </div>
   );
