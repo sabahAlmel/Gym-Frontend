@@ -3,10 +3,15 @@ import style from "../../components/Product/Product.module.css";
 import Product from "../../components/Product/Product";
 import { fetchProducts } from "../../db/productsData";
 import { fetchOneCategory } from "../../db/categoryData";
+import AddProduct from "../../components/Product/AddProduct/AddProduct";
+import { useOutletContext } from "react-router-dom";
+import { ProductsModal } from "../../components/Product/ProductsModal/ProductsModal";
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useOutletContext()
+
   async function fetchData() {
     try {
       const data = await fetchProducts();
@@ -28,6 +33,7 @@ const Products = (props) => {
 
   return (
     <div className={style.productsSection}>
+      {isModalOpen ? <ProductsModal /> : ''}
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
         {isLoading ? (
@@ -44,8 +50,10 @@ const Products = (props) => {
               id={product._id}
               isOnDashboard={props.isOnDashboard}
             />
+            
           ))
         )}
+        {props.isOnDashboard && <AddProduct products={products} setProducts={setProducts}/>}
       </div>
     </div>
   );
