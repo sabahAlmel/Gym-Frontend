@@ -4,9 +4,10 @@ import { useOutlet, useOutletContext } from "react-router-dom";
 // import { addMovie, updateMovie } from "../utils/Helper";
 
 export const ProductsModal = (props) => {
-    const [isModalOpen, setIsModalOpen] = useOutletContext()
+    const {setIsModalOpen} = props
     function handleSubmit(e){
         e.preventDefault()
+        setIsModalOpen(false)
     }
   return (
     <section className={style.modalForm}>
@@ -85,10 +86,10 @@ export const ProductsModal = (props) => {
           <input type="file" name="image" className={style.fileInput} />
         </section>
         <section className={style.btnContainer}>
-          <button type="button" className={style.cancelBtn} onClick={()=> setIsModalOpen(false)}>
+          <button type="button" className={style.cancelBtn} onClick={ ()=> setIsModalOpen(false)} >
             Cancel
           </button>
-          <button type="submit" className={style.submitBtn} onClick={ handleSubmit} >
+          <button type="submit" className={style.submitBtn} onClick={handleSubmit} >
             Submit
           </button>
         </section>
