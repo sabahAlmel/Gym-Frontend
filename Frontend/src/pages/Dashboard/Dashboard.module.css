@@ -1,55 +1,10 @@
 .dashboardWrapper {
   height: 100%;
   padding: 10px;
+  padding-left: 20%;
   margin: 5rem 15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
 }
 
-.dashboardSideNav {
-  background-color: var(--card-bg-clr);
-  display: flex;
-  flex-direction: column;
-  width: 270px;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-.sideBarItem {
-  text-decoration: none;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  color: white;
-  width: 100%;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid #9e9e9e;
-  transition: background-color 0.2s ease-in-out;
-}
-.sideBarItem:hover {
-  cursor: pointer;
-  background-color: #4e4e4e;
-}
-.sideBarSubItem {
-  text-decoration: none;
-  color: white;
-}
-.activeSideItem{
-  color: var(--red-text-clr);
-}
-.dashLogoContainer {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem 0;
-}
-.navItemsWrapper {
-  display: flex;
-  flex-direction: column;
-}
-.ContentManagementItemsWrapper {
-  overflow: hidden;
-  transition: height .3s ease;
-}
-.sideBarItem:active{
-  color: var(--red-text-clr);
-}

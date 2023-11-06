@@ -41,6 +41,9 @@
     }
 
     .button {
+        text-align: center;
+        color: white;
+        text-decoration: none;
         background-color: #DC0000;
         margin-top: 2rem;
         height: 13%;

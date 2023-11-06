@@ -22,22 +22,19 @@
 .title {
     color: #FFFFFF;
     display: block;
-    position: absolute;
     right: 10%;
-    top: 50%;
     display: flex;
     flex-direction: column;
     font-size: 3em;
 }
 .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    margin-right: 5rem;
-    width: 13%;
-    height: 40%;
-    
-    
+ 
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        height: 50%;
+        left: 70vw;
+        top: 30%;
 
 }
 
@@ -51,18 +48,19 @@
 
 .paragraph {
     font-weight: bold;
+    width: 53%;
 }
 
 @media screen and (max-width:1200px) {
 
     .backgroundImage {
-        width: 100%;
+        width: 102%;
         height: 700px;
 
         background-image: url('../../assets/images/contactus/contactUsHero.png');
         background-size: cover;
         background-repeat: no-repeat;
-        background-position: 50% 0;
+        background-position: 50% 50%;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -72,7 +70,7 @@
         display: flex;
         flex-direction: column;
         margin-right: 5rem;
-        width: 13%;
+        width: 19%;
         height: 40%;
 
     }
@@ -82,8 +80,57 @@
         font-size: 3em;
         text-transform: uppercase;
         color: #FFFFFF;
-        height: 75%;
-        width: 100%;
+        width: 170%;
+    }
+
+    .spann {
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #DC0000;
+    }
+
+    .paragraph {
+        display: flex;
+        flex-direction: column;
+        width: 110%;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (max-width:750px) {
+
+    .backgroundImage {
+        width: 150%;
+        height: 700px;
+
+        background-image: url('../../assets/images/contactus/contactUsHero.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column;
+        /* margin-right: 5rem; */
+        width: 26%;
+        top: 33%;
+        left: 32%;
+    }
+    
+
+    
+
+    .title {
+        font-weight: 800;
+        font-size: 2em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        width: 170%;
     }
 
     .spann {
@@ -95,4 +142,14 @@
     .paragraph {
         font-weight: bold;
     }
+}
+
+@media screen and (max-width:290px) {
+    .content{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    top: 33%; 
+    left: 20%;
+}
 }
