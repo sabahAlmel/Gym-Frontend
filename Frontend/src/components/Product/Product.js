@@ -11,6 +11,7 @@ const Product = (props) => {
   const { name, price, image, categoryId } = props;
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
   const [category, setCategory] = useState("");
+  const [editing, setEditing] = useState(false)
   // console.log(categoryId)
 
   async function fetchCategoryName(categoryId) {
@@ -30,11 +31,15 @@ const Product = (props) => {
 
   function editMode(){
     console.log('Edit')
+    setEditing(true)
   }
   function handleDelete(){
     console.log('Delete')
   }
-
+  function handleSubmit(){
+    console.log('Submit')
+    setEditing(false)
+  }
   return (
     <>
       <div className={style.productCard}>
@@ -46,10 +51,10 @@ const Product = (props) => {
           />
         </div>
         <div className={style.productDetails}>
-          <input type="text" className={style.productName} disabled={isOnDashboard} value={name} />
+          <input type="text" className={style.productName} disabled={!editing} value={name} />
           <span className={style.productPriceCat}>
-            <input type="text" className={style.productPrice} disabled={isOnDashboard} value={price} />
-            <input type='text' className={style.productCat} disabled={isOnDashboard} value={category} />
+            <input type="text" className={style.productPrice} disabled={!editing} value={price} />
+            <input type='text' className={style.productCat} disabled={!editing} value={category} />
           </span>
           <section className={style.buttonsWrapper}>
             {!isOnDashboard ?
@@ -61,12 +66,14 @@ const Product = (props) => {
               View More
             </Link>
               : <div name="delete" className={style.productButton} onClick={()=> handleDelete()}> Delete</div>}
+              {!editing ? 
             <Link
-              onClick={() => isOnDashboard ? editMode()  : toast.success("Added") }
-              className={style.productButton}
-              >
+            onClick={() => isOnDashboard ? editMode()  : toast.success("Added") }
+            className={style.productButton}
+            >
               {isOnDashboard ? 'Edit' : 'Add to Cart'}
             </Link>
+                : <div className={style.productButton} onClick={()=> handleSubmit()}>Save</div>}
           </section>
         </div>
       </div>
