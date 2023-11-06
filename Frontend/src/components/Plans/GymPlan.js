@@ -10,24 +10,24 @@ const GymPlan = ({ title, price, plans }) => {
       <div className={style.gymPlanCard}>
         <h3 className={style.gymPlanType}>{title}</h3>
         <p className={style.membership}>Membership</p>
-        <h3 className={style.gymPlanPrice}>$<span className={style.price}>{price}</span> Per Month</h3>
+        <h3 className={style.gymPlanPrice}>
+          $<span className={style.price}>{price}</span> Per Month
+        </h3>
         <div className={style.check}>
         {plans.map((feature, i) => (
             <div className={style.descriptionArray} key={i}>
               <img className={style.checkIcon} src={CheckIcon}  alt='check' />
               <p className={style.descriptionText}>{feature}</p>
-
             </div>
           ))}
         </div>
         <div className={style.buttonSubscribe}>
-          <button className={style.gymPlanButton}>Subscribe</button>  
+          <button  className={style.gymPlanButton}>
+            Subscribe
+          </button>
         </div>
       </div>
     </>
   )
 }
-
-
-
 export default GymPlan;

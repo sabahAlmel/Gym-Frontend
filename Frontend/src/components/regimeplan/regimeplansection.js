@@ -6,7 +6,7 @@ function Regimeplancomponent(props) {
   return (
     <section className={style.regimeplanComponentWrapper}>
       <div className={style.regimeplanImageWrapper}>
-        <img src={image}  className={style.regimeplanImage} />
+        <img src={image}  alt="img" className={style.regimeplanImage} />
       </div>
       <div className={style.regimeplanContent}>
         <h3 className={style.regimeplanComponentName}>{name}</h3>
