@@ -1,13 +1,11 @@
-
-
-.serviceImageContainer{
+.serviceImageContainer {
   background-color: red;
   flex-basis: 14%;
-  max-height:100%;
-  transition: flex-basis .5s ease-out;
+  max-height: 100%;
+  transition: flex-basis 0.5s ease-out;
   min-width: 150px;
 }
-.serviceImage{
+.serviceImage {
   position: relative;
   width: 100%;
   min-height: 100%;
@@ -16,72 +14,76 @@
   background-position: 46%;
 }
 
-.personalTraining{
-  background-image: url('../../assets/images/HomepageImages/PersonalTraining.png');
-
+.personalTraining {
+  background-image: url("../../assets/images/HomepageImages/PersonalTraining.png");
 }
-.gymProducts{
-  background-image: url('../../assets/images/HomepageImages/GymProducts.png');
-
+.gymProducts {
+  background-image: url("../../assets/images/HomepageImages/GymProducts.png");
 }
-.regimePlans{
-  background-image: url('../../assets/images/HomepageImages/RegimePlans.png');
+.regimePlans {
+  background-image: url("../../assets/images/HomepageImages/RegimePlans.png");
 }
 
-.serviceItem{
-position: absolute;
-bottom: 0;
-display: flex;
-flex-direction: column;
-gap: 1rem;
+.serviceItem {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
 }
-.serviceItem > span{
+.serviceItem > span {
   font-size: 36px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: fit-content;
 }
-.serviceItem > button{
+.serviceItem > a {
   background-color: var(--red-btn-clr);
-  padding: 1rem;
-  border-radius: 40px;
+  text-decoration: none;
+  text-align: center;
+  padding: .5rem;
+  border-radius: 30px;
   border: none;
   margin: 1rem;
   width: 125px;
   color: var(--white-text-clr);
-  font-weight: 600;
+  font-weight: 400;
+
 }
-.serviceItem > button:hover{
+.serviceItem > button:hover {
   cursor: pointer;
-  background-color: var(--btn-hover-clr)
+  background-color: var(--btn-hover-clr);
 }
-.serviceImageContainer:hover{
+.serviceImageContainer:hover {
   flex-basis: 60%;
 }
-@media (max-width:1440px) {
-  .serviceImageContainer{
+@media (max-width: 1440px) {
+  .serviceImageContainer {
     flex-basis: 30%;
   }
-  .serviceItem > span{
+  .serviceItem > span {
     font-size: 20px;
+    padding: 1rem;
   }
-  .serviceItem{
+  .serviceItem {
     flex-direction: row;
     align-items: center;
     margin: 1rem;
-    width: 100%;
+    width: 90%;
   }
-  .serviceItem > button{
+  .serviceItem > button {
     font-size: 10px;
-    margin: .4rem;
-    padding: .5rem;
+    margin: 0.4rem;
+    padding: 0.5rem;
     width: 20%;
   }
 }
 @media (max-width: 1130px) {
-    .serviceImage{
-      min-height: 200px;
-    }
-    .serviceImageContainer{
-      flex-basis: 30%;
-      width: 90%;
-    }
-    
+  .serviceImage {
+    min-height: 200px;
+  }
+  .serviceImageContainer {
+    flex-basis: 30%;
+    width: 90%;
+  }
 }

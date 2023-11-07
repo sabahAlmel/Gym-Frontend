@@ -26,7 +26,7 @@ const Products = (props) => {
 
   return (
     <div className={style.productsSection}>
-      <h2 className={style.productsTitle}>Products</h2>
+      <h2 id="products" className={style.productsTitle}>Products</h2>
       <div className={style.product}>
         {isLoading ? (
           <p>Loading.....</p>

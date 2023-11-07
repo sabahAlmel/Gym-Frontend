@@ -9,8 +9,8 @@ const SingleProduct = () => {
   const location = useLocation();
   const { data, imageSrc, category, categoryId } = location.state;
   const { name, price, description, id } = data;
-  console.log(id)
-  
+  console.log(id);
+
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
   // const [isCatFetched, setIsCatFetched] = useState(false)
@@ -28,48 +28,52 @@ const SingleProduct = () => {
   useEffect(() => {
     fetchProdByCategoty();
   }, []);
-  const filteredProducts = products.filter(item => item._id !== id)
-  console.log(filteredProducts)
+  // const filteredProducts = products.filter((item) => item._id !== id);
 
   return (
     <main className={style.singleProductPageContainer}>
       <Header />
-      <section className={style.productWrapper}>
+      <section className={style.singleProductMainView}>
+        <section className={style.productWrapper}>
           <img className={style.productImage} src={imageSrc} alt={name} />
-        <section className={style.productDetailsWrapper}>
-          <section className={style.productNameCat}>
-            <p className={style.productName}>{name}</p>
-            <span className={style.productCategory}> A {category} Product</span>
-            <span className={style.productPrice}>${price}</span>
-          </section>
-          <section className={style.productDescription}>
-            <p>{description}</p>
-          </section>
-          <section className={style.productShareAndReviews}>
-            <section className={style.productReviewsWrapper}>
-              <span>٭٭٭٭٭</span> <p>546 Reviews</p>
+          <section className={style.productDetailsWrapper}>
+            <section className={style.productNameCat}>
+              <p className={style.productName}>{name}</p>
+              <span className={style.productCategory}>
+                {" "}
+                A {category} Product
+              </span>
+              <section className={style.productReviewsWrapper}>
+                <span>٭٭٭٭٭</span> <p>546 Reviews</p>
+              </section>
+              <span className={style.productPrice}>${price}</span>
             </section>
-            <button className={style.backButton} onClick={() => navigate(-1)}>
-              Go Back
-            </button>
-            <section className={style.similarProductsContainer}>
-              {filteredProducts.length > 0
-                ? filteredProducts.map( item => (
-                    <SimilarProduct
-                      price={item.prodPrice}
-                      description={item.prodDescription}
-                      name={item.prodName}
-                      imageSrc={item.prodImage[0]}
-                      category={category}
-                      categoryId={categoryId}
-                      id={item._id}
-                    />
-                ))
-                : "Loading...."}
+            <section className={style.productDescription}>
+              <p>{description}</p>
             </section>
+
           </section>
         </section>
       </section>
+            <section className={style.similarProductsContainer}>
+              <h3>Similar Products</h3>
+              <section className={style.similarProducts}>
+
+              {products.length > 0
+                ? products.map((item) => (
+                    <SimilarProduct
+                    price={item.prodPrice}
+                    description={item.prodDescription}
+                    name={item.prodName}
+                    imageSrc={item.prodImage[0]}
+                    category={category}
+                    categoryId={categoryId}
+                    id={item._id}
+                    />
+                    ))
+                    : "Loading...."}
+                    </section>
+            </section>
     </main>
   );
 };
