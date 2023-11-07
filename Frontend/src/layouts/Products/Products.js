@@ -7,7 +7,6 @@ import Product from "../../components/Product/Product";
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = props.isModalOpen? props : ''
   async function fetchData() {
     try {
       const data = await fetchProducts();

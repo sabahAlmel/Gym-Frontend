@@ -27,7 +27,6 @@ const RegimePlan = (props) => {
       <section className={styles.RegimePlanHeader}>
         <h2>
           {" "}
-          {isOnDashboard
             ? "Regime Plans"
             : "Every Meals Counts: A Complete Body-Type Nutrition Guide!"}
         </h2>

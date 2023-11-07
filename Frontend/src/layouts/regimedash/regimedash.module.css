@@ -1,0 +1,89 @@
+
+.regimeDashWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+/* th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: left;
+  color: white;
+} */
+
+/* th {
+  background-color: #333;
+  font-weight: bold;
+} */
+
+.image {
+  width: 100px;
+  height: auto;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.editForm {
+  margin-top: 20px;
+}
+
+
+button {
+  cursor: pointer;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.buttonedit {
+  background-color: #4caf50;
+  color: white;
+}
+
+.buttondelete {
+  background-color: #f44336;
+  color: white;
+}
+
+button.add {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Add more styles as needed */
+ button.delete ,.add,.edit{
+  margin-right: 0.5rem;
+}  
+
+
+.tableHeader {
+  background-color: black;
+}
+
+
+.tableContent {
+  background-color: lightgray;
+  color: black;
+}
+
+
+
+
+table tbody tr td {
+  padding: 0.6rem;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
