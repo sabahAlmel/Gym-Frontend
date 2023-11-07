@@ -11,7 +11,7 @@ import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
 import Products from "./layouts/Products/Products";
 import Regimeplansection from "./layouts/regimeplan/regimeplan";
-import PersonnalTraining from "./layouts/PersonnalTraining/PersonnalTraining";
+import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTrainingDash";
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
             path="dashServices"
             element={
               <>
-                <PersonnalTraining isOnDashboard /> <Regimeplansection isOnDashboard />
+                <PersonnalTrainingDash isOnDashboard /> <Regimeplansection isOnDashboard />
               </>
             }
           />
