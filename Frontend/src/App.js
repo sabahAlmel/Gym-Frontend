@@ -9,10 +9,9 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/Not Found/NotFound";
 import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
-import Products from "./layouts/Products/Products";
-import Regimeplansection from "./layouts/regimeplan/regimeplan";
 import PersonnalTraining from "./layouts/PersonnalTraining/PersonnalTraining";
 import Regimedash from './layouts/regimedash/regimedash'
+import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
 
 function App() {
   return (
@@ -35,7 +34,7 @@ function App() {
               </>
             }
           />
-          <Route path="dashProducts" element={<Products isOnDashboard />} />
+          <Route path="dashProducts" element={<DashProductsLayout isOnDashboard />} />
         </Route>
         <Route path="/*" element={<NotFound />} />
       </Routes>

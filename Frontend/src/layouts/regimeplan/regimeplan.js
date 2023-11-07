@@ -5,7 +5,8 @@ import { fetchRegime } from "../../db/regimeData";
 
 const RegimePlan = (props) => {
   const [regimePlan, setRegimePlan] = useState([]);
-  async function fetchData() {
+  const [isOnDashboard, setIsOnDashboard] =useState(false)
+    async function fetchData() {
     try {
       const response = await fetchRegime();
       console.log('Fetched data:', response.data.data)
