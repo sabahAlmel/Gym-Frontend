@@ -12,6 +12,7 @@ import Layout from "./layouts/Layout";
 import Products from "./layouts/Products/Products";
 import Regimeplansection from "./layouts/regimeplan/regimeplan";
 import PersonnalTraining from "./layouts/PersonnalTraining/PersonnalTraining";
+import Regimedash from './layouts/regimedash/regimedash'
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
             path="dashServices"
             element={
               <>
-                <PersonnalTraining isOnDashboard /> <Regimeplansection isOnDashboard />
+                <PersonnalTraining isOnDashboard /><Regimedash isOnDashboard/>
               </>
             }
           />

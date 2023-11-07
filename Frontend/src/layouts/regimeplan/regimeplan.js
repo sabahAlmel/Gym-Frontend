@@ -5,7 +5,6 @@ import { fetchRegime } from "../../db/regimeData";
 
 const RegimePlan = (props) => {
   const [regimePlan, setRegimePlan] = useState([]);
-  const isOnDashboard = false
   async function fetchData() {
     try {
       const response = await fetchRegime();
@@ -27,7 +26,6 @@ const RegimePlan = (props) => {
       <section className={styles.RegimePlanHeader}>
         <h2>
           {" "}
-          {isOnDashboard
             ? "Regime Plans"
             : "Every Meals Counts: A Complete Body-Type Nutrition Guide!"}
         </h2>

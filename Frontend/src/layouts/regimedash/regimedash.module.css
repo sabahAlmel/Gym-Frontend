@@ -1,0 +1,90 @@
+.allItems{
+    /* display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center; */
+    /* margin: 0 auto; */
+    margin-top: 50px;
+  }
+  
+  table {
+    /* width: 100%; */
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  tr > th {
+    background-color:red;
+    text-align: center;
+    padding: 15px;
+    font-size: 15px;
+  }
+  
+  tr > td {
+    text-align: center;
+    font-size: 15px;
+    border-bottom: 1px solid red;
+    /* padding: 15px; */
+  }
+  
+  .buttonContainer {
+    display: flex;
+    /* column-gap: 10px; */
+    /* justify-content: center; */
+  }
+  
+  .updateDelete {
+    border: none;
+    cursor: pointer;
+    width: 60px;
+    margin: 5px;
+    background-color:red;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .buttonContainer {
+      column-gap: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .allBooks {
+      flex-direction: column;
+      row-gap: 10px;
+    }
+  
+    .buttonContainer {
+      flex-direction: row;
+      column-gap: 10px;
+    }
+  
+    tr > td,
+    tr > th {
+      width: auto;
+      padding: 10px;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    
+  }
+  
+  @media only screen and (max-width: 470px) {
+    .buttonContainer {
+      flex-direction: column;
+      row-gap: 5px;
+    }
+    .updateDelete {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {
+    tr > td,
+    tr > th {
+      width: auto;
+      padding: 10px;
+    }
+  }
+  
+    
