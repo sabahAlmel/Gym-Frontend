@@ -2,36 +2,44 @@ import { useState } from "react";
 import style from "./ProductsModal.module.css";
 import { useOutlet, useOutletContext } from "react-router-dom";
 import { addProduct } from "../../../db/productsData";
-// import { addMovie, updateMovie } from "../utils/Helper";
+import { toast } from "react-hot-toast";
 
 export const ProductsModal = (props) => {
-    const {setIsModalOpen} = props
-    const [dataToSend, setDataToSend]  = useState({
-      prodName: '',
-      prodPrice: '',
-      prodDescription: '',
-      prodImage: '',
-      categoryName: ''
-    })
-    function updateObject(name, value){
-      setDataToSend({...dataToSend, [name]: value})
+  const { setIsModalOpen } = props;
+  const [dataToSend, setDataToSend] = useState({
+    prodName: "",
+    prodPrice: "",
+    prodDescription: "",
+    prodImage: "",
+    categoryName: "",
+  });
+  function updateObject(name, value) {
+    setDataToSend({ ...dataToSend, [name]: value });
+  }
+  function handleInputChange(e) {
+    updateObject(e.target.name, e.target.value);
+  }
+  function setCategory(e) {
+    updateObject("categoryName", e.target.value);
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (
+      Object.values(dataToSend).some((item) => item === "" || item === null)
+    ) {
+      toast.error("All fields are required");
+    } else {
+      try {
+        addProduct(dataToSend);
+        setIsModalOpen(false)
+        toast.success('A New Product has been added')
+        props.fetchData()
+      } catch (error) {
+        console.log(error);
+      }
     }
-    function handleInputChange(e){
-      updateObject(e.target.name, e.target.value)
-      console.log(dataToSend)
-    }
-    function setCategory(e){
-      updateObject('categoryName',e.target.value)
-    }
-    function handleSubmit(e){
-        e.preventDefault()
-        try {
-          addProduct(dataToSend)
-        } catch (error) {
-          console.log(error)
-        }
-        // setIsModalOpen(false)
-    }
+  }
+
   return (
     <section className={style.modalForm}>
       <form onSubmit={handleSubmit}>
@@ -39,7 +47,7 @@ export const ProductsModal = (props) => {
         <section className={style.inputContainer}>
           <input
             className={style.input}
-            name='prodName'
+            name="prodName"
             type="text"
             value={dataToSend.prodName}
             onChange={handleInputChange}
@@ -54,10 +62,8 @@ export const ProductsModal = (props) => {
             value={dataToSend.prodPrice}
             onChange={handleInputChange}
             placeholder="Price"
-            
           />
         </section>
-       
 
         <section className={style.inputContainer}>
           <textarea
@@ -75,22 +81,37 @@ export const ProductsModal = (props) => {
           <section className={style.category}>
             <label htmlFor="categoryName">
               Plant Protein
-              <input type="radio" name="categoryName" value="Plant Protein" checked={dataToSend.categoryName === "Plant Protein"}
-                onChange={setCategory} />
+              <input
+                type="radio"
+                name="categoryName"
+                value="Plant Protein"
+                checked={dataToSend.categoryName === "Plant Protein"}
+                onChange={setCategory}
+              />
             </label>
           </section>
           <section className={style.category}>
             <label htmlFor="categoryName">
               Meal Replacements
-              <input type="radio" name="categoryName" value="Meal Replacements" checked={dataToSend.categoryName === "Meal Replacements"}
-                onChange={setCategory} />
+              <input
+                type="radio"
+                name="categoryName"
+                value="Meal Replacements"
+                checked={dataToSend.categoryName === "Meal Replacements"}
+                onChange={setCategory}
+              />
             </label>
           </section>
           <section className={style.category}>
             <label htmlFor="categoryName">
               Weight Gainer
-              <input type="radio" name="categoryName" value="Wheight Gainer" checked={dataToSend.categoryName === "Wheight Gainer"}
-                onChange={setCategory} />
+              <input
+                type="radio"
+                name="categoryName"
+                value="Weight Gainer"
+                checked={dataToSend.categoryName === "Weight Gainer"}
+                onChange={setCategory}
+              />
             </label>
           </section>
           <section className={style.category}>
@@ -105,17 +126,30 @@ export const ProductsModal = (props) => {
               />
             </label>
           </section>
-         
-         
         </section>
         <section className={style.inputImageContainer}>
-          <input type="file" name="prodImage" className={style.fileInput} onChange={(e)=> setDataToSend({...dataToSend, prodImage: e.target.files[0]})} />
+          <input
+            type="file"
+            name="prodImage"
+            className={style.fileInput}
+            onChange={(e) =>
+              setDataToSend({ ...dataToSend, prodImage: e.target.files[0] })
+            }
+          />
         </section>
         <section className={style.btnContainer}>
-          <button type="button" className={style.cancelBtn} onClick={ ()=> setIsModalOpen(false)} >
+          <button
+            type="button"
+            className={style.cancelBtn}
+            onClick={() => setIsModalOpen(false)}
+          >
             Cancel
           </button>
-          <button type="submit" className={style.submitBtn} onClick={handleSubmit} >
+          <button
+            type="submit"
+            className={style.submitBtn}
+            onClick={handleSubmit}
+          >
             Submit
           </button>
         </section>

@@ -12,7 +12,7 @@ export default function SideNav() {
   }
 
   return (
-    <sidenav className={sideBar ? style.sideNav : style.collapsedSideNav}>
+    <nav className={sideBar ? style.sideNav : style.collapsedSideNav}>
       <IoIosArrowBack
         className={sideBar ? style.expandArrow : style.rotateExpandArrow}
         onClick={() => setSideBar(!sideBar)}
@@ -43,7 +43,7 @@ export default function SideNav() {
               <NavLink
                 to="dashServices"
                 className={`${style.sideBarItem} ${style.sideBarSubItem}`}
-                activeClassName={style.activeSideBar}
+                activeClassname={style.activeSideBar}
               >
                 Services
               </NavLink>
@@ -51,7 +51,7 @@ export default function SideNav() {
               <NavLink
                 to="dashProducts"
                 className={`${style.sideBarItem} ${style.sideBarSubItem}`}
-                activeClassName={style.activeSideItem}
+                activeClassname={style.activeSideItem}
               >
                 Products
               </NavLink>
@@ -59,6 +59,6 @@ export default function SideNav() {
           </section>
         </section>
       </section>
-    </sidenav>
+    </nav>
   );
 }

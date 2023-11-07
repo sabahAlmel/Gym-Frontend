@@ -4,50 +4,84 @@ export async function fetchProducts() {
   try {
     const data = await axios.get(`${process.env.REACT_APP_PATH}products/read`);
     if (data) {
-      return data
+      return data;
     }
   } catch (error) {
     console.log(error);
   }
 }
-export async function getProductByCategory(categoryId){
+export async function getProductByCategory(categoryId) {
   try {
-    const response = await axios.get(`${process.env.REACT_APP_PATH}products/read/category/${categoryId}`)
-    if(response){
-      return response.data
+    const response = await axios.get(
+      `${process.env.REACT_APP_PATH}products/read/category/${categoryId}`
+    );
+    if (response) {
+      return response.data;
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
-export async function deleteProductById(productId){
+export async function deleteProductById(productId) {
   try {
-    const response = await axios.delete(`${process.env.REACT_APP_PATH}products/delete`, {
-      data : {id: productId}
-    },
-    {})
-    if(response.status === 200){
-      return response.status
+    const response = await axios.delete(
+      `${process.env.REACT_APP_PATH}products/delete`,
+      {
+        data: { id: productId },
+      },
+      {}
+    );
+    if (response.status === 200) {
+      return response.status;
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }
-export async function addProduct(productData){
-  try{
-    const response = await axios.post(`${process.env.REACT_APP_PATH}products/add`, {
-      prodName: productData.prodName,
-      prodPrice: productData.prodPrice,
-      prodDescription: productData.prodDescription,
-      prodImage: productData.prodImage,
-      categoryName: productData.categoryName
-    },{
-      headers: {'Content-Type' : 'multipart/form-data'}
-    })
-    if (response.status === 200){
-      return response.status
+export async function addProduct(productData) {
+  console.log(productData.categoryName)
+  try {
+    const response = await axios.post(
+      `${process.env.REACT_APP_PATH}products/add`,
+      {
+        prodName: productData.prodName,
+        prodPrice: productData.prodPrice,
+        prodDescription: productData.prodDescription,
+        prodImage: productData.prodImage,
+        categoryName: productData.categoryName,
+      },
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
+    if (response.status === 200) {
+      return response.status;
     }
-  }catch(error){
-    console.log(error)
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function updateProduct(prodId, data) {
+  console.log(data);
+  try {
+    const response = await axios.patch(
+      `${process.env.REACT_APP_PATH}products/update`,
+      {
+        prodName: data.prodName,
+        prodPrice: data.prodPrice,
+        prodDescription: data.prodDescription,
+        prodImage: data.prodImage,
+        categoryName: data.categoryName,
+        id: prodId,
+      },
+      { headers: { "Content-Type": "multipart/form-data" } }
+    );
+    if (response.status === 200) {
+      console.log(response.data);
+      return response.status;
+    }
+  } catch (error) {
+    console.log(error);
   }
 }

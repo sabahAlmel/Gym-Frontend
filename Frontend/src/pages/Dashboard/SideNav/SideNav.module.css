@@ -3,6 +3,7 @@
   overflow: hidden;
   transition: transform  0.5s ease-out;
   position: relative;
+  min-height: 100vh;
 }
 .collapsedSideNav{
   min-width:0;

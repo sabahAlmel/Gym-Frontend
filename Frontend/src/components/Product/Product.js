@@ -3,15 +3,21 @@ import style from "./Product.module.css";
 import { Link, Route, Routes } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { fetchOneCategory } from "../../db/categoryData";
-import { deleteProductById } from "../../db/productsData";
+import { deleteProductById, updateProduct } from "../../db/productsData";
 
 const Product = (props) => {
-  const isOnDashboard = props.isOnDashboard;
-  const { name, price, image, categoryId, id } = props;
+  const { name, price, categoryId, id, description, isOnDashboard } = props;
+  const [image, setImage] = useState(props.image);
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
   const [category, setCategory] = useState("");
   const [editing, setEditing] = useState(false);
-  // console.log(categoryId)
+  const [dataToUpdate, setDataToUpdate] = useState({
+    prodName: name,
+    prodPrice: price,
+    prodDescription: description,
+    prodImage: null,
+    categoryName: category,
+  });
 
   async function fetchCategoryName(categoryId) {
     try {
@@ -35,14 +41,36 @@ const Product = (props) => {
     console.log("Delete");
     try {
       await deleteProductById(id);
+      toast.success("Product Deleted Successfully");
     } catch (error) {
       console.log(error);
     }
   }
-  function handleSubmit() {
+
+  async function handleSubmit() {
     console.log("Submit");
     setEditing(false);
+    setDataToUpdate(dataToUpdate);
+    console.log(dataToUpdate);
+    try {
+      await updateProduct(id, dataToUpdate);
+    } catch (error) {
+      console.log(error);
+    }
   }
+  function handleInputChange(e) {
+    setDataToUpdate({ ...dataToUpdate, [e.target.name]: e.target.value });
+  }
+  function handleCategorySelect(e) {
+    setDataToUpdate({ ...dataToUpdate, categoryName : e.target.value });
+    setCategory(e.target.value)
+    console.log(e.target.value);
+  }
+  function handleImage(e){
+    setDataToUpdate({...dataToUpdate,  [e.target.name] : e.target.files[0]})
+    console.log(e.target.files)
+  }
+
   return (
     <>
       <div className={style.productCard}>
@@ -58,22 +86,51 @@ const Product = (props) => {
             type="text"
             className={style.productName}
             disabled={!editing}
-            value={name}
+            name="prodName"
+            value={dataToUpdate.prodName}
+            onChange={handleInputChange}
           />
           <span className={style.productPriceCat}>
             <input
               type="text"
               className={style.productPrice}
               disabled={!editing}
-              value={price}
+              name="prodPrice"
+              value={dataToUpdate.prodPrice}
+              onChange={handleInputChange}
             />
-            <input
-              type="text"
-              className={style.productCat}
-              disabled={!editing}
-              value={category}
-            />
+
+            {!editing ? (
+              <input
+                type="text" 
+                className={style.productCat}
+                name="categoryName"
+                disabled={!editing}
+                value={category}
+              />
+            ) : (
+              <select
+                name="categoryName"
+                className={`${
+                  editing ? style.selectEnabled : style.selectDisabled
+                }`}
+                value={dataToUpdate.categoryName}
+                onChange={handleCategorySelect}
+                disabled={!editing}
+              >
+                <option value="Weight Gainer">Weight Gainer</option>
+                <option value="Whey Protein">Whey Protein</option>
+                <option value="Meal Replacements">Meal Replacements</option>
+                <option value="Plant Protein">Plant Protein</option>
+              </select>
+            )}
           </span>
+
+          {editing ? (
+            <input type="file" name="prodImage" onChange={handleImage} />
+          ) : (
+            ""
+          )}
           <section className={style.buttonsWrapper}>
             {!isOnDashboard ? (
               <Link
