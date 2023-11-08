@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: 260px;
     background-color: #610000;
 
 }
@@ -16,39 +17,35 @@
 .footerContainer {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 90%;
+    margin: auto;
     align-items: center;
-    padding: 1rem;
     gap: 1rem;
     background-color: #610000;
 }
 
 .Logo{
     width: 170px;
-    margin-top: 2rem;
+    margin: 2rem auto;
 }
 .description {
     width: 200px;
-    /* height: 68px; */
 }
 
 .secondPara {
     font-style: normal;
     font-weight: 400;
-    font-size: 0.88em;
     color: #FFFFFF;
-    padding: 0;
 }
 
 .address {
-    width: 200px;
-    height: 99px;
-    padding-bottom: 5%;
+  width: 200px;
+  font-size: 1em;    
 }
 
 .adressh4 {
-    font-size: 1.13em;
+    font-size: 1.23em;
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 700;
@@ -60,14 +57,14 @@
 .p3 {
     font-style: normal;
     font-weight: 400;
-    font-size: 0.88em;
     line-height: 18px;
     color: #FFFFFF;
+    font-size: 1.1em;
 }
 
 .contact {
     width: 200px;
-    /* height: 99px; */
+    font-size: 1.1em;
 }
 
 .phone {
@@ -95,18 +92,18 @@
 
 .follow {
     width: 200px;
-    /* height: 90px; */
+    margin-bottom: 1rem;
+    font-size: 1.23em;
 }
 
 .socialIcon {
     display: flex;
     justify-content: space-between;
     gap: 0.1rem;
+    font-size: .8em;
 }
 
-/* .icon {
-    flex-basis: calc(33.33% - 1em); 
-} */
+
 .followUs {
     font-size: 1.13em;
     font-family: 'Outfit';
@@ -121,8 +118,6 @@
 .copyRight {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
     font-family: 'Outfit';
     font-style: normal;
     font-weight: 500;

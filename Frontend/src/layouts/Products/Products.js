@@ -3,6 +3,7 @@ import style from "../../components/Product/Product.module.css";
 import { fetchProducts } from "../../db/productsData";
 import Product from "../../components/Product/Product";
 import Error from "../Error/Error";
+import ProductsLoading from "../productsLoading.js/ProductsLoading";
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
@@ -40,7 +41,7 @@ const Products = (props) => {
         {isError.state ? (
           <Error message={isError.message} />
         ) : isLoading ? (
-          <p>Loading.....</p>
+          <ProductsLoading />
         ) : (
           products.map((product, i) => (
             <Product

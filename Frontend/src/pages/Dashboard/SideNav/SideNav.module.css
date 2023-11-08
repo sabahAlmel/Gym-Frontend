@@ -75,18 +75,22 @@
 .sideBarSubItem {
   text-decoration: none;
   color: white;
+  /* font-size: 16px; */
 }
-.activeSideItem {
-  color: var(--red-text-clr);
-}
+
 .navItemsWrapper {
   display: flex;
   flex-direction: column;
 }
+
 .ContentManagementItemsWrapper {
   overflow: hidden;
   transition: height 0.3s ease;
 }
-.sideBarItem:active {
-  color: var(--red-text-clr);
+
+.activeSideItem{
+  color: red;
+  text-decoration: none;
+  font-weight: 500;
+
 }

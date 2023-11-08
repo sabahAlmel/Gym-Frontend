@@ -15,7 +15,6 @@
   width: 90%;
   margin: auto;
   display: flex;
-  /* justify-content: space-between; */
   gap: 30px;
   color: var(--main-text-clr);
   font-family: "Outfit", sans-serif;
@@ -82,7 +81,6 @@
   padding: 10px;
   font-size: 1.8em;
   border-right: 3px solid rgba(185, 185, 185, 0.541);
-  background-color: #0e0e0e;
   color: var(--red-text-clr);
 }
 .backButton {

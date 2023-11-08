@@ -6,26 +6,21 @@
         background-color: var(--main-bg-clr);
         color: var(--main-text-clr);
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         gap: 5rem;
-        
     }
 
     .gymPlan {
         display: flex;
-        justify-content: space-around;
-        width: 100%;
+        width: 84%;
+        justify-content: space-between;
         height: 90%;
     }
 
     .gymPlansDescription {
         /* width: 17%; */
         height: 90%;
-    }
-
-    .gymPlanDescriptionTitle {
-        text-align: center;
-        width: 10%;
     }
 
     .gymPlanCard {
@@ -38,7 +33,12 @@
         height: 370px;
         border-radius: 12px;
         padding: 1.5rem 2rem;
+
     }
+    .gymPlanCard:nth-child(1){
+        flex: 1;
+    }
+    
 
     .gymPlanType {
         color: #F20505;
@@ -122,8 +122,8 @@
 
 @media screen and (max-width: 1260px) {
 
-    .gymPlanCard{
-        width: 250px;
+    .gymPlan{
+        width: 100%;
     }
     .gymPlans{
         flex-direction: column;
@@ -132,6 +132,14 @@
     .gymPlanDescriptionTitle{
         width: 100%;
         text-align: left;
+    }
+}
+@media screen and (max-width: 1100px){
+    .descriptionText{
+        font-size: 10px;
+    }
+    .gymPlanCard{
+        width: 280px;
     }
 }
 @media (max-width: 920px) {

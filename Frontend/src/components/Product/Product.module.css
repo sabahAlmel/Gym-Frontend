@@ -22,6 +22,9 @@
   border-radius: 15px;
   min-width: 250px;
 }
+.productCard:hover .productImage{
+  width: 100%;
+}
 
 .productBackground {
   background-color: #f0f0f0;
@@ -35,6 +38,8 @@
 .productImage {
   width: 70%;
   object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: all .3s ease-in-out;
 }
 
 .productDetails {
@@ -56,29 +61,41 @@
 
 .productPrice {
   font-size: 1em;
-  width: fit-content;
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  text-align: center;
+  color: white;
+}
+.productPrice:focus{
+  border: none;
+  outline: none;
+}
+
+.productPriceBorder{
+  padding: 5px;
+  display: flex;
+  width: 50px;
+  align-items: center;
   border: 1px solid white;
   border-radius: 5px;
-  text-align: center;
-  padding: 5px;
-  width: 35px;
-  background-color: transparent;
-  color: white;
+
 }
 .productPriceCat {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
-  width: 100%;
+  gap: 2rem;
+  width: 90%;
 }
 .productCat {
-  width: fit-content;
+  width: 128px;
   font-size: 16px;
   background-color: transparent;
   outline: none;
   border: none;
   color: white;
+  text-align: right;
 }
 
 
@@ -100,11 +117,19 @@
   text-align: center;
   padding: 5px;
   padding-top: 6px;
+  transition: background-color .2s ease-in;
+}
+.productButton:hover{
+  background-color: rgb(129, 9, 9)
 }
 .productButton:nth-child(1) {
   flex-basis: 50%;
   background-color: white;
   color: black;
+}
+.productButton:nth-child(1):hover{
+  background-color: rgb(155, 155, 155);
+
 }
 
 .productButton:nth-child(2) {

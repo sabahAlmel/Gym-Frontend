@@ -31,7 +31,7 @@ const GymPlans = () => {
 
   return (
     <div className={style.gymPlans}>
-          <h2 className={style.gymPlanDescriptionTitle}>Our Membership Tiers</h2>
+          <h2 className={style.gymPlanDescriptionTitle}>Membership Tiers</h2>
       <div className={style.gymPlan}>
         <div className={style.gymPlansDescription}>
         </div>
