@@ -70,7 +70,6 @@ const FormContactUs = () => {
           <div className={styles["form-group"]}>
             <div className={styles["inline-input-group"]}>
               <div className={styles["label-input-group"]}>
-                <label htmlFor="First_Name">First Name</label>
                 <input
                   className={styles.formInputs}
                   type="text"
@@ -82,7 +81,6 @@ const FormContactUs = () => {
                 />
               </div>
               <div className={styles["label-input-group"]}>
-                <label htmlFor="Last_Name">Last Name</label>
                 <input
                   className={styles.formInputs}
                   type="text"
@@ -98,7 +96,6 @@ const FormContactUs = () => {
           <div className={styles["form-group"]}>
             <div className={styles["inline-input-group"]}>
               <div className={styles["label-input-group"]}>
-                <label htmlFor="Email">Email</label>
                 <input
                   className={styles.formInputs}
                   type="email"
@@ -110,7 +107,6 @@ const FormContactUs = () => {
                 />
               </div>
               <div className={styles["label-input-group"]}>
-                <label htmlFor="Phone_number">Phone Number</label>
                 <input
                   className={styles.formInputs}
                   type="text"
@@ -125,7 +121,6 @@ const FormContactUs = () => {
           </div>
           <div className={styles["form-group"]}>
             <div className={styles["label-input-group"]}>
-              <label htmlFor="Message">Message</label>
               <textarea
                 className={styles.formInputs}
                 id="Message"

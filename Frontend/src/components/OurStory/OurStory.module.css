@@ -28,7 +28,6 @@
 
 .seeMoreButton {
   background-color: var(--red-btn-clr);
-  color: var(--black-text-clr);
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;

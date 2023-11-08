@@ -9,20 +9,18 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 260px;
     background-color: #610000;
-
 }
 
 .footerContainer {
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width: 90%;
     margin: auto;
     align-items: center;
     gap: 1rem;
     background-color: #610000;
+    height: 200px;
 }
 
 .Logo{
@@ -129,7 +127,7 @@
 }
 
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 850px) {
 
 
     .footerContainer {
@@ -137,12 +135,8 @@
         flex-direction: column;
         align-items: center;
         gap: 3rem;
+        height: 100%;
     }
-
-
-
-
-
     .firstPara,
     .firstSpan {
         font-size: 14px;
