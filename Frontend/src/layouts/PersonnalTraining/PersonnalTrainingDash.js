@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import style from "./PersonnalTraining.module.css";
+import style from "./PersonnalTrainingDash.module.css";
 import axios from 'axios'
 import { fetchTraining } from "../../db/trainingData";
 
