@@ -1,139 +1,34 @@
-.personalTrainingContainer {
+.personalTrainingContainer{
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    align-items: center;
+    align-items:center;
     width: 100%;
 }
-
-.personalTrainingFlex {
-    width: 100%;
+.personalTrainingFlex{
+    width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
-}
+    gap: 3rem;
 
-.personalTrainingHeader {
+}
+.personalTrainingHeader{
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-bottom: 1rem;
 }
-
-.personalTrainingHeader>h2 {
+.personalTrainingHeader > h2{
     font-size: 2em;
 }
-
-.personalTrainingHeader>p {
-    align-self: center;
-    font-size: 24px;
+.personalTrainingHeader > p{
+align-self:center ;
+font-size: 24px;
 }
-
-.personnalTrainingTable {
-    width: 80%;
-    margin: 0 auto;
-    height: auto;
-    text-align: center;
+@media (max-width:1100px) {
+    .personalTrainingFlex{
+        width: 100%;
+    }
+    
 }
-
-.tableHeader {
-    background-color: black;
-}
-
-.tableHeaderItem {
-    font-weight: bold;
-    font-size: 1.2rem;
-    padding: 0.5rem;
-}
-
-.tableContent {
-    background-color: lightgray;
-    color: black;
-}
-
-.buttonSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.2rem;
-}
-
-.addItem {
-    width: 80%;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.buttonAdd {
-    width: 100px;
-    background-color: blue;
-}
-
-.buttonEdit {
-    background-color: green;
-    width: 45%;
-}
-
-.buttonDelete {
-    background-color: red;
-    width: 55%;
-}
-
-.buttonEdit, .buttonDelete, .buttonAdd {
-    padding: 0.7rem;
-    font-weight: bold;
-    border-radius: 15%;
-}
-
-table tbody tr td {
-    padding: 0.6rem;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
-.formcontainer{
-    margin: 0 auto;
-    width: 100%;
-  }
-  
-  .editForm {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.1rem;
-  }
-  
-  .inputField {
-    width: 100%;
-    height: 2.5rem;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  .fileInput {
-    width: auto;
-    height: 2rem;
-  }
-  .button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .add {
-    background-color: #4caf50;
-    color: white;
-    margin-right: 10px;
-  }
-  
-  .add:hover {
-    background-color: #45a049;
-  }

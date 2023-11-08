@@ -1,0 +1,78 @@
+:root {
+  --placeholder-color: #727272;
+  --placeholder-border: 15px;
+}
+.placeholderCard {
+  flex-basis: 15%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #222222;
+  height: 470px;
+  border-radius: 15px;
+  min-width: 250px;
+  border-radius: 30px;
+}
+.placeholderBg {
+  background-color: var(--placeholder-color);
+  height: 290px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-radius: 15px 15px 0 0;
+}
+.imagePlaceHolder {
+  border-radius: 30px;
+  width: 100%;
+  background-color: var(--placeholder-color);
+}
+.placeholderDetails {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 15px 20px;
+}
+.PriceCatPlaceHolder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+  width: 100%;
+}
+.pricePlaceHolder {
+  font-size: 1em;
+  background-color: var(--placeholder-color);
+  border: none;
+  width: 50px;
+  height: 30px;
+  text-align: center;
+}
+.catPlaceHolder {
+  background-color: var(--placeholder-color);
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  color: white;
+}
+.pricePlaceHolder,
+.catPlaceHolder {
+  border-radius: var(--placeholder-border);
+  animation-duration: 10s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeHolderShimmer;
+  animation-timing-function: linear;
+  background: linear-gradient(to right, var(--placeholder-color) 8%, white 38%, var(--placeholder-color) 54%);
+  background-size:90%;
+  position: relative;
+}
+@keyframes placeHolderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}

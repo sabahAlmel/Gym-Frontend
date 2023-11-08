@@ -78,6 +78,7 @@
 }
 .activeSideItem {
   color: var(--red-text-clr);
+  background-color: #fff;
 }
 .navItemsWrapper {
   display: flex;
