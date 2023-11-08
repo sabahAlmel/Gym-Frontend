@@ -7,12 +7,11 @@
 }
 
 .personalTrainingFlex {
-    width: 900px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 3rem;
-
+    margin: 0 auto;
 }
 
 .personalTrainingHeader {
@@ -74,16 +73,16 @@
 
 .buttonEdit {
     background-color: green;
-    width: 30%;
+    width: 45%;
 }
 
 .buttonDelete {
     background-color: red;
-    width: 40%;
+    width: 55%;
 }
 
 .buttonEdit, .buttonDelete, .buttonAdd {
-    padding: 0.5rem;
+    padding: 0.7rem;
     font-weight: bold;
     border-radius: 15%;
 }
@@ -94,9 +93,47 @@ table tbody tr td {
     font-size: 1.1rem;
 }
 
-@media (max-width:1100px) {
-    .personalTrainingFlex {
-        width: 100%;
-    }
-
-}
+.formcontainer{
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .editForm {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  
+  .inputField {
+    width: 100%;
+    height: 2.5rem;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .fileInput {
+    width: auto;
+    height: 2rem;
+  }
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add {
+    background-color: #4caf50;
+    color: white;
+    margin-right: 10px;
+  }
+  
+  .add:hover {
+    background-color: #45a049;
+  }

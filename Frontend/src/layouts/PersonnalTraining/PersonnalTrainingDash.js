@@ -124,16 +124,6 @@ const PersonnalTrainingDash = () => {
             </tr>
           </thead>
           <tbody className={style.tableContent}>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>lorem</td>
-              <td>1</td>
-              <td className={style.buttonSection}>
-                <button className={style.buttonEdit}>Edit</button>
-                <button className={style.buttonDelete}>Delete</button>
-              </td>
-            </tr>
             {
               items.map((item, i) => (
                 <tr key={i}>
@@ -142,51 +132,59 @@ const PersonnalTrainingDash = () => {
                   <td>{item.description}</td>
                   <td>{item.image}</td>
                   <td className={style.buttonSection}>
-                    <button className={style.buttonEdit} onClick={ () => handleEdit(item) }>Edit</button>
-                    <button className={style.buttonDelete} onClick={ () => handleDelete(item._id) }>Delete</button>
+                    <button className={style.buttonEdit} onClick={() => handleEdit(item)}>Edit</button>
+                    <button className={style.buttonDelete} onClick={() => handleDelete(item._id)}>Delete</button>
                   </td>
                 </tr>
               ))}
           </tbody>
         </table>
         {selectedItemId ? (
-        <div className={style.editForm}>
-          <input
-            type="text"
-            placeholder="New Name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="New Description"
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-          />
-          <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} />
-          <button className={`${style.button} ${style.add}`} onClick={handleUpdate}>Update</button>
-          <button className={`${style.button} ${style.add}`} onClick={resetFormFields}>Cancel</button>
-        </div>
-      ) : (
-        <div className={style.editForm}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-          />
-          <input
-            type="file"
-            onChange={(e) => setNewImageFile(e.target.files[0])} />
-          <button className={`${style.button} ${style.add}`} onClick={handleCreate}>Add</button>
-        </div>
-      )}
+          <form className={style.formContainer}>
+            <div className={style.editForm}>
+              <input
+                type="text"
+                placeholder="New Name"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                className={style.inputField}
+              />
+              <input
+                type="text"
+                placeholder="New Description"
+                value={newDescription}
+                onChange={(e) => setNewDescription(e.target.value)}
+                className={style.inputField}
+              />
+              <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} className={style.fileInput} />
+              <button className={`${style.button} ${style.add}`} onClick={handleUpdate}>Update</button>
+              <button className={`${style.button} ${style.add}`} onClick={resetFormFields}>Cancel</button>
+            </div>
+          </form>
+        ) : (
+          <form className={style.formContainer}>
+            <div className={style.editForm}>
+              <input
+                type="text"
+                placeholder="Name"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                className={style.inputField}
+              />
+              <input
+                type="text"
+                placeholder="Description"
+                value={newDescription}
+                onChange={(e) => setNewDescription(e.target.value)}
+                className={style.inputField}
+              />
+              <input
+                type="file"
+                onChange={(e) => setNewImageFile(e.target.files[0])} className={style.fileInput} />
+              <button className={`${style.button} ${style.add}`} onClick={handleCreate}>Add</button>
+            </div>
+          </form>
+        )}
       </section>
     </section>
   );
