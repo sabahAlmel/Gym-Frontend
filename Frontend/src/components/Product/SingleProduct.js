@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./SingleProduct.module.css";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import { getProductByCategory } from "../../db/productsData";
 import SimilarProduct from "./SimilarProduct/SimilarProduct";
 import Header from "../NavBar/Header";
@@ -9,18 +9,12 @@ const SingleProduct = () => {
   const location = useLocation();
   const { data, imageSrc, category, categoryId } = location.state;
   const { name, price, description, id } = data;
-  console.log(id);
-
-  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
-  // const [isCatFetched, setIsCatFetched] = useState(false)
 
   async function fetchProdByCategoty() {
     try {
       const data = await getProductByCategory(categoryId);
       setProducts(data.data);
-      console.log(data.data);
-      // console.log('products');
     } catch (error) {
       console.log(error);
     }

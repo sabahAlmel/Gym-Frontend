@@ -22,6 +22,9 @@
   border-radius: 15px;
   min-width: 250px;
 }
+.productCard:hover .productImage{
+  width: 100%;
+}
 
 .productBackground {
   background-color: #f0f0f0;
@@ -35,6 +38,8 @@
 .productImage {
   width: 70%;
   object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: all .3s ease-in-out;
 }
 
 .productDetails {
@@ -80,16 +85,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 3rem;
-  width: 100%;
+  gap: 2rem;
+  width: 90%;
 }
 .productCat {
-  width: fit-content;
+  width: 128px;
   font-size: 16px;
   background-color: transparent;
   outline: none;
   border: none;
   color: white;
+  text-align: right;
 }
 
 
