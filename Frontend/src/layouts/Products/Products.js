@@ -2,18 +2,25 @@ import React, { useEffect, useState } from "react";
 import style from "../../components/Product/Product.module.css";
 import { fetchProducts } from "../../db/productsData";
 import Product from "../../components/Product/Product";
-
+import Error from "../Error/Error";
 
 const Products = (props) => {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState({ state: false, message: "ok" });
+  const error = {
+    500: "Internal server Error",
+    400: "Bad request",
+    404: "Not Found !",
+  };
   async function fetchData() {
     try {
-      const data = await fetchProducts();
-      if (data) {
-        setProducts(data.data);
+      const response = await fetchProducts();
+      if (response) {
+        setProducts(response.data);
         setIsLoading(false);
-      } else {
+      }else{
+        setIsError({state: true, message: 'Network Error'})
       }
     } catch (error) {
       console.log(error);
@@ -26,9 +33,13 @@ const Products = (props) => {
 
   return (
     <div className={style.productsSection}>
-      <h2 id="products" className={style.productsTitle}>Products</h2>
+      <h2 id="products" className={style.productsTitle}>
+        Products
+      </h2>
       <div className={style.product}>
-        {isLoading ? (
+        {isError.state ? (
+          <Error message={isError.message} />
+        ) : isLoading ? (
           <p>Loading.....</p>
         ) : (
           products.map((product, i) => (

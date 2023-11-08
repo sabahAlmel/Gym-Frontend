@@ -9,7 +9,6 @@ function Service(props) {
         <section className={style.serviceImage} style={{backgroundImage : `url(${image})`}}>
           <section className={`${style.serviceItem} ${style.learnMore}`}>
             <span>{name}</span>
-            {/* <button>{name === 'Gym Products' ? "Explore" : "Learn More"}</button> */}
             <Link to={`services/#${path}`} preventScrollReset={false}>{name === 'Gym Products' ? "Explore" : "Learn More"}</Link>
 
           </section>

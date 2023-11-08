@@ -28,7 +28,7 @@ const SingleProduct = () => {
   useEffect(() => {
     fetchProdByCategoty();
   }, []);
-  // const filteredProducts = products.filter((item) => item._id !== id);
+  const filteredProducts = products.filter((item) => item._id !== id);
 
   return (
     <main className={style.singleProductPageContainer}>
@@ -60,7 +60,7 @@ const SingleProduct = () => {
               <section className={style.similarProducts}>
 
               {products.length > 0
-                ? products.map((item) => (
+                ? filteredProducts.map((item) => (
                     <SimilarProduct
                     price={item.prodPrice}
                     description={item.prodDescription}

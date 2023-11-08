@@ -36,6 +36,7 @@ export async function deleteProductById(productId) {
     }
   } catch (error) {
     console.log(error);
+    return error.message
   }
 }
 export async function addProduct(productData) {
