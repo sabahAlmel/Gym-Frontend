@@ -12,3 +12,23 @@ export async function fetchRegime() {
     console.log(error);
   }
 }
+
+
+
+export async function addRegimeplan(RegimeData) {
+  console.log(RegimeData)
+  try {
+    const response = await axios.post(`${process.env.REACT_APP_PATH}regime/add`,{    
+      ...RegimeData
+    },
+    {
+      headers: { "Content-Type": "multipart/form-data" },
+    }
+  );
+  if (response.status === 200) {
+    return response.status;
+  }
+} catch (error) {
+  console.log(error);
+}
+}

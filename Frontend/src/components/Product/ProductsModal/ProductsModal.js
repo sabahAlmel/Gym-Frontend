@@ -1,6 +1,5 @@
 import { useState } from "react";
 import style from "./ProductsModal.module.css";
-import { useOutlet, useOutletContext } from "react-router-dom";
 import { addProduct } from "../../../db/productsData";
 import { toast } from "react-hot-toast";
 
