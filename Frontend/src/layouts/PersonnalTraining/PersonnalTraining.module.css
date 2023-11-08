@@ -1,11 +1,12 @@
-.personalTrainingContainer{
+.personalTrainingContainer {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-    align-items:center;
+    align-items: center;
     width: 100%;
 }
-.personalTrainingFlex{
+
+.personalTrainingFlex {
     width: 900px;
     display: flex;
     flex-direction: column;
@@ -13,22 +14,89 @@
     gap: 3rem;
 
 }
-.personalTrainingHeader{
+
+.personalTrainingHeader {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-bottom: 1rem;
 }
-.personalTrainingHeader > h2{
+
+.personalTrainingHeader>h2 {
     font-size: 2em;
 }
-.personalTrainingHeader > p{
-align-self:center ;
-font-size: 24px;
+
+.personalTrainingHeader>p {
+    align-self: center;
+    font-size: 24px;
 }
+
+.personnalTrainingTable {
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    text-align: center;
+}
+
+.tableHeader {
+    background-color: black;
+}
+
+.tableHeaderItem {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 0.5rem;
+}
+
+.tableContent {
+    background-color: lightgray;
+    color: black;
+}
+
+.buttonSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
+}
+
+.addItem {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttonAdd {
+    width: 100px;
+    background-color: blue;
+}
+
+.buttonEdit {
+    background-color: green;
+    width: 30%;
+}
+
+.buttonDelete {
+    background-color: red;
+    width: 40%;
+}
+
+.buttonEdit, .buttonDelete, .buttonAdd {
+    padding: 0.5rem;
+    font-weight: bold;
+    border-radius: 15%;
+}
+
+table tbody tr td {
+    padding: 0.6rem;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
 @media (max-width:1100px) {
-    .personalTrainingFlex{
+    .personalTrainingFlex {
         width: 100%;
     }
-    
+
 }
