@@ -9,7 +9,7 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 import NotFound from "./pages/Not Found/NotFound";
 import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
-import PersonnalTraining from "./layouts/PersonnalTraining/PersonnalTraining";
+import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTrainingDash";
 import Regimedash from './layouts/regimedash/regimedash'
 import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
 
@@ -30,7 +30,7 @@ function App() {
             path="dashServices"
             element={
               <>
-                <PersonnalTraining isOnDashboard /><Regimedash isOnDashboard/>
+                <PersonnalTrainingDash isOnDashboard /><Regimedash isOnDashboard/>
               </>
             }
           />

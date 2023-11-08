@@ -12,7 +12,7 @@ function Footer() {
     <footer className={FooterCss.footer}>
       <div className={FooterCss.footerContainer}>
         <div className={FooterCss.logo}>
-          <img src={logo} alt="/" />
+          <img  className={FooterCss.Logo}  src={logo} alt="/" />
         </div>
         <div className={FooterCss.description}>
           <p className={FooterCss.secondPara}>

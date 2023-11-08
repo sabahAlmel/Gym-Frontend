@@ -24,6 +24,10 @@
     background-color: #610000;
 }
 
+.Logo{
+    width: 170px;
+    margin-top: 2rem;
+}
 .description {
     width: 200px;
     /* height: 68px; */

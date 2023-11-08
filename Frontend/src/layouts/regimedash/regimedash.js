@@ -19,6 +19,7 @@ function Regimedash() {
     setSelectedItemId(null);
   };
 
+  // update regime plan 
   const handleEdit = (item) => {
     setSelectedItemId(item._id);
     setNewName(item.name);
@@ -67,6 +68,7 @@ function Regimedash() {
       console.error("No selected item to update");
     }
   };
+  //   remove data 
 
   const handleDelete = async (id) => {
     try {
@@ -84,6 +86,7 @@ function Regimedash() {
       console.error(error);
     }
   };
+  // post data 
   const handleAdd = async () => {
     const formData = new FormData();
     formData.append("name", newName);
@@ -116,7 +119,7 @@ function Regimedash() {
       console.error("Error adding regime plan:", error);
     }
   };
-
+// fetch data
   useEffect(() => {
     async function fetchData() {
       try {
@@ -135,17 +138,17 @@ function Regimedash() {
   return (
     <div className={styles.regimeDashWrapper}>
       <div className={styles.allItems}>
-        <table >
-          <thead  className={styles.tableHeaderItem}>
+        <table className={styles.regimTable} >
+          <thead  className={styles.tableHeader}>
             <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th >Description</th>
-              <th >Image</th>
-              <th >Actions</th>
+              <th className={styles.tableHeaderItem }>ID</th>
+              <th className={styles.tableHeaderItem }>Name</th>
+              <th  className={styles.tableHeaderItem }>Description</th>
+              <th  className={styles.tableHeaderItem }>Image</th>
+              <th  className={styles.tableHeaderItem }>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody  className={styles.tableContent}>
             {items.map((item) => (
               <tr key={item._id}>
                 <td  className={styles.tableContent}>{item._id}</td>
@@ -153,12 +156,12 @@ function Regimedash() {
                 <td className={styles.tableContent}>{item.description}</td>
                 <td className={styles.tableContent}>
                   <img src={item.image} alt={item.name}  />
-                </td>
-                <td  className={styles.buttonContainer}>
-                  <button className={`${styles.button} ${styles.buttonedit}`} onClick={() => handleEdit(item)}>
+                </td >
+                <td  className={styles.buttonSection }>
+                  <button className={`${styles.button} ${styles.buttonEdit}`} onClick={() => handleEdit(item)}>
                     <TiPencil />
                   </button>
-                  <button className={`${styles.button} ${styles.buttondelete}`} onClick={() => handleDelete(item._id)}>
+                  <button className={`${styles.button} ${styles.buttonDelete}`} onClick={() => handleDelete(item._id)}>
                     <TiDelete />
                   </button>
                 </td>
@@ -168,46 +171,58 @@ function Regimedash() {
         </table>
       </div>
 
+      {/* show update form */}
 
-      {selectedItemId ? ( // If selectedItemId is truthy, show update form
-        <div className={styles.editForm}>
+      {selectedItemId ? ( 
+        <div  className={styles.formcontainer}>
+        <form className={styles.editForm}>
           <input
             type="text"
             placeholder="New Name"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
+            className={styles.inputField}
+
           />
           <input
             type="text"
             placeholder="New Description"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
+            className={styles.inputField}
+
           />
-          {/* Include input for updating image if applicable */}
-          <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} />
+          <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])}    className={styles.fileInput}
+   />
           <button className={`${styles.button} ${styles.add}`} onClick={handleUpdate}>Update</button>
           <button className={`${styles.button} ${styles.add}`} onClick={resetFormFields}>Cancel</button>
+        </form>
         </div>
       ) : (
-        // If selectedItemId is falsy, show add form
-        <div className={styles.editForm}>
+        // show add form
+        <div className={styles.formcontainer}>
+        <form className={styles.editForm}>
           <input
             type="text"
             placeholder="Name"
             value={newName}
             onChange={(e) => setNewName(e.target.value)}
+            className={styles.inputField}
           />
           <input
             type="text"
             placeholder="Description"
             value={newDescription}
             onChange={(e) => setNewDescription(e.target.value)}
+            className={styles.inputField}
+
           />
-          {/* Include input for adding image if applicable */}
           <input
             type="file"
-            onChange={(e) => setNewImageFile(e.target.files[0])} />
+            onChange={(e) => setNewImageFile(e.target.files[0])}   className={styles.fileInput}
+            />
           <button className={`${styles.button} ${styles.add}`} onClick={handleAdd}>Add</button>
+        </form>
         </div>
       )}
     </div>
