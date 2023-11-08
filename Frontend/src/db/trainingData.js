@@ -37,7 +37,7 @@ export const editData = async (id, updateData) => {
 
 export const deleteData = async (id) => {
   try {
-    const data = await axios.post(`${process.env.REACT_APP_PATH}training/delete/${i}`)
+    const data = await axios.post(`${process.env.REACT_APP_PATH}training/delete/${id}`)
     if (data)
       return data
   }

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import style from "./PersonnalTraining.module.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import PersonalTraining from "../../components/PersonalTraining/PersonalTraining";
 import { fetchTraining } from "../../db/trainingData";
 
 const PersonnalTrainingDash = () => {
@@ -24,8 +24,7 @@ const PersonnalTrainingDash = () => {
     try {
       const data = await fetchTraining()
       if (data) {
-        setPersonnalTrainings(data.data.data)
-        console.log(data.data.data)
+        setPersonnalTrainings(data.data)
         setIsLoading(false)
       }
     }
@@ -39,32 +38,39 @@ const PersonnalTrainingDash = () => {
   }, [])
 
   return (
-    <section className='container'>
+    <section className={style.personnalTrainingContainer}>
       <section className={style.personalTrainingHeader}>
         <h2>Personal Trainings</h2>
       </section>
       <section className={style.personalTrainingFlex}>
-        <table className="table table-light text-center">
-          <thead className="table-dark">
+        <div className={style.addItem}>
+          <button className={style.buttonAdd}>+Add</button>
+        </div>
+        <table className={style.personnalTrainingTable}>
+          <thead className={style.tableHeader}>
             <tr>
-              <th className="fw-bold">No.</th>
-              <th className="fw-bold">Name</th>
-              <th className="fw-bold">Description</th>
-              <th className="fw-bold">Image</th>
-              <th className="fw-bold">Operations</th>
+              <th className={style.tableHeaderItem}>ID</th>
+              <th className={style.tableHeaderItem}>Name</th>
+              <th className={style.tableHeaderItem}>Description</th>
+              <th className={style.tableHeaderItem}>Image</th>
+              <th className={style.tableHeaderItem}>Operations</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className={style.tableContent}>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>lorem</td>
+              <td>1</td>
+              <td className={style.buttonSection}>
+                <button className={style.buttonEdit}>Edit</button>
+                <button className={style.buttonDelete}>Delete</button>
+              </td>
+            </tr>
             {
               personnalTrainings.map((item, i) => (
-                //   <PersonalTraining
-                //     key={i}
-                //     name={item.name}
-                //     description={item.description}
-                //     image={item.image}
-                //   />
-                <tr key={item._id}>
-                  <td>{i + 1}</td>
+                <tr key={i}>
+                  <td>{item._id}</td>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{item.image}</td>
@@ -73,10 +79,14 @@ const PersonnalTrainingDash = () => {
                     <button className="btn btn-danger">Delete</button>
                   </td>
                 </tr>
-
               ))}
           </tbody>
         </table>
+        <div disabled>
+          <label for='trainingName'>Name: <input type='text' name='trainingName' id='trainingName' /></label>
+          <label for='trainingName'>Description: <input type='text' name='trainingName' id='trainingName' /></label>
+          <label for='trainingName'>image: <input type='file' name='trainingName' id='trainingName' /></label>
+        </div>
       </section>
     </section>
   );

@@ -11,7 +11,7 @@ import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
 import Products from "./layouts/Products/Products";
 import Regimeplansection from "./layouts/regimeplan/regimeplan";
-import PersonnalTraining from "./layouts/PersonnalTraining/PersonnalTraining";
+import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTrainingDash";
 import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
 
 function App() {
