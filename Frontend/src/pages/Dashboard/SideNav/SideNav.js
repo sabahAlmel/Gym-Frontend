@@ -42,16 +42,17 @@ export default function SideNav() {
             >
               <NavLink
                 to="dashServices"
-                className={`${style.sideBarItem} ${style.sideBarSubItem}`}
-                activeClassname={style.activeSideBar}
+                className={({isActive}) => isActive ?  `${style.activeSideItem} ${style.sideBarItem}`:  `${style.sideBarItem} ${style.sideBarSubItem}`}
+                // activeclassname={style.activeLink}
               >
                 Services
               </NavLink>
 
               <NavLink
                 to="dashProducts"
-                className={`${style.sideBarItem} ${style.sideBarSubItem}`}
-                activeClassname={style.activeSideItem}
+                className={({isActive}) => isActive ?  `${style.activeSideItem} ${style.sideBarItem}`:  `${style.sideBarItem} ${style.sideBarSubItem}`}
+
+                activeclassname={style.activeSideItem}
               >
                 Products
               </NavLink>
