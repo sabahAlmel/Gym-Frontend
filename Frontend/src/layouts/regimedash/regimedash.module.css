@@ -1,89 +1,130 @@
-
-.regimeDashWrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-
-/* th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: left;
-  color: white;
-} */
-
-/* th {
-  background-color: #333;
-  font-weight: bold;
-} */
-
-.image {
-  width: 100px;
-  height: auto;
-}
-
-.buttonContainer {
+.regimeDashWrapper{
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
 }
 
-.editForm {
-  margin-top: 20px;
+
+
+.regimTable {
+  width: 80%;
+  margin: 0 auto;
+  height: auto;
+  text-align: center;
 }
-
-
-button {
-  cursor: pointer;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.buttonedit {
-  background-color: #4caf50;
-  color: white;
-}
-
-.buttondelete {
-  background-color: #f44336;
-  color: white;
-}
-
-button.add {
-  background-color: #2196f3;
-  color: white;
-}
-
-/* Add more styles as needed */
- button.delete ,.add,.edit{
-  margin-right: 0.5rem;
-}  
-
 
 .tableHeader {
   background-color: black;
 }
+.addButton {
+  width:90%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: end;
+}
+.addButto {
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+.addButto:hover{
+  background-color:gray;
+  font-weight: bolder;
+}
 
+.tableHeaderItem {
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+}
 
 .tableContent {
   background-color: lightgray;
   color: black;
 }
 
+.buttonSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+}
 
+.buttonEdit {
+  background-color: green;
+}
+.buttonEdit:hover {
+  background-color:  rgb(29, 103, 29);
+}
 
+.buttonDelete {
+  background-color: red;
+}
+.buttonDelete:hover {
+  background-color: darkred;
+}
+
+.buttonEdit, .buttonDelete {
+  padding: 0.5rem;
+  font-weight: bold;
+  border-radius: 15%;
+  width: 50%;
+}
 
 table tbody tr td {
   padding: 0.6rem;
   font-weight: 500;
   font-size: 1.1rem;
 }
+
+/* styles.module.css */
+
+.formcontainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.editForm {
+  margin-bottom: 20px;
+    width: 50%;
+  
+}
+
+
+.inputField {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.fileInput {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add {
+  background-color: #4caf50;
+  color: white;
+  margin-right: 10px;
+}
+
+.add:hover {
+  background-color: #45a049;
+}
+
+/* Add more styles as needed */
