@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "./regimedash.module.css";
-import { TiPencil, TiDelete } from "react-icons/ti";
 import axios from "axios";
 import { fetchRegime } from "../../db/regimeData";
+import { RegimeModal } from '../../components/RegimePlanModal/RegimePlanModal'
 
 function Regimedash() {
   const [items, setItems] = useState([]);
@@ -11,6 +11,7 @@ function Regimedash() {
   const [newName, setNewName] = useState("");
   const [newDescription, setNewDescription] = useState("");
   const [newImageFile, setNewImageFile] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const resetFormFields = () => {
     setNewName("");
@@ -87,39 +88,11 @@ function Regimedash() {
     }
   };
   // post data 
-  const handleAdd = async () => {
-    const formData = new FormData();
-    formData.append("name", newName);
-    formData.append("description", newDescription);
-    if (newImageFile) {
-      formData.append("regimeImage", newImageFile);
-    }
-
-    try {
-      const response = await axios.post(`${process.env.REACT_APP_PATH}regime/add`, formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
-
-      if (response.data.message === "Regime Plan added successfully") {
-        // If add is successful, update the items state with the added data
-        setItems((prevItems) => [...prevItems, response.data.data]);
-        // Reset form fields after adding new item
-        setNewName("");
-        setNewDescription("");
-        setNewImageFile(null);
-        // You can also show a success message or perform other actions after successful add
-      } else {
-        // Handle the case when the backend API returns an error message
-        console.error(response.data.message);
-      }
-    } catch (error) {
-      // Handle errors if the POST request fails
-      console.error("Error adding regime plan:", error);
-    }
-  };
-// fetch data
+  const handleAdd = (e) => {
+    e.preventDefault()
+    setIsModalOpen(true)
+  }
+  // fetch data
   useEffect(() => {
     async function fetchData() {
       try {
@@ -137,33 +110,36 @@ function Regimedash() {
 
   return (
     <div className={styles.regimeDashWrapper}>
+      {isModalOpen ? <RegimeModal setIsModalOpen={setIsModalOpen} /> : ''}
+      <h2 className={styles.h2}>Regime Plan</h2>
       <div className={styles.allItems}>
         <table className={styles.regimTable} >
-          <thead  className={styles.tableHeader}>
+          <thead className={styles.tableHeader}>
             <tr>
-              <th className={styles.tableHeaderItem }>ID</th>
-              <th className={styles.tableHeaderItem }>Name</th>
-              <th  className={styles.tableHeaderItem }>Description</th>
-              <th  className={styles.tableHeaderItem }>Image</th>
-              <th  className={styles.tableHeaderItem }>Actions</th>
+              <th className={styles.tableHeaderItem}>ID</th>
+              <th className={styles.tableHeaderItem}>Name</th>
+              <th className={styles.tableHeaderItem}>Description</th>
+              <th className={styles.tableHeaderItem}>Image</th>
+              <th className={styles.tableHeaderItem}>Actions</th>
             </tr>
           </thead>
-          <tbody  className={styles.tableContent}>
+          <tbody className={styles.tableContent}>
             {items.map((item) => (
               <tr key={item._id}>
-                <td  className={styles.tableContent}>{item._id}</td>
+                <td className={styles.tableContent}>{item._id}</td>
                 <td className={styles.tableContent}>{item.name}</td>
                 <td className={styles.tableContent}>{item.description}</td>
                 <td className={styles.tableContent}>
-                  <img src={item.image} alt={item.name}  />
+                  <img src={item.image} alt={item.name} />
                 </td >
-                <td  className={styles.buttonSection }>
+                <td className={styles.buttonSection}>
                   <button className={`${styles.button} ${styles.buttonEdit}`} onClick={() => handleEdit(item)}>
-                    <TiPencil />
+                    Edit
                   </button>
                   <button className={`${styles.button} ${styles.buttonDelete}`} onClick={() => handleDelete(item._id)}>
-                    <TiDelete />
+                    Delete
                   </button>
+
                 </td>
               </tr>
             ))}
@@ -173,57 +149,57 @@ function Regimedash() {
 
       {/* show update form */}
 
-      {selectedItemId ? ( 
-        <div  className={styles.formcontainer}>
-        <form className={styles.editForm}>
-          <input
-            type="text"
-            placeholder="New Name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-            className={styles.inputField}
+      {selectedItemId ? (
+        <form className={styles.formcontainer}>
+          <div className={styles.editForm}>
+            <input
+              type="text"
+              placeholder="New Name"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              className={styles.inputField}
 
-          />
-          <input
-            type="text"
-            placeholder="New Description"
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-            className={styles.inputField}
+            />
+            <input
+              type="text"
+              placeholder="New Description"
+              value={newDescription}
+              onChange={(e) => setNewDescription(e.target.value)}
+              className={styles.inputField}
 
-          />
-          <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])}    className={styles.fileInput}
-   />
-          <button className={`${styles.button} ${styles.add}`} onClick={handleUpdate}>Update</button>
-          <button className={`${styles.button} ${styles.add}`} onClick={resetFormFields}>Cancel</button>
+            />
+            <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} className={styles.fileInput}
+            />
+            <button className={`${styles.button} ${styles.add}`} onClick={handleUpdate}>Update</button>
+            <button className={`${styles.button} ${styles.add}`} onClick={resetFormFields}>Cancel</button>
+          </div>
         </form>
-        </div>
       ) : (
         // show add form
-        <div className={styles.formcontainer}>
-        <form className={styles.editForm}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={newName}
-            onChange={(e) => setNewName(e.target.value)}
-            className={styles.inputField}
-          />
-          <input
-            type="text"
-            placeholder="Description"
-            value={newDescription}
-            onChange={(e) => setNewDescription(e.target.value)}
-            className={styles.inputField}
-
-          />
-          <input
-            type="file"
-            onChange={(e) => setNewImageFile(e.target.files[0])}   className={styles.fileInput}
+        <form className={styles.formcontainer}>
+          <div className={styles.editForm}>
+            <input
+              type="text"
+              placeholder="Name"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
+              className={styles.inputField}
             />
-          <button className={`${styles.button} ${styles.add}`} onClick={handleAdd}>Add</button>
+            <input
+              type="text"
+              placeholder="Description"
+              value={newDescription}
+              onChange={(e) => setNewDescription(e.target.value)}
+              className={styles.inputField}
+
+            />
+            <input
+              type="file"
+              onChange={(e) => setNewImageFile(e.target.files[0])} className={styles.fileInput}
+            />
+            <button className={`${styles.button} ${styles.add}`} onClick={handleAdd}>Add</button>
+          </div>
         </form>
-        </div>
       )}
     </div>
   );
