@@ -1,13 +1,15 @@
-.similarProductsWrapper {
-  position: relative;
-}
 .similarImageContainer {
   width: fit-content;
 }
 .similarImageContainer > img {
-  width: 100px;
+  width: 190px;
 }
-.similarProductsWrapper > p {
+.similarProductsWrapper{
+  width: fit-content;
+}
+.similarProductsWrapper >a {
+  display: block;
+  width: fit-content;
 }
 .boxContainer {
   user-select: none;

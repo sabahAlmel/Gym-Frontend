@@ -5,7 +5,12 @@ export default function SimilarProduct(props) {
 
   const { imageSrc, name, category, price, description, categoryId, id } = props;
   const image = `${process.env.REACT_APP_PATH}${imageSrc}`;
-  const splittedName = name.split(" ").splice(0, 1).join(" ");
+  let splittedName
+  if(name.split(' ').length > 3){
+     splittedName = `${name.split(" ").splice(0, 3).join(" ")}...`;
+  }else{
+    splittedName = name
+  }
   return (
     <div className={style.similarProductsWrapper}>
          <Link
@@ -26,7 +31,7 @@ export default function SimilarProduct(props) {
         <img src={image} alt="" />
       </figure>
           </Link>
-      <p>{splittedName}...</p>
+      <p>{splittedName}</p>
 
     </div>
   );

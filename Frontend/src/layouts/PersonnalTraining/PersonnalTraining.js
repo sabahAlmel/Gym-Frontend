@@ -28,7 +28,7 @@ export default function PersonnalTraining() {
   return (
     <section className={style.personalTrainingContainer}>
       <section className={style.personalTrainingHeader}>
-        <h2>Personal Trainings</h2>
+        <h2 id="training"> Personal Trainings</h2>
         <p>
           Transform your potential into power with our training services and
           redefine what your body is capable of.

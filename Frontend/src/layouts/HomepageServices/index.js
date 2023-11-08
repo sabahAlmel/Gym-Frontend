@@ -5,18 +5,22 @@ import personalTraining from "../../assets/images/HomepageImages/PersonalTrainin
 import regimePlans from "../../assets/images/HomepageImages/RegimePlans.png";
 
 function ServicesSection() {
-  const fakeServicesData = [
+  const ServicesData = [
     {
       name: "Gym Products",
       image: gymProducts,
+      path:'products'
     },
     {
       name: "Personal Training",
       image: personalTraining,
+      path:'training'
     },
     {
         name:'Regime Plans',
-        image: regimePlans
+        image: regimePlans,
+        path:'regimePlans'
+
     }
   ];
 
@@ -36,8 +40,8 @@ function ServicesSection() {
           </span>
         </section>
         <section className={style.basisFlexContainer}>
-          {fakeServicesData.map((item, key) => (
-            <Service key={key} name={item.name} image={item.image} />
+          {ServicesData.map((item, key) => (
+            <Service key={key} name={item.name} image={item.image} path={item.path} />
           ))}
         </section>
       </section>

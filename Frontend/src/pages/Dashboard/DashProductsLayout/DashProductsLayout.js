@@ -33,7 +33,7 @@ function DashProductsLayout(props) {
 
   return (
     <div className={style.productsSection}>
-      {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} /> : ''}
+      {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} fetchData={fetchData} /> : ''}
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
         <div className={style.addProductCard}  onClick={() => openModal()}>

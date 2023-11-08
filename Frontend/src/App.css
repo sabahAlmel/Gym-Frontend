@@ -76,6 +76,7 @@ button -- size: 1.25em for (Submit)
   box-sizing: border-box;
   font-family: "Outfit", sans-serif;
   font-weight: 200;
+  scroll-behavior: smooth;
 }
 body {
   background-color: var(--main-bg-clr);

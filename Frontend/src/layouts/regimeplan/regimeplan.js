@@ -25,11 +25,9 @@ const RegimePlan = (props) => {
   return (
     <section className={styles.RegimePlanContainer}>
       <section className={styles.RegimePlanHeader}>
-        <h2>
-          {" "}
-          {isOnDashboard
-            ? "Regime Plans"
-            : "Every Meals Counts: A Complete Body-Type Nutrition Guide!"}
+        <h2 id="regimePlans">
+          
+          Every Meals Counts: A Complete Body-Type Nutrition Guide!
         </h2>
       </section>
       <section className={styles.RegimeplanFlex}>

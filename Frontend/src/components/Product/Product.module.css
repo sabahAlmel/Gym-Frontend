@@ -58,6 +58,7 @@
   font-size: 1em;
   width: fit-content;
   border: 1px solid white;
+  border-radius: 5px;
   padding: 5px;
   width: 30px;
   background-color: transparent;
@@ -78,6 +79,7 @@
   border: none;
   color: white;
 }
+
 
 .buttonsWrapper {
   display: flex;
