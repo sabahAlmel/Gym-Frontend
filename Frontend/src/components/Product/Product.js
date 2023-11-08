@@ -52,8 +52,12 @@ const Product = (props) => {
     setEditing(false);
     setDataToUpdate(dataToUpdate);
     console.log(dataToUpdate);
+    if(Object.values(dataToUpdate).some(item=> item === '')){
+      return toast.error('All fields are required')
+    }
     try {
       await updateProduct(id, dataToUpdate);
+      toast.success('Saved changes')
     } catch (error) {
       console.log(error);
     }
@@ -91,6 +95,9 @@ const Product = (props) => {
             onChange={handleInputChange}
           />
           <span className={style.productPriceCat}>
+            <span className={style.productPriceBorder}>
+
+            $
             <input
               type="text"
               className={style.productPrice}
@@ -98,7 +105,8 @@ const Product = (props) => {
               name="prodPrice"
               value={dataToUpdate.prodPrice}
               onChange={handleInputChange}
-            />
+              />
+              </span>
 
             {!editing ? (
               <input
