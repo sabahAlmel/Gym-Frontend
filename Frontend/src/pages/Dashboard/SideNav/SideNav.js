@@ -38,12 +38,16 @@ export default function SideNav() {
 
             <ul
               className={style.ContentManagementItemsWrapper}
-              style={{ height: isSideItem ? "105px" : "0" }}
+              style={{ height: isSideItem ? "800px" : "0" }}
             >
               <NavLink
                 to="dashServices"
                 exact={true}
-                className={({isActive}) => isActive ?  `${style.activeSideItem} ${style.sideBarItem}`:  `${style.sideBarItem} ${style.sideBarSubItem}`}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
                 // activeclassname={style.activeLink}
               >
                 Services
@@ -51,11 +55,25 @@ export default function SideNav() {
 
               <NavLink
                 to="dashProducts"
-                className={({isActive}) => isActive ?  `${style.activeSideItem} ${style.sideBarItem}`:  `${style.sideBarItem} ${style.sideBarSubItem}`}
-
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
                 activeclassname={style.activeSideItem}
               >
                 Products
+              </NavLink>
+              <NavLink
+                to="dashGymPlans"
+                exact={true}
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
+              >
+                Gym Plans
               </NavLink>
             </ul>
           </section>

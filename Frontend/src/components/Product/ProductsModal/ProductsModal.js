@@ -9,7 +9,7 @@ export const ProductsModal = (props) => {
     prodName: "",
     prodPrice: "",
     prodDescription: "",
-    prodImage: "",
+    prodImage: null,
     categoryName: "",
   });
   function updateObject(name, value) {
@@ -28,11 +28,12 @@ export const ProductsModal = (props) => {
     ) {
       toast.error("All fields are required");
     } else {
+      dataToSend.prodPrice = parseInt(dataToSend.prodPrice);
       try {
         addProduct(dataToSend);
-        setIsModalOpen(false)
-        toast.success('A New Product has been added')
-        props.fetchData()
+        setIsModalOpen(false);
+        toast.success("A New Product has been added");
+        props.fetchData();
       } catch (error) {
         console.log(error);
       }

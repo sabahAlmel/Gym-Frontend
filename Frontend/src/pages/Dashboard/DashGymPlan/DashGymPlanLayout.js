@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
-import Product from "../../../components/Product/Product";
-import { fetchProducts } from "../../../db/productsData";
-import style from "./DashProductsLayout.module.css";
+import GymPlanCard from "../../../components/GymPlan/GymPlanCard";
+import { fetchGymPlans } from "../../../db/gymPlansData";
+import style from "./DashGymPlanLayout.module.css";
 import { AiOutlinePlus } from "react-icons/ai";
-import { ProductsModal } from "../../../components/Product/ProductsModal/ProductsModal";
+import { GymPlansModal } from "../../../components/GymPlan/GymPlansModal/GymPlansModal";
 
-function DashProductsLayout(props) {
-  const [products, setProducts] = useState([]);
+function DashGymPlanLayout() {
+  const [gymPlans, setGymPlans] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   async function fetchData() {
     try {
-      const data = await fetchProducts();
+      const data = await fetchGymPlans();
       if (data) {
-        setProducts(data.data);
+        setGymPlans(data.data);
         setIsLoading(false);
       } else {
       }
@@ -34,31 +34,28 @@ function DashProductsLayout(props) {
   return (
     <div className={style.productsSection}>
       {isModalOpen ? (
-        <ProductsModal setIsModalOpen={setIsModalOpen} fetchData={fetchData} />
+        <GymPlansModal setIsModalOpen={setIsModalOpen} fetchData={fetchData} />
       ) : (
         ""
       )}
-      <h2 className={style.productsTitle}>Products</h2>
+      <h2 className={style.productsTitle}>Plan</h2>
       <div className={style.product}>
         <div className={style.addProductCard} onClick={() => openModal()}>
           <section className={style.addButton}>
             <AiOutlinePlus className={style.plusIcon} />
           </section>
-          <span className={style.addButtonText}>Add a Product</span>
+          <span className={style.addButtonText}>Add a Gym Plan</span>
         </div>
         {isLoading ? (
           <p>Loading.....</p>
         ) : (
-          products.map((product, i) => (
-            <Product
-              name={product.prodName}
-              price={product.prodPrice}
+          gymPlans.map((plan, i) => (
+            <GymPlanCard
+              title={plan.title}
+              price={plan.price}
               key={i}
-              image={product.prodImage}
-              description={product.prodDescription}
-              categoryId={product.prodCategory}
-              id={product.id}
-              isOnDashboard={props.isOnDashboard}
+              feature={plan.feature}
+              id={plan._id}
             />
           ))
         )}
@@ -67,4 +64,4 @@ function DashProductsLayout(props) {
   );
 }
 
-export default DashProductsLayout;
+export default DashGymPlanLayout;

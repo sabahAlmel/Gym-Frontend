@@ -10,8 +10,9 @@ import NotFound from "./pages/Not Found/NotFound";
 import SingleProduct from "./components/Product/SingleProduct";
 import Layout from "./layouts/Layout";
 import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTrainingDash";
-import Regimedash from './layouts/regimedash/regimedash'
+import Regimedash from "./layouts/regimedash/regimedash";
 import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
+import DashGymPlanLayout from "./pages/Dashboard/DashGymPlan/DashGymPlanLayout";
 
 function App() {
   return (
@@ -30,11 +31,16 @@ function App() {
             path="dashServices"
             element={
               <>
-                <PersonnalTrainingDash isOnDashboard /><Regimedash isOnDashboard/>
+                <PersonnalTrainingDash isOnDashboard />
+                <Regimedash isOnDashboard />
               </>
             }
           />
-          <Route path="dashProducts" element={<DashProductsLayout isOnDashboard />} />
+          <Route
+            path="dashProducts"
+            element={<DashProductsLayout isOnDashboard />}
+          />
+          <Route path="dashGymPlans" element={<DashGymPlanLayout />} />
         </Route>
         <Route path="/*" element={<NotFound />} />
       </Routes>

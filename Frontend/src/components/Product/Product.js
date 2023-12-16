@@ -9,7 +9,7 @@ const Product = (props) => {
   const { name, price, categoryId, id, description, isOnDashboard } = props;
   const [image, setImage] = useState(props.image);
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState(categoryId.name);
   const [editing, setEditing] = useState(false);
   const [dataToUpdate, setDataToUpdate] = useState({
     prodName: name,
@@ -18,20 +18,6 @@ const Product = (props) => {
     prodImage: null,
     categoryName: category,
   });
-
-  async function fetchCategoryName(categoryId) {
-    try {
-      const categoryName = await fetchOneCategory(categoryId);
-      if (categoryName) {
-        setCategory(categoryName.data.data.name);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  useEffect(() => {
-    fetchCategoryName(categoryId);
-  }, []);
 
   function editMode() {
     console.log("Edit");
@@ -52,12 +38,12 @@ const Product = (props) => {
     setEditing(false);
     setDataToUpdate(dataToUpdate);
     console.log(dataToUpdate);
-    if(Object.values(dataToUpdate).some(item=> item === '')){
-      return toast.error('All fields are required')
+    if (Object.values(dataToUpdate).some((item) => item === "")) {
+      return toast.error("All fields are required");
     }
     try {
       await updateProduct(id, dataToUpdate);
-      toast.success('Saved changes')
+      toast.success("Saved changes");
     } catch (error) {
       console.log(error);
     }
@@ -66,13 +52,13 @@ const Product = (props) => {
     setDataToUpdate({ ...dataToUpdate, [e.target.name]: e.target.value });
   }
   function handleCategorySelect(e) {
-    setDataToUpdate({ ...dataToUpdate, categoryName : e.target.value });
-    setCategory(e.target.value)
+    setDataToUpdate({ ...dataToUpdate, categoryName: e.target.value });
+    setCategory(e.target.value);
     console.log(e.target.value);
   }
-  function handleImage(e){
-    setDataToUpdate({...dataToUpdate,  [e.target.name] : e.target.files[0]})
-    console.log(e.target.files)
+  function handleImage(e) {
+    setDataToUpdate({ ...dataToUpdate, [e.target.name]: e.target.files[0] });
+    console.log(e.target.files[0]);
   }
 
   return (
@@ -96,21 +82,20 @@ const Product = (props) => {
           />
           <span className={style.productPriceCat}>
             <span className={style.productPriceBorder}>
-
-            $
-            <input
-              type="text"
-              className={style.productPrice}
-              disabled={!editing}
-              name="prodPrice"
-              value={dataToUpdate.prodPrice}
-              onChange={handleInputChange}
+              $
+              <input
+                type="text"
+                className={style.productPrice}
+                disabled={!editing}
+                name="prodPrice"
+                value={dataToUpdate.prodPrice}
+                onChange={handleInputChange}
               />
-              </span>
+            </span>
 
             {!editing ? (
               <input
-                type="text" 
+                type="text"
                 className={style.productCat}
                 name="categoryName"
                 disabled={!editing}
