@@ -44,20 +44,17 @@ const GymPlanCard = (props) => {
     }
   }
   function handleInputChange(e) {
-    setDataToUpdate({ ...dataToUpdate, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name.startsWith("feature-")) {
+      const featureIndex = parseInt(name.split("-")[1]);
+      const updatedFeatures = [...dataToUpdate.feature];
+      updatedFeatures[featureIndex].name = value;
+      setDataToUpdate({ ...dataToUpdate, feature: updatedFeatures });
+    } else {
+      setDataToUpdate({ ...dataToUpdate, [name]: value });
+    }
   }
-
-  //   function handleInputChange(e) {
-  //     const { name, value } = e.target;
-
-  //     if (name === "feature") {
-  //       const features = value.split(",").map((item) => item.trim());
-  //       setDataToUpdate({ ...dataToUpdate, [name]: features });
-  //     } else {
-  //       //other inputs
-  //       setDataToUpdate({ ...dataToUpdate, [name]: value });
-  //     }
-  //   }
 
   return (
     <>
@@ -91,9 +88,8 @@ const GymPlanCard = (props) => {
                   type="text"
                   className={style.productName}
                   disabled={!editing}
-                  //   name="feature"
                   name={`feature-${i}`}
-                  value={feature}
+                  value={feature.name}
                   onChange={handleInputChange}
                 />
               </div>

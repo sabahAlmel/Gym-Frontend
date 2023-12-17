@@ -55,6 +55,7 @@ const SingleProduct = () => {
             ? filteredProducts.map((item) => (
                 <SimilarProduct
                   price={item.prodPrice}
+                  key={item.id}
                   description={item.prodDescription}
                   name={item.prodName}
                   imageSrc={item.prodImage}

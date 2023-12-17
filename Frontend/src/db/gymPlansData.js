@@ -17,8 +17,7 @@ export async function deleteGymPlan(planId) {
       `${process.env.REACT_APP_PATH}gymPlans/delete`,
       {
         data: { id: planId },
-      },
-      {}
+      }
     );
     if (response.status === 200) {
       return response.status;
@@ -47,7 +46,6 @@ export async function addPlan(planData) {
 }
 
 export async function updatePlan(planId, planData) {
-  console.log(planData);
   try {
     const response = await axios.patch(
       `${process.env.REACT_APP_PATH}gymPlans/update`,

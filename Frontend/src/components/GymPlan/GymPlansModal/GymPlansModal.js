@@ -15,7 +15,7 @@ export const GymPlansModal = (props) => {
   }
   function handleInputChange(e) {
     const { name, value } = e.target;
-    updateObject(name, name === "feature" ? value.split(",") : value);
+    updateObject(name, name === "feature" ? value.split(", ") : value);
   }
   function handleSubmit(e) {
     e.preventDefault();

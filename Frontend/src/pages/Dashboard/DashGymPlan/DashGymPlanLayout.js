@@ -55,7 +55,7 @@ function DashGymPlanLayout() {
               price={plan.price}
               key={i}
               feature={plan.feature}
-              id={plan._id}
+              id={plan.id}
             />
           ))
         )}
