@@ -12,9 +12,10 @@ import Layout from "./layouts/Layout";
 import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTrainingDash";
 import Regimedash from './layouts/regimedash/regimedash'
 import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
-
+import {HelmetProvider } from "react-helmet-async"
 function App() {
   return (
+    <HelmetProvider>
     <div className="App">
       <Routes>
         <Route element={<Layout />}>
@@ -33,12 +34,13 @@ function App() {
                 <PersonnalTrainingDash isOnDashboard /><Regimedash isOnDashboard/>
               </>
             }
-          />
+            />
           <Route path="dashProducts" element={<DashProductsLayout isOnDashboard />} />
         </Route>
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>
+    </HelmetProvider>
   );
 }
 
