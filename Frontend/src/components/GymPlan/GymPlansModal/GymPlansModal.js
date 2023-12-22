@@ -8,14 +8,14 @@ export const GymPlansModal = (props) => {
   const [dataToSend, setDataToSend] = useState({
     title: "",
     price: "",
-    feature: [],
+    feature: "",
   });
   function updateObject(name, value) {
     setDataToSend({ ...dataToSend, [name]: value });
   }
   function handleInputChange(e) {
     const { name, value } = e.target;
-    updateObject(name, name === "feature" ? value.split(", ") : value);
+    updateObject(name, value);
   }
   function handleSubmit(e) {
     e.preventDefault();

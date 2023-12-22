@@ -45,15 +45,7 @@ const GymPlanCard = (props) => {
   }
   function handleInputChange(e) {
     const { name, value } = e.target;
-
-    if (name.startsWith("feature-")) {
-      const featureIndex = parseInt(name.split("-")[1]);
-      const updatedFeatures = [...dataToUpdate.feature];
-      updatedFeatures[featureIndex].name = value;
-      setDataToUpdate({ ...dataToUpdate, feature: updatedFeatures });
-    } else {
-      setDataToUpdate({ ...dataToUpdate, [name]: value });
-    }
+    setDataToUpdate({ ...dataToUpdate, [name]: value });
   }
 
   return (
@@ -82,18 +74,16 @@ const GymPlanCard = (props) => {
             </span>
           </span>
           <div className={style.check}>
-            {dataToUpdate.feature.map((feature, i) => (
-              <div className={style.descriptionArray} key={i}>
-                <input
-                  type="text"
-                  className={style.productName}
-                  disabled={!editing}
-                  name={`feature-${i}`}
-                  value={feature.name}
-                  onChange={handleInputChange}
-                />
-              </div>
-            ))}
+            <div className={style.descriptionArray}>
+              <input
+                type="text"
+                className={style.productName}
+                disabled={!editing}
+                name={`feature`}
+                value={dataToUpdate.feature}
+                onChange={handleInputChange}
+              />
+            </div>
           </div>
 
           <section className={style.buttonsWrapper}>

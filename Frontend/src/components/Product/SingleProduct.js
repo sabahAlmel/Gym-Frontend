@@ -10,7 +10,6 @@ const SingleProduct = () => {
   const { data, imageSrc, category, categoryId } = location.state;
   const { name, price, description, id } = data;
   const [products, setProducts] = useState([]);
-
   async function fetchProdByCategoty() {
     try {
       const data = await getProductByCategory(categoryId.id);

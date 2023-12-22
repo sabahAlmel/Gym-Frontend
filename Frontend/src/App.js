@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home/Home";
 import Portfolio from "./pages/Portfolio/Portfolio";
@@ -13,8 +13,51 @@ import PersonnalTrainingDash from "./layouts/PersonnalTraining/PersonnalTraining
 import Regimedash from "./layouts/regimedash/regimedash";
 import DashProductsLayout from "./pages/Dashboard/DashProductsLayout/DashProductsLayout";
 import DashGymPlanLayout from "./pages/Dashboard/DashGymPlan/DashGymPlanLayout";
+import Signup from "./components/authForm/Signup";
+import Login from "./components/authForm/Login";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "./userContext/userContext";
+import { fetchUser } from "./db/authData";
+import ProtectedRoute from "./components/protectedRoutes";
+import Forbidden from "./pages/403/Forbidden";
 
 function App() {
+  const { user, setUser } = useContext(UserContext);
+  const [loading, setLoading] = useState(true);
+
+  async function getUser() {
+    try {
+      const res = await fetchUser();
+      if (res) {
+        console.log(res);
+        setUser(res);
+      }
+    } catch (error) {
+      console.error("Error fetching user:", error);
+    } finally {
+      setLoading(false);
+    }
+  }
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      getUser();
+    } else setLoading(false);
+  }, []);
+  if (loading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          height: "100vh",
+          fontSize: 30,
+        }}
+      >
+        Loading...
+      </div>
+    );
+  }
   return (
     <div className="App">
       <Routes>
@@ -26,22 +69,35 @@ function App() {
           <Route path="/contact" element={<ContactUs />} />
         </Route>
         <Route path="/services/singleProduct" element={<SingleProduct />} />
-        <Route path="/Dash" element={<Dashboard />}>
-          <Route
-            path="dashServices"
-            element={
-              <>
-                <PersonnalTrainingDash isOnDashboard />
-                <Regimedash isOnDashboard />
-              </>
-            }
-          />
-          <Route
-            path="dashProducts"
-            element={<DashProductsLayout isOnDashboard />}
-          />
-          <Route path="dashGymPlans" element={<DashGymPlanLayout />} />
+        <Route
+          element={
+            <ProtectedRoute
+              isAllowed={user && user.role === "admin"}
+              redirectPath="/403"
+            />
+          }
+        >
+          <Route path="/Dash" element={<Dashboard />}>
+            <Route
+              path="dashServices"
+              element={
+                <>
+                  <PersonnalTrainingDash isOnDashboard />
+                  <Regimedash isOnDashboard />
+                </>
+              }
+            />
+            <Route
+              path="dashProducts"
+              element={<DashProductsLayout isOnDashboard />}
+            />
+
+            <Route path="dashGymPlans" element={<DashGymPlanLayout />} />
+          </Route>
         </Route>
+        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} />
+        <Route path="/403" element={<Forbidden />} />
         <Route path="/*" element={<NotFound />} />
       </Routes>
     </div>

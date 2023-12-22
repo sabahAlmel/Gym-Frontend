@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import style from "./Product.module.css";
 import { Link, Route, Routes } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { fetchOneCategory } from "../../db/categoryData";
 import { deleteProductById, updateProduct } from "../../db/productsData";
+import { UserContext } from "../../userContext/userContext";
 
 const Product = (props) => {
+  const { user } = useContext(UserContext);
+  console.log(user);
   const { name, price, categoryId, id, description, isOnDashboard } = props;
   const [image, setImage] = useState(props.image);
   const imageSrc = `${process.env.REACT_APP_PATH}${image}`;
@@ -18,11 +21,11 @@ const Product = (props) => {
     prodImage: null,
     categoryName: category,
   });
-
   function editMode() {
     console.log("Edit");
     setEditing(true);
   }
+  console.log(categoryId);
   async function handleDelete(id) {
     console.log("Delete");
     try {
@@ -54,7 +57,6 @@ const Product = (props) => {
   function handleCategorySelect(e) {
     setDataToUpdate({ ...dataToUpdate, categoryName: e.target.value });
     setCategory(e.target.value);
-    console.log(e.target.value);
   }
   function handleImage(e) {
     setDataToUpdate({ ...dataToUpdate, [e.target.name]: e.target.files[0] });
@@ -143,23 +145,29 @@ const Product = (props) => {
                 Delete
               </div>
             )}
-            {!editing ? (
-              <Link
-                onClick={() =>
-                  isOnDashboard ? editMode() : toast.success("Added")
-                }
-                className={style.productButton}
-              >
-                {isOnDashboard ? "Edit" : "Add to Cart"}
+            {!editing && isOnDashboard ? (
+              <Link onClick={() => editMode()} className={style.productButton}>
+                Edit
               </Link>
-            ) : (
+            ) : editing ? (
               <div
                 className={style.productButton}
                 onClick={() => handleSubmit()}
               >
                 Save
               </div>
-            )}
+            ) : !isOnDashboard && !user ? (
+              <Link to="/login" className={style.productButton}>
+                Add to Cart
+              </Link>
+            ) : !isOnDashboard && user ? (
+              <Link
+                className={style.productButton}
+                onClick={() => toast.success("Added")}
+              >
+                Add to Cart
+              </Link>
+            ) : null}
           </section>
         </div>
       </div>

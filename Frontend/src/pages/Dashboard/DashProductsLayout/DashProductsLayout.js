@@ -13,6 +13,7 @@ function DashProductsLayout(props) {
     try {
       const data = await fetchProducts();
       if (data) {
+        console.log(data);
         setProducts(data.data);
         setIsLoading(false);
       } else {
@@ -21,7 +22,6 @@ function DashProductsLayout(props) {
       console.log(error);
     }
   }
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -56,7 +56,7 @@ function DashProductsLayout(props) {
               key={i}
               image={product.prodImage}
               description={product.prodDescription}
-              categoryId={product.prodCategory}
+              categoryId={product.category}
               id={product.id}
               isOnDashboard={props.isOnDashboard}
             />

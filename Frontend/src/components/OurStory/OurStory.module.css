@@ -18,7 +18,7 @@
 }
 
 .content {
-  width: 50%;
+  width: 80%;
   text-align: center;
   color: white;
   font-size: 24.24px;
@@ -57,7 +57,6 @@
   gap: 5%;
 }
 
-
 .image {
   /* height: auto; */
   width: 50%;
@@ -78,15 +77,15 @@
   font-size: 40.4px;
   font-weight: 600;
 }
-@media (max-width:1290px ) {
-  .textContainer > p{
+@media (max-width: 1290px) {
+  .textContainer > p {
     font-size: 16px;
-  }  
+  }
 }
 @media (max-width: 1100px) {
-  .textContainer > h1{
-    font-size: 25px ;
-  }  
+  .textContainer > h1 {
+    font-size: 25px;
+  }
 }
 /* Responsive styles for the Our Story section */
 @media screen and (max-width: 850px) {
