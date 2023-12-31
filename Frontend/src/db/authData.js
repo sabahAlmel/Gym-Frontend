@@ -15,9 +15,17 @@ export async function fetchSignUp(formData) {
       return data.data;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    if (error.response && error.response.data) {
+      console.error("Server error response:", error.response.data);
+      return error.response.data;
+    } else {
+      console.error("Other error:", error);
+      return { error: "An unexpected error occurred" };
+    }
   }
 }
+
 export async function fetchUser() {
   try {
     const data = await axios.get(`${process.env.REACT_APP_PATH}users/readOne`, {
@@ -44,7 +52,14 @@ export async function fetchLogin(formData) {
       return data.data;
     }
   } catch (error) {
-    console.log(error);
+    console.error(error);
+    if (error.response && error.response.data) {
+      console.error("Server error response:", error.response.data);
+      return error.response.data;
+    } else {
+      console.error("Other error:", error);
+      return { error: "An unexpected error occurred" };
+    }
   }
 }
 

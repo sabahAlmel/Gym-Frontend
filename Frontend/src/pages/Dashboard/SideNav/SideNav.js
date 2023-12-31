@@ -29,19 +29,6 @@ export default function SideNav() {
               style={{ marginTop: 40, height: "800px" }}
             >
               <NavLink
-                to="dashServices"
-                exact={true}
-                className={({ isActive }) =>
-                  isActive
-                    ? `${style.activeSideItem} ${style.sideBarItem}`
-                    : `${style.sideBarItem} ${style.sideBarSubItem}`
-                }
-                // activeclassname={style.activeLink}
-              >
-                Services
-              </NavLink>
-
-              <NavLink
                 to="dashProducts"
                 className={({ isActive }) =>
                   isActive

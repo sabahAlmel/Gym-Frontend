@@ -19,6 +19,11 @@ function Signup() {
     password: "",
     email: "",
   });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+    verifyPassword: "",
+  });
   const handleGoogleButton = async () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
@@ -39,23 +44,31 @@ function Signup() {
   };
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ email: "", password: "", verifyPassword: "" });
   }
   async function handleSubmit(e) {
     e.preventDefault();
     if (Object.values(formData).some((item) => item === "" || item === null)) {
       toast.error("All fields are required");
     } else {
-      try {
-        toast("loadingg..");
-        let log = await fetchSignUp(formData);
-        if (log.token && log.newUser) {
-          toast.success("Helloo!!");
-          setUser(log.newUser);
-          return navigate("/", { replace: true });
-        } else toast.error("can't signup");
-      } catch (error) {
-        console.error("Error log in:", error);
-        toast.error("can't signup");
+      toast("loadingg..");
+      let log = await fetchSignUp(formData);
+      if (log.token && log.newUser) {
+        toast.success("Helloo!!");
+        setUser(log.newUser);
+        return navigate("/", { replace: true });
+      } else {
+        if (log.error.includes("Invalid email")) {
+          setErrors({ ...errors, email: "Invalid email" });
+        } else if (log.error.includes("email")) {
+          setErrors({ ...errors, email: log.error });
+        } else if (log.error === "Passwords do not match") {
+          setErrors({ ...errors, verifyPassword: log.error });
+        } else if (log.error.includes("password should start")) {
+          setErrors({ ...errors, password: "Invalid password" });
+        } else {
+          toast.error("Can't sign up");
+        }
       }
     }
   }
@@ -77,6 +90,7 @@ function Signup() {
                   placeholder="Enter your FirstName"
                   onChange={handleChange}
                 />
+                <p></p>
               </div>
             </div>
           </div>
@@ -91,6 +105,7 @@ function Signup() {
                   placeholder="Enter your LastName"
                   onChange={handleChange}
                 />
+                <p></p>
               </div>
             </div>
           </div>
@@ -105,6 +120,11 @@ function Signup() {
                   placeholder="Enter your email"
                   onChange={handleChange}
                 />
+                {errors.email ? (
+                  <p className={styles.error}>{errors.email}</p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
           </div>
@@ -119,6 +139,11 @@ function Signup() {
                   placeholder="Enter your password"
                   onChange={handleChange}
                 />
+                {errors.password ? (
+                  <p className={styles.error}>{errors.password}</p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
           </div>
@@ -133,6 +158,11 @@ function Signup() {
                   placeholder="Enter your password again"
                   onChange={handleChange}
                 />
+                {errors.verifyPassword ? (
+                  <p className={styles.error}>{errors.verifyPassword}</p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
           </div>

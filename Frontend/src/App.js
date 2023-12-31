@@ -22,6 +22,7 @@ import ProtectedRoute from "./components/protectedRoutes";
 import Forbidden from "./pages/403/Forbidden";
 import { HelmetProvider } from "react-helmet-async";
 import GymPlan from "./layouts/gymPlanDashboard/GymPlan";
+import ProductsDash from "./layouts/productDashboard/ProductDash";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -81,19 +82,8 @@ function App() {
             }
           >
             <Route path="/Dash" element={<Dashboard />}>
-              <Route
-                path="dashServices"
-                element={
-                  <>
-                    <PersonnalTrainingDash isOnDashboard />
-                    <Regimedash isOnDashboard />
-                  </>
-                }
-              />
-              <Route
-                path="dashProducts"
-                element={<DashProductsLayout isOnDashboard />}
-              />
+              <Route index element={<ProductsDash />} />
+              <Route path="dashProducts" index element={<ProductsDash />} />
 
               <Route path="dashGymPlans" element={<GymPlan />} />
             </Route>

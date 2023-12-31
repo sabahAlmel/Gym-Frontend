@@ -121,9 +121,9 @@
     font-size: 1.2rem;
   }
 }
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 580px) {
   .portfolioStatistics {
-    margin: 200px auto;
+    margin: 170px auto;
     font-size: 1rem;
   }
 }
