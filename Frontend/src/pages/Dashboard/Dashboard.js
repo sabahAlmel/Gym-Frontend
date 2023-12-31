@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import style from "./Dashboard.module.css";
 import SideNav from "./SideNav/SideNav";
 import { Outlet } from "react-router";
-import icon from "../../assets/icons/icon1.svg";
+import icon from "../../assets/icons/dashLogo.svg";
 import { Helmet } from "react-helmet-async";
 import { ProductsModal } from "../../components/Product/ProductsModal/ProductsModal";
 
