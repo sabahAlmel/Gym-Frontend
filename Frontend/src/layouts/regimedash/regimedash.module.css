@@ -4,12 +4,14 @@
 }
 .btnAdd{
 background-color: red;
+border: none;
 }
 .btnAdd:hover{
  background-color: rgb(182, 2, 2);
 }
 .btn:first-of-type{
   background-color:darkgreen;
+  border: none;
 }
 
 .btn:first-of-type:hover{
@@ -17,6 +19,7 @@ background-color: red;
 }
 .btn:last-of-type{
   background-color: red;
+  border: none;
 }
 .btn:last-of-type:hover{
   background-color: rgb(182, 2, 2);

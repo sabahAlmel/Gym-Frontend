@@ -6,65 +6,122 @@ import { DataGrid, GridToolbar } from '@mui/x-data-grid';
 import { fetchRegime } from "../../db/regimeData";
 import { RegimeModal } from '../../components/RegimePlanModal/RegimePlanModal'
 import image from "../../assets/images/AboutUsImages/variant-1.png"
+import AddRegime from "../../components/AddRegime/AddRegime";
+import UpdateRegime from "../../components/UpdateRegime/UpdateRegime";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export default function ToolbarGrid() {
   const [items, setItems] = useState(null);
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [newName, setNewName] = useState("");
   const [newDescription, setNewDescription] = useState("");
-  const [newImageFile, setNewImageFile] = useState(null);
+  const [newImageFile, setNewImageFile] = useState(null); 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [item, setItem] = useState(null);
+  const [item, setItem] = useState([]);
   const [isloading, setIsLoading]=useState(true)
+  const [isAddRegimeOpen, setIsAddRegimeOpen] = useState(false);
+  const [isUpdateRegimeOpen, setIsUpdateRegimeOpen] = useState(false);
+
+  const [formData, setFormData]= useState({
+    title:"",
+    description:"",
+    image:null
+  })
 
 
   const fetchRegime=async()=>{
     try {
-      const response=await axios.get(`${process.env.REACT_APP_PATH}/regime/read`)
+      const response=await axios.get(`${process.env.REACT_APP_PATH}regime/read`)
       if(response){
-        setItem(response.data.data)
-        console.log("iyemmmmmmmmm")
-        console.log(response.data.data)
-        console.log(item)
-        setIsLoading(false)
+        const transformedData = response.data.data.map((item, index) => ({
+          id: index + 1,  // Using index + 1 as a default ID
+          name: item.name,
+          description: item.description,
+          image: item.image,
+          // Add other properties as needed
+        }));
+        setItem(transformedData);
+        setIsLoading(false);
+
       }
-      // else{
+      else{
       // console.log('no data available')
-      // setItem([])
-      // setIsLoading(false)
-      // }
+      setItem([])
+      setIsLoading(false)
+      }
     } catch (error) {
       console.log(error.message)
       setIsLoading(false)
     }
 
   }
-  useEffect(()=>{
-    fetchRegime()
-  },[])
+ 
+
+const handleSubmit = async () => {
+  try {
+    const formDataToSend = new FormData();
+    Object.entries(formData).forEach(([key, value]) => {
+      formDataToSend.append(key, value);
+    });
+
+    const response = await axios.post(`${process.env.REACT_APP_PATH}regime/add`, formDataToSend);
+
+    setItem((prevItems) => [...prevItems, response.data]); 
+    console.log("aaaaaaaaaaaaaaaaaaaa"+response.data)
+
+    setFormData({
+      title: "",
+      description: "",
+      // image: null
+    });
+    toast.success("Regime plan added successfully", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+
+    console.log("DATAAA" + response.data.data);
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
+useEffect(()=>{
+  fetchRegime()
+  handleSubmit()
+  handleDeletee()
+},[])
   
  const columns = [
-  { field: 'name', headerName: 'Title', width: 70 },
+  { field: 'id', headerName: 'id', width: 80 },
+  { field: 'name', headerName: 'Title', width: 140 },
   {
     field: 'image',
     headerName: 'Image',
-    width: 90,
+    width: 110,
     renderCell: (params) => (
       <img
-        src={`${process.env.REACT_APP_PATH}/${params.row.image}`} // Assuming the 'image' field contains the URL/path of the image
+        src={`${process.env.REACT_APP_PATH}${params.row.image}`} 
         alt="Image"
-        style={{ width: 50, height: 50, borderRadius: '50%' }}
+        style={{ width: 60, height: 60,}}
       />
     ),
   },
-  { field: 'description', headerName: 'Description', width: 900 },
+  { field: 'description', headerName: 'Description', width: 780 },
   {
     field: 'Action',
     headerName: 'Actions',
     width: 140,
     renderCell: (params) => (
       <div>
-        <button  className={`${styles.btn} ${styles}`} style={{marginRight:"0.5rem", fontFamily:"bold", fontSize:"16px" ,'&:hover':{color:"green"}}} onClick={() => handleEditt(params.row.id)}>Edit</button>
+<button className={`${styles.btn} ${styles}`} style={{marginRight:"0.5rem", fontFamily:"bold", fontSize:"16px" ,'&:hover':{color:"green"}}} onClick={()=>setIsUpdateRegimeOpen(true)}>Edit</button>
+
         <button className={styles.btn} style={{fontFamily:"bold", fontSize:"16px"}} onClick={() => handleDeletee(params.row.id)}>Delete</button>
       </div>
     ),
@@ -78,10 +135,33 @@ const handleEditt = (id) => {
 
 };
 
-const handleDeletee = (id) => {
-  console.log(`Delete clicked for item with ID: ${id}`);
+const handleDeletee = async(id) => {
+ try {
+  console.log("Deleting item with ID:", id);
+  const response=await axios.delete(`${process.env.REACT_APP_PATH}regime/delete`,{
+    data:{id:id}
+  })
+  if (response.data.message === "Deleted Successfully") {
+    setItem((prevItems)=>prevItems.filter((item)=>item.id !==id))
+    console.log("Regime plan deleted successfully");
+    toast.success("Regime plan deleted successfully", {
+      position: "top-right",
+      autoClose: 3000, // Notification will close after 3 seconds
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  } else {
+    console.log(response.data.message);
+  }
+ } catch (error) {
+  console.error("Error deleting item:", error.message);
+ }
 
 };
+
+
 
 const myCustomData = [
   { id: 1, title: 'Item 1', description: 'John Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe', image: 'path-to-image-1.jpg' },
@@ -171,23 +251,33 @@ const myCustomData = [
   // post data 
   const handleAdd = (e) => {
     e.preventDefault()
-    setIsModalOpen(true)
+    setIsAddRegimeOpen(true)
+  }
+
+  const handleUpdates=(e)=>{
+    console.log("clickedd")
+    e.preventDefault()
+    setIsUpdateRegimeOpen(true)
+  }
+  const handlecancel = (e) => {
+    e.preventDefault()
+    setIsAddRegimeOpen(false)
   }
   // fetch data
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetchRegime();
-        console.log('Fetched data:', response.data.data)
-        if (response) {
-          setItems(response.data.data)
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetchRegime();
+  //       console.log('Fetched data:', response.data.data)
+  //       if (response) {
+  //         setItems(response.data.data)
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   const emptyRow = {id:-1, name: 'Loading...'};
 
@@ -196,7 +286,7 @@ const rowsWithEmptyRow = isloading ? [emptyRow] : item;
   return (
     <div style={{ width: '90%',float:"left", margin: 'auto', height:"800px", marginBottom:"7rem"
     ,marginBottom:"3rem" }}>
-      <button className={styles.btnAdd}style={{color:"white",marginBottom:"1rem", width:"7rem", height:"2.5rem",borderRadius:"5px", fontWeight:"bold"}}>Add Plan</button>
+      <button className={styles.btnAdd}style={{color:"white",marginBottom:"1rem", width:"7rem", height:"2.5rem",borderRadius:"5px", fontWeight:"bold"}} onClick={handleAdd}>Add Plan</button>
     <DataGrid
    
       rows={rowsWithEmptyRow}
@@ -259,6 +349,9 @@ const rowsWithEmptyRow = isloading ? [emptyRow] : item;
         }
       }}
     />
+   {isAddRegimeOpen && <AddRegime formData={formData} setFormData={setFormData} onClose={() => setIsAddRegimeOpen(false)} handleSubmit={handleSubmit} />}
+    {isUpdateRegimeOpen && <UpdateRegime  onClose={() => setIsUpdateRegimeOpen(false)} handleUpdates={handleUpdates}/>}
+    <ToastContainer />
   </div>
   );
 }

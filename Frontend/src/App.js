@@ -31,7 +31,7 @@ function App() {
             path="dashServices"
             element={
               <>
-                <PersonnalTrainingDash isOnDashboard /><Regimedash isOnDashboard/>
+                {/* <PersonnalTrainingDash isOnDashboard /> */}<Regimedash isOnDashboard/>
               </>
             }
             />
