@@ -146,7 +146,7 @@ const handleDeletee = async(id) => {
     console.log("Regime plan deleted successfully");
     toast.success("Regime plan deleted successfully", {
       position: "top-right",
-      autoClose: 3000, // Notification will close after 3 seconds
+      autoClose: 3000, 
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -295,7 +295,7 @@ const rowsWithEmptyRow = isloading ? [emptyRow] : item;
       pageSize={5}
       rowsPerPageOptions={[5, 10, 20]}
       components={{
-        Toolbar: CustomToolbar, // Use a custom toolbar component
+        Toolbar: CustomToolbar, 
       }}
       sx={{
         color: 'white',
@@ -306,7 +306,7 @@ const rowsWithEmptyRow = isloading ? [emptyRow] : item;
         '& .MuiDataGrid-root': {
           backgroundColor: 'white',
           
-           // Background color of the entire grid
+         
         },
         '& .MuiDataGrid-columnHeader': {
            // Background color of column headers

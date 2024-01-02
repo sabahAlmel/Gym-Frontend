@@ -5,15 +5,15 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
   const [formData, setFormData] = useState({
     title: regimeData.title || "",
     description: regimeData.description || "",
-    image: null, // Assuming image is initially null; adjust as needed
+    image: null, 
   });
 
   useEffect(() => {
-    // This effect runs only once to set up the initial state
+
     setFormData({
       title: regimeData.title || "",
       description: regimeData.description || "",
-      image: null, // Assuming image is initially null; adjust as needed
+      image: null,
     });
   }, []);
 
@@ -35,7 +35,7 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform any actions with the updated data (e.g., send it to the server)
+    
     onUpdate(formData);
   };
 
