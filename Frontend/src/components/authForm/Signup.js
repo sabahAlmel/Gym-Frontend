@@ -28,6 +28,7 @@ function Signup() {
     try {
       toast("loading...");
       let data = await fetchGoogle(result);
+      console.log(data)
       if (data.token && data.newUser) {
         toast.success("Helloo!!");
         setUser(data.newUser);
@@ -54,7 +55,7 @@ function Signup() {
           return navigate("/", { replace: true });
         } else toast.error("can't signup");
       } catch (error) {
-        console.error("Error log in:", error);
+        console.error("Error log in:", error.message);
         toast.error("can't signup");
       }
     }
@@ -147,7 +148,7 @@ function Signup() {
               </button>
             </div>
             <div className={styles.or}>OR</div>
-            <div className={styles.google} onClick={handleGoogleButton}>
+            <div className={styles.google} >
               <img src={google} />
               <p>Continue with Google</p>
             </div>

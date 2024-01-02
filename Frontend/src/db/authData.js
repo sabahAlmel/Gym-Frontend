@@ -15,7 +15,7 @@ export async function fetchSignUp(formData) {
       return data.data;
     }
   } catch (error) {
-    console.log(error);
+    console.log(error.message);
   }
 }
 export async function fetchUser() {

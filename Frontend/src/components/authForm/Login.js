@@ -52,7 +52,7 @@ function Login() {
           return navigate("/", { replace: true });
         } else toast.error("can't login");
       } catch (error) {
-        console.error("Error log in:", error);
+        console.error("Error log in:", error.message);
         toast.error("can't login");
       }
     }
@@ -104,7 +104,7 @@ function Login() {
               </button>
             </div>
             <div className={styles.or}>OR</div>
-            <div className={styles.google} onClick={handleGoogleButton}>
+            <div className={styles.google} >
               <img src={google} />
               <p>Continue with Google</p>
             </div>
