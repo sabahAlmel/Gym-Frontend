@@ -1,9 +1,8 @@
 .dashboardWrapper {
   height: 100%;
   display: flex;
-  justify-content: space-between;
 }
-.dashContentContainer{
-  width: 75%;
+.dashContentContainer {
+  width: 90%;
   margin-top: 35px;
 }

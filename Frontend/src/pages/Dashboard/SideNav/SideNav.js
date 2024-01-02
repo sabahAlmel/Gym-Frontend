@@ -24,35 +24,10 @@ export default function SideNav() {
             Dashboard
           </span>
           <section className={style.navItemsWrapper}>
-            <span className={style.sideBarItem} onClick={toggleItems}>
-              <img src={contentLogo} alt="Content management icon" /> Content
-              Management{" "}
-              <IoIosArrowBack
-                className={
-                  isSideItem
-                    ? style.rotateSideBarItemArrow
-                    : style.sideBarItemArrow
-                }
-              />
-            </span>
-
             <ul
               className={style.ContentManagementItemsWrapper}
-              style={{ height: isSideItem ? "800px" : "0" }}
+              style={{ marginTop: 40, height: "800px" }}
             >
-              <NavLink
-                to="dashServices"
-                exact={true}
-                className={({ isActive }) =>
-                  isActive
-                    ? `${style.activeSideItem} ${style.sideBarItem}`
-                    : `${style.sideBarItem} ${style.sideBarSubItem}`
-                }
-                // activeclassname={style.activeLink}
-              >
-                Services
-              </NavLink>
-
               <NavLink
                 to="dashProducts"
                 className={({ isActive }) =>

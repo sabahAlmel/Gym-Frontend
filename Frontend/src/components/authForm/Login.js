@@ -16,6 +16,10 @@ function Login() {
     email: "",
     password: "",
   });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: "",
+  });
   const handleGoogleButton = async () => {
     const provider = new GoogleAuthProvider();
     const auth = getAuth(app);
@@ -37,6 +41,7 @@ function Login() {
 
   function handleChange(e) {
     setformData({ ...formData, [e.target.name]: e.target.value });
+    setErrors({ email: "", password: "" });
   }
   async function handleSubmit(e) {
     e.preventDefault();
@@ -50,7 +55,15 @@ function Login() {
           toast.success("Helloo!!");
           setUser(log.newUser);
           return navigate("/", { replace: true });
-        } else toast.error("can't login");
+        } else {
+          if (log.message.includes("User Not Found")) {
+            setErrors({ ...errors, email: "User not found" });
+          } else if (log.message.includes("Wrong")) {
+            setErrors({ ...errors, password: "Wrong credentials" });
+          } else {
+            toast.error("Can't login");
+          }
+        }
       } catch (error) {
         console.error("Error log in:", error.message);
         toast.error("can't login");
@@ -76,6 +89,11 @@ function Login() {
                   placeholder="Enter your email"
                   onChange={handleChange}
                 />
+                {errors.email ? (
+                  <p className={styles.error}>{errors.email}</p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
           </div>
@@ -90,6 +108,11 @@ function Login() {
                   placeholder="Enter your password"
                   onChange={handleChange}
                 />
+                {errors.password ? (
+                  <p className={styles.error}>{errors.password}</p>
+                ) : (
+                  <p></p>
+                )}
               </div>
             </div>
           </div>
@@ -104,7 +127,7 @@ function Login() {
               </button>
             </div>
             <div className={styles.or}>OR</div>
-            <div className={styles.google} >
+            <div className={styles.google}  onClick={handleGoogleButton}>
               <img src={google} />
               <p>Continue with Google</p>
             </div>

@@ -20,6 +20,9 @@ import { UserContext } from "./userContext/userContext";
 import { fetchUser } from "./db/authData";
 import ProtectedRoute from "./components/protectedRoutes";
 import Forbidden from "./pages/403/Forbidden";
+import { HelmetProvider } from "react-helmet-async";
+import GymPlan from "./layouts/gymPlanDashboard/GymPlan";
+import ProductsDash from "./layouts/productDashboard/ProductDash";
 
 function App() {
   const { user, setUser } = useContext(UserContext);
@@ -59,48 +62,39 @@ function App() {
     );
   }
   return (
-    <div className="App">
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/about" element={<AboutUs />} />
-          <Route path="/contact" element={<ContactUs />} />
-        </Route>
-        <Route path="/services/singleProduct" element={<SingleProduct />} />
-        <Route
-          element={
-            <ProtectedRoute
-              isAllowed={user && user.role === "admin"}
-              redirectPath="/403"
-            />
-          }
-        >
-          <Route path="/Dash" element={<Dashboard />}>
-            <Route
-              path="dashServices"
-              element={
-                <>
-                  <PersonnalTrainingDash isOnDashboard />
-                  <Regimedash isOnDashboard />
-                </>
-              }
-            />
-            <Route
-              path="dashProducts"
-              element={<DashProductsLayout isOnDashboard />}
-            />
-
-            <Route path="dashGymPlans" element={<DashGymPlanLayout />} />
+    <HelmetProvider>
+      <div className="App">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
           </Route>
-        </Route>
-        <Route path="signup" element={<Signup />} />
-        <Route path="login" element={<Login />} />
-        <Route path="/403" element={<Forbidden />} />
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-    </div>
+          <Route path="/services/singleProduct" element={<SingleProduct />} />
+          <Route
+            element={
+              <ProtectedRoute
+                isAllowed={user && user.role === "admin"}
+                redirectPath="/403"
+              />
+            }
+          >
+            <Route path="/Dash" element={<Dashboard />}>
+              <Route index element={<ProductsDash />} />
+              <Route path="dashProducts" index element={<ProductsDash />} />
+
+              <Route path="dashGymPlans" element={<GymPlan />} />
+            </Route>
+          </Route>
+          <Route path="signup" element={<Signup />} />
+          <Route path="login" element={<Login />} />
+          <Route path="/403" element={<Forbidden />} />
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </HelmetProvider>
   );
 }
 
