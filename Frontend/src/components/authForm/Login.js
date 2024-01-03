@@ -30,7 +30,7 @@ function Login() {
       toast("loading...");
       let data = await fetchGoogle(result);
       if (data.token && data.newUser) {
-        toast.success("Helloo!!");
+        toast.success("Logged in successfully!!");
         setUser(data.newUser);
         return navigate("/", { replace: true });
       } else toast.error("can't continue with google");
@@ -52,7 +52,7 @@ function Login() {
         toast("loadingg..");
         let log = await fetchLogin(formData);
         if (log.token && log.newUser) {
-          toast.success("Helloo!!");
+          toast.success("Logged in successfully!!");
           setUser(log.newUser);
           return navigate("/", { replace: true });
         } else {
@@ -102,7 +102,7 @@ function Login() {
               <div className={styles["label-input-group"]}>
                 <input
                   className={styles.formInputs}
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
                   placeholder="Enter your password"

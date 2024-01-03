@@ -117,3 +117,13 @@ li {
   color: var(--main-text-color);
   text-decoration: none;
 }
+
+.btn{
+  background-color: #090909;
+  font-weight: 300;
+  color: red;
+  font-size: large;
+}
+.btn:hover{
+  color: white;
+}

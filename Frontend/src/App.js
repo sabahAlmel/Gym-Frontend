@@ -24,6 +24,8 @@ import { HelmetProvider } from "react-helmet-async";
 import GymPlan from "./layouts/gymPlanDashboard/GymPlan";
 import ProductsDash from "./layouts/productDashboard/ProductDash";
 
+import { ToastContainer } from "react-toastify";
+
 function App() {
   const { user, setUser } = useContext(UserContext);
   const [loading, setLoading] = useState(true);
@@ -63,6 +65,7 @@ function App() {
   }
   return (
     <HelmetProvider>
+      <ToastContainer />
       <div className="App">
         <Routes>
           <Route element={<Layout />}>
@@ -93,6 +96,7 @@ function App() {
           <Route path="/403" element={<Forbidden />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
+        
       </div>
     </HelmetProvider>
   );

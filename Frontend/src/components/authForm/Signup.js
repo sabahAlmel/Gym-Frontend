@@ -88,7 +88,7 @@ function Signup() {
                   type="text"
                   id="First_Name"
                   name="firstName"
-                  placeholder="Enter your FirstName"
+                  placeholder="FirstName"
                   onChange={handleChange}
                 />
                 <p></p>
@@ -103,7 +103,7 @@ function Signup() {
                   type="text"
                   id="Last_Name"
                   name="lastName"
-                  placeholder="Enter your LastName"
+                  placeholder="LastName"
                   onChange={handleChange}
                 />
                 <p></p>
@@ -118,7 +118,7 @@ function Signup() {
                   type="text"
                   id="email"
                   name="email"
-                  placeholder="Enter your email"
+                  placeholder="Email"
                   onChange={handleChange}
                 />
                 {errors.email ? (
@@ -134,10 +134,10 @@ function Signup() {
               <div className={styles["label-input-group"]}>
                 <input
                   className={styles.formInputs}
-                  type="text"
+                  type="password"
                   id="password"
                   name="password"
-                  placeholder="Enter your password"
+                  placeholder="Password"
                   onChange={handleChange}
                 />
                 {errors.password ? (
@@ -153,10 +153,10 @@ function Signup() {
               <div className={styles["label-input-group"]}>
                 <input
                   className={styles.formInputs}
-                  type="text"
+                  type="password"
                   id="verifyPassword"
                   name="verifyPassword"
-                  placeholder="Enter your password again"
+                  placeholder="Confirm password"
                   onChange={handleChange}
                 />
                 {errors.verifyPassword ? (
