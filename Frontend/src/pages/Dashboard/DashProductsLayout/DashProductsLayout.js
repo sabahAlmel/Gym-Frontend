@@ -8,11 +8,12 @@ import { ProductsModal } from "../../../components/Product/ProductsModal/Product
 function DashProductsLayout(props) {
   const [products, setProducts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   async function fetchData() {
     try {
       const data = await fetchProducts();
       if (data) {
+        console.log(data);
         setProducts(data.data);
         setIsLoading(false);
       } else {
@@ -21,28 +22,29 @@ function DashProductsLayout(props) {
       console.log(error);
     }
   }
-
   useEffect(() => {
     fetchData();
   }, []);
 
-  function openModal(){
-    setIsModalOpen(true)
-    console.log('openModal')
+  function openModal() {
+    setIsModalOpen(true);
+    console.log("openModal");
   }
 
   return (
     <div className={style.productsSection}>
-      {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} fetchData={fetchData} /> : ''}
+      {isModalOpen ? (
+        <ProductsModal setIsModalOpen={setIsModalOpen} fetchData={fetchData} />
+      ) : (
+        ""
+      )}
       <h2 className={style.productsTitle}>Products</h2>
       <div className={style.product}>
-        <div className={style.addProductCard}  onClick={() => openModal()}>
-          <section className={style.addButton} >
-            <AiOutlinePlus
-              className={style.plusIcon}
-            />
+        <div className={style.addProductCard} onClick={() => openModal()}>
+          <section className={style.addButton}>
+            <AiOutlinePlus className={style.plusIcon} />
           </section>
-            <span className={style.addButtonText}>Add a Product</span>
+          <span className={style.addButtonText}>Add a Product</span>
         </div>
         {isLoading ? (
           <p>Loading.....</p>
@@ -54,8 +56,8 @@ function DashProductsLayout(props) {
               key={i}
               image={product.prodImage}
               description={product.prodDescription}
-              categoryId={product.prodCategory}
-              id={product._id}
+              categoryId={product.category}
+              id={product.id}
               isOnDashboard={props.isOnDashboard}
             />
           ))

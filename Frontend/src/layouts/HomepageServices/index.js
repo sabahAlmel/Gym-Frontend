@@ -9,19 +9,18 @@ function ServicesSection() {
     {
       name: "Gym Products",
       image: gymProducts,
-      path:'products'
+      path: "products",
     },
     {
       name: "Personal Training",
       image: personalTraining,
-      path:'training'
+      path: "training",
     },
     {
-        name:'Regime Plans',
-        image: regimePlans,
-        path:'regimePlans'
-
-    }
+      name: "Regime Plans",
+      image: regimePlans,
+      path: "regimePlans",
+    },
   ];
 
   return (
@@ -41,7 +40,12 @@ function ServicesSection() {
         </section>
         <section className={style.basisFlexContainer}>
           {ServicesData.map((item, key) => (
-            <Service key={key} name={item.name} image={item.image} path={item.path} />
+            <Service
+              key={key}
+              name={item.name}
+              image={item.image}
+              path={item.path}
+            />
           ))}
         </section>
       </section>

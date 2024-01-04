@@ -1,21 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Styles from "./UpdateRegime.module.css";
 
-const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdates }) => {
+const UpdateRegime = ({ item,setItem,onUpdate,onClose, onCancel, regimeData = {}, handleUpdates }) => {
   const [formData, setFormData] = useState({
-    title: regimeData.title || "",
-    description: regimeData.description || "",
-    image: null, 
+    title: item.title || "",
+    description: item.description || "",
+    image: item.image, 
   });
+  console.log(formData)
+  
 
-  useEffect(() => {
 
-    setFormData({
-      title: regimeData.title || "",
-      description: regimeData.description || "",
-      image: null,
-    });
-  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,12 +20,21 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
     }));
   };
 
-  const handleImageChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      image: e.target.files[0],
-    }));
-  };
+  // const handleImageChange = (e) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     image: e.target.files[0],
+  //   }));
+  // };
+  const handleImageChange=(e)=>{
+    const file= e.target.file[0];
+    if(file){
+      setFormData({
+        ...formData,
+        image:file
+      })
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -55,7 +59,7 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             id="title"
             name="title"
             className={Styles.inpt}
-            value={formData.title}
+            defaultValue={formData.title}
             onChange={handleInputChange}
             required
           />
@@ -65,7 +69,7 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             id="description"
             name="description"
             className={Styles.inpt}
-            value={formData.description}
+            defaultValue={formData.description}
             onChange={handleInputChange}
             required
           />
@@ -76,12 +80,13 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             type="file"
             id="image"
             name="image"
+            defaultValue={formData.image}
             accept="image/*"
             onChange={handleImageChange}
           />
 
           <div style={{ gap: "0rem", display: "flex", flexDirection: "column" }}>
-            <button type="submit" className={Styles.submitButton}>Update</button>
+            <button type="submit" className={Styles.submitButton} onClick={handleUpdates}>Update</button>
             <button type="button" onClick={handleCancel} className={Styles.cancelButton}>Cancel</button>
           </div>
         </form>

@@ -1,42 +1,42 @@
-.portfolioTestimonials{
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+.portfolioTestimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
-.portfolioTestimonials > h2{
-    align-self: center;
+.portfolioTestimonials > h2 {
+  align-self: center;
 }
-.testimonialsContainer{
-    display: flex;
-    justify-content: space-between;
+.testimonialsContainer {
+  display: flex;
+  justify-content: space-between;
 }
-.testimonial{
-    background-color: var(--card-bg-clr);
-    padding: 2.5rem;
-    width: 370px;
-    border-radius: 30px;
-    margin: 0 .7rem;
+.testimonial {
+  background-color: var(--card-bg-clr);
+  padding: 2.5rem;
+  width: 370px;
+  border-radius: 30px;
+  margin: 0 0.7rem;
 }
 
-.testimonialContentWrapper{
-    display: flex;
-    gap: 4rem;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+.testimonialContentWrapper {
+  display: flex;
+  gap: 4rem;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
 }
-.testimonialContentWrapper > p{
-    line-height: 1.5;
-    font-weight: 400;
-} 
-.testimonialContentWrapper > span{
-    align-self: flex-end;
-    color: var(--red-text-clr);
+.testimonialContentWrapper > p {
+  line-height: 1.5;
+  font-weight: 400;
+}
+.testimonialContentWrapper > span {
+  align-self: flex-end;
+  color: var(--red-text-clr);
 }
 @media (max-width: 1400px) {
-    .testimonialsContainer{
-        flex-direction: column;
-        align-self: center;
-        gap: 4rem;
-    }
+  .testimonialsContainer {
+    flex-direction: column;
+    align-self: center;
+    gap: 4rem;
+  }
 }

@@ -37,18 +37,20 @@
   background-color: rgba(0, 0, 0, 0.5);
   width: fit-content;
 }
-.serviceItem > a {
+.serviceItem > .serviceLink {
   background-color: var(--red-btn-clr);
   text-decoration: none;
   text-align: center;
-  padding: .5rem;
+  padding: 0.5rem;
   border-radius: 30px;
   border: none;
   margin: 1rem;
   width: 125px;
   color: var(--white-text-clr);
   font-weight: 400;
-
+}
+.serviceLink:hover {
+  background-color: #7c0000;
 }
 .serviceItem > button:hover {
   cursor: pointer;

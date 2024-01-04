@@ -20,8 +20,8 @@ const Products = (props) => {
       if (response) {
         setProducts(response.data);
         setIsLoading(false);
-      }else{
-        setIsError({state: true, message: 'Network Error'})
+      } else {
+        setIsError({ state: true, message: "Network Error" });
       }
     } catch (error) {
       console.log(error);
@@ -50,8 +50,8 @@ const Products = (props) => {
               key={i}
               image={product.prodImage}
               description={product.prodDescription}
-              categoryId={product.prodCategory}
-              id={product._id}
+              categoryId={product.category}
+              id={product.id}
               isOnDashboard={props.isOnDashboard}
             />
           ))
