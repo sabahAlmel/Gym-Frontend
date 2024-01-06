@@ -154,7 +154,7 @@ export default function ProductsDash() {
           setIsModalOpen(true);
         }}
       >
-        Add Plan
+        Add Product
       </button>
       {isModalOpen &&
         (isEditing ? (

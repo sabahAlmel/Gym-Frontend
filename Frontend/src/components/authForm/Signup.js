@@ -35,7 +35,7 @@ function Signup() {
     try {
       var loadId = toast.loading("loadingg..");
       let data = await fetchGoogle(result);
-      console.log(data)
+      console.log(data);
       if (data.token && data.newUser) {
         toast.success(`Hello ${data.newUser.email.split("@")[0]}`, {
           id: loadId,
@@ -199,7 +199,7 @@ function Signup() {
               </button>
             </div>
             <div className={styles.or}>OR</div>
-            <div className={styles.google}  onClick={handleGoogleButton}>
+            <div className={styles.google} onClick={handleGoogleButton}>
               <img src={google} />
               <p>Continue with Google</p>
             </div>
