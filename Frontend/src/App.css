@@ -108,3 +108,8 @@ h5 {
   width: 90%;
   margin: 4rem auto;
 }
+@media (max-width: 1130px) {
+  h2 {
+    font-size: 2rem;
+  }
+}

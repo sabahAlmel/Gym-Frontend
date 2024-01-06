@@ -1,10 +1,10 @@
 .portfolioTestimonials {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 4rem;
 }
 .portfolioTestimonials > h2 {
-  align-self: center;
+  text-align: center;
 }
 .testimonialsContainer {
   display: flex;
@@ -38,5 +38,10 @@
     flex-direction: column;
     align-self: center;
     gap: 4rem;
+  }
+}
+@media (max-width: 450px) {
+  .testimonial {
+    width: 90%;
   }
 }

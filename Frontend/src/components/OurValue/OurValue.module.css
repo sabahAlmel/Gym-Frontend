@@ -19,10 +19,9 @@
 }
 
 .valueTitle {
-  font-size: 3.13em;
+  font-size: 3rem;
   padding-bottom: 0.3rem;
   border-bottom: 1px solid var(--red-text-clr);
-  width: 25%;
   text-align: center;
   font-weight: 800;
 }
@@ -47,7 +46,7 @@
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  height: 550px;
+  height: 350px;
   width: 350px;
   gap: 1rem;
   border: 1px solid white;
@@ -73,10 +72,11 @@
 @media (max-width: 1200px) {
   .valueVariant {
     width: 250px;
+    height: 470px;
   }
 }
 
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 865px) {
   .valueSection {
     height: 100%;
     width: 100%;
@@ -98,7 +98,6 @@
   }
 
   .valueTitle {
-    font-size: 3.13em;
     padding-bottom: 0.3rem;
     border-bottom: 1px solid var(--red-text-clr);
     color: var(--red-text-clr);
@@ -130,7 +129,6 @@
     align-items: center;
     text-align: center;
     height: 100%;
-    width: 100%;
     gap: 1rem;
   }
 
@@ -152,5 +150,10 @@
     height: auto;
     font-size: 1.5em;
     font-weight: 400;
+  }
+}
+@media (max-width: 400px) {
+  .valueTitle {
+    font-size: 2rem;
   }
 }

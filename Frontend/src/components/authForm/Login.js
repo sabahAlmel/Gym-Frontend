@@ -8,6 +8,8 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../../firebase/firebase";
 import { fetchGoogle } from "../../db/authData";
 import { UserContext } from "../../userContext/userContext";
+import { Helmet } from "react-helmet-async";
+import icon from "../../assets/icons/logIn.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -27,15 +29,18 @@ function Login() {
 
     console.log(result);
     try {
-      toast("loading...");
+      var loadId = toast.loading("loadingg..");
       let data = await fetchGoogle(result);
       if (data.token && data.newUser) {
-        toast.success("Helloo!!");
+        toast.success(`Hello ${data.newUser.email.split("@")[0]}`, {
+          id: loadId,
+        });
         setUser(data.newUser);
         return navigate("/", { replace: true });
-      } else toast.error("can't continue with google");
+      } else toast.error("can't continue with google", { id: loadId });
     } catch (error) {
       console.log(error);
+      toast.error("can't continue with google", { id: loadId });
     }
   };
 
@@ -49,30 +54,39 @@ function Login() {
       toast.error("All fields are required");
     } else {
       try {
-        toast("loadingg..");
+        var loadId = toast.loading("loadingg..");
         let log = await fetchLogin(formData);
         if (log.token && log.newUser) {
-          toast.success("Helloo!!");
+          toast.success(`Hello ${log.newUser.email.split("@")[0]}`, {
+            id: loadId,
+          });
           setUser(log.newUser);
           return navigate("/", { replace: true });
         } else {
           if (log.message.includes("User Not Found")) {
             setErrors({ ...errors, email: "User not found" });
+            toast.error("Error", { id: loadId });
           } else if (log.message.includes("Wrong")) {
             setErrors({ ...errors, password: "Wrong credentials" });
+            toast.error("Error", { id: loadId });
           } else {
-            toast.error("Can't login");
+            toast.error("Can't login", { id: loadId });
           }
         }
       } catch (error) {
         console.error("Error log in:", error);
-        toast.error("can't login");
+        toast.error("Can't login", { id: loadId });
       }
     }
   }
 
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title> Login</title>
+
+        <link rel="shortcut icon" href={icon} type="image/x-icon" />
+      </Helmet>
       <div className={styles.container1}>
         <h1 className={styles.heading}>Log In</h1>
       </div>
@@ -123,7 +137,7 @@ function Login() {
                 className={styles.btn}
                 onClick={handleSubmit}
               >
-                Submit
+                Log In
               </button>
             </div>
             <div className={styles.or}>OR</div>

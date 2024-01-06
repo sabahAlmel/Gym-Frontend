@@ -10,7 +10,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2.5rem;
-  margin: auto;
+  justify-content: center;
 }
 
 .productCard {
@@ -22,7 +22,7 @@
   border-radius: 15px;
   min-width: 250px;
 }
-.productCard:hover .productImage{
+.productCard:hover .productImage {
   width: 100%;
 }
 
@@ -39,7 +39,7 @@
   width: 70%;
   object-fit: cover;
   border-radius: 15px 15px 0 0;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .productDetails {
@@ -67,19 +67,18 @@
   text-align: center;
   color: white;
 }
-.productPrice:focus{
+.productPrice:focus {
   border: none;
   outline: none;
 }
 
-.productPriceBorder{
+.productPriceBorder {
   padding: 5px;
   display: flex;
   width: 50px;
   align-items: center;
   border: 1px solid white;
   border-radius: 5px;
-
 }
 .productPriceCat {
   display: flex;
@@ -97,7 +96,6 @@
   color: white;
   text-align: right;
 }
-
 
 .buttonsWrapper {
   display: flex;
@@ -117,26 +115,26 @@
   text-align: center;
   padding: 5px;
   padding-top: 6px;
-  transition: background-color .2s ease-in;
+  transition: background-color 0.2s ease-in;
 }
-.productButton:hover{
-  background-color: rgb(129, 9, 9)
+.productButton:hover {
+  background-color: rgb(129, 9, 9);
 }
 .productButton:nth-child(1) {
   flex-basis: 50%;
   background-color: white;
   color: black;
 }
-.productButton:nth-child(1):hover{
+.productButton:nth-child(1):hover {
   background-color: rgb(155, 155, 155);
-
 }
 
 .productButton:nth-child(2) {
   flex-basis: 50%;
 }
-@media (max-width: 1100px) {
-  .product {
-    justify-content: center;
+
+@media (max-width: 1130px) {
+  .productsSection > h2 {
+    text-align: center;
   }
 }
