@@ -146,20 +146,14 @@ a.btn {
     padding-bottom: 1rem;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
   .inline-input-group {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
   }
 
   .label-input-group {
     width: 100%;
+    gap: 2rem;
   }
 
   textarea {

@@ -10,25 +10,28 @@
   align-items: center;
   justify-content: space-between;
 }
-.gymEquipmentFlex > img{
-  width: 50%
+.gymEquipmentFlex > img {
+  width: 50%;
 }
-.gymEquipmentFlex > p{
-    width: 40%;
-    line-height: 2.5;
-    font-size: 1.5vw;
+.gymEquipmentFlex > p {
+  width: 40%;
+  line-height: 2.5;
+  font-size: 1.5vw;
 }
 @media (max-width: 1000px) {
-  .gymEquipmentFlex{
+  .gymEquipmentFlex {
     flex-direction: column-reverse;
     gap: 2rem;
+    text-align: center;
   }
-  .gymEquipmentFlex > img{
+  .gymEquipmentFlex > img {
     width: 70%;
   }
-  .gymEquipmentFlex p{
+  .gymEquipmentFlex p {
     font-size: 1.5em;
     width: 100%;
   }
-  
+  .gymEquipmentSection > h2 {
+    text-align: center;
+  }
 }

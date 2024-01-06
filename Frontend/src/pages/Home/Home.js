@@ -6,7 +6,6 @@ import GymPlans from "../../layouts/GymPlans/GymPlans";
 import ReasonsToJoin from "../../components/ReasonsToJoin/ReasonsToJoin";
 import "./home.css";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import icon from "../../assets/icons/dumbbell.png";
 
 function Home() {

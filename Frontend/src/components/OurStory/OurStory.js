@@ -6,7 +6,7 @@ const OurStory = () => {
   return (
     <>
       <div className={styles.container}>
-        <h3 className={styles.heading}>Our Story</h3>
+        <h2 className={styles.heading}>Our Story</h2>
         <p className={styles.content}>
           At Fithub, we believe that fitness and well being are the cornerstones
           of a full and vibrant life. Established in 2023, we began our journey

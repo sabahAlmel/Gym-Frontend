@@ -1,43 +1,41 @@
-.RegimePlanContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    justify-content:center;
-    width: 100%;
+.RegimePlanContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  justify-content: center;
+  width: 100%;
 }
-.RegimeplanFlex{
+.RegimeplanFlex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 3rem;
+}
+.RegimePlanHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+}
+.RegimePlanHeader > h2 {
+  font-size: 2em;
+}
+
+@media (max-width: 1130px) {
+  .RegimeplanFlex {
+    width: 100%;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    gap: 3rem;
+  }
+  .RegimePlanHeader > h2 {
+    text-align: center;
+  }
 }
-.RegimePlanHeader{
+
+@media (max-width: 470px) {
+  .RegimeplanFlex {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: 2rem;
-    width: 100%;
+  }
 }
-.RegimePlanHeader > h2{
-    font-size: 2em;
-}
-
-@media (max-width:1100px) {
-    .RegimeplanFlex{
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-    }
-
-    
-}
-
-@media (max-width:470px) {
-    .RegimeplanFlex{
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    
-}
-

@@ -7,8 +7,10 @@ import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from "../../firebase/firebase";
 import { fetchGoogle } from "../../db/authData";
 import google from "../../assets/icons/Google.svg";
+import icon from "../../assets/icons/logIn.png";
 
 import { UserContext } from "../../userContext/userContext";
+import { Helmet } from "react-helmet-async";
 
 function Signup() {
   const navigate = useNavigate();
@@ -31,16 +33,19 @@ function Signup() {
 
     console.log(result);
     try {
-      toast("loading...");
+      var loadId = toast.loading("loadingg..");
       let data = await fetchGoogle(result);
       console.log(data)
       if (data.token && data.newUser) {
-        toast.success("Helloo!!");
+        toast.success(`Hello ${data.newUser.email.split("@")[0]}`, {
+          id: loadId,
+        });
         setUser(data.newUser);
         return navigate("/", { replace: true });
-      } else toast.error("can't continue with google");
+      } else toast.error("can't continue with google", { id: loadId });
     } catch (error) {
       console.log(error);
+      toast.error("can't continue with google", { id: loadId });
     }
   };
   function handleChange(e) {
@@ -52,29 +57,45 @@ function Signup() {
     if (Object.values(formData).some((item) => item === "" || item === null)) {
       toast.error("All fields are required");
     } else {
-      toast("loadingg..");
-      let log = await fetchSignUp(formData);
-      if (log.token && log.newUser) {
-        toast.success("Helloo!!");
-        setUser(log.newUser);
-        return navigate("/", { replace: true });
-      } else {
-        if (log.error.includes("Invalid email")) {
-          setErrors({ ...errors, email: "Invalid email" });
-        } else if (log.error.includes("email")) {
-          setErrors({ ...errors, email: log.error });
-        } else if (log.error === "Passwords do not match") {
-          setErrors({ ...errors, verifyPassword: log.error });
-        } else if (log.error.includes("password should start")) {
-          setErrors({ ...errors, password: "Invalid password" });
+      try {
+        var loadId = toast.loading("loadingg..");
+        let log = await fetchSignUp(formData);
+        if (log.token && log.newUser) {
+          toast.success(`Hello ${log.newUser.email.split("@")[0]}`, {
+            id: loadId,
+          });
+          setUser(log.newUser);
+          return navigate("/", { replace: true });
         } else {
-          toast.error("Can't sign up");
+          if (log.error.includes("Invalid email")) {
+            setErrors({ ...errors, email: "Invalid email" });
+            toast.error("Error", { id: loadId });
+          } else if (log.error.includes("email")) {
+            setErrors({ ...errors, email: log.error });
+            toast.error("Error", { id: loadId });
+          } else if (log.error === "Passwords do not match") {
+            setErrors({ ...errors, verifyPassword: log.error });
+            toast.error("Error", { id: loadId });
+          } else if (log.error.includes("password should start")) {
+            setErrors({ ...errors, password: "Invalid password" });
+            toast.error("Error", { id: loadId });
+          } else {
+            toast.error("Can't sign up", { id: loadId });
+          }
         }
+      } catch (error) {
+        console.error(error);
+        toast.error("Can't sign up", { id: loadId });
       }
     }
   }
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title> Signup</title>
+
+        <link rel="shortcut icon" href={icon} type="image/x-icon" />
+      </Helmet>
       <div className={styles.container1}>
         <h1 className={styles.heading}>Sign Up</h1>
       </div>

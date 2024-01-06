@@ -86,6 +86,12 @@
   }
   .serviceImageContainer {
     flex-basis: 30%;
-    width: 90%;
+    width: 100%;
+  }
+}
+@media (max-width: 350px) {
+  .serviceItem > .serviceLink {
+    padding: 0.3rem;
+    margin-left: -0.5rem;
   }
 }
