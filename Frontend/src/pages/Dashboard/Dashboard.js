@@ -5,6 +5,7 @@ import { Outlet } from "react-router";
 import icon from "../../assets/icons/dashLogo.svg";
 import { Helmet } from "react-helmet-async";
 import { ProductsModal } from "../../components/Product/ProductsModal/ProductsModal";
+import SideBar from "./SideNav/SideBar";
 
 function Dashboard() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,7 +18,7 @@ function Dashboard() {
         <link rel="shortcut icon" href={icon} type="image/x-icon" />
       </Helmet>
       {isModalOpen ? <ProductsModal setIsModalOpen={setIsModalOpen} /> : ""}
-      <SideNav />
+      <SideBar />
       <section className={style.dashContentContainer}>
         <Outlet
           context={[isModalOpen, setIsModalOpen]}

@@ -32,12 +32,9 @@ function Login() {
       var loadId = toast.loading("loadingg..");
       let data = await fetchGoogle(result);
       if (data.token && data.newUser) {
-        toast.success(
-          `Logged in successfully!! ${data.newUser.email.split("@")[0]}`,
-          {
-            id: loadId,
-          }
-        );
+        toast.success(`Hello ${data.newUser.email.split("@")[0]}!!`, {
+          id: loadId,
+        });
         setUser(data.newUser);
         return navigate("/", { replace: true });
       } else toast.error("can't continue with google", { id: loadId });
@@ -60,12 +57,9 @@ function Login() {
         var loadId = toast.loading("loadingg..");
         let log = await fetchLogin(formData);
         if (log.token && log.newUser) {
-          toast.success(
-            `Logged in successfully!! ${log.newUser.email.split("@")[0]}`,
-            {
-              id: loadId,
-            }
-          );
+          toast.success(`Hello ${log.newUser.email.split("@")[0]}!!`, {
+            id: loadId,
+          });
           setUser(log.newUser);
           return navigate("/", { replace: true });
         } else {

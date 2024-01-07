@@ -1,0 +1,80 @@
+.sidepanel {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #222222;
+  overflow-x: hidden;
+  transition: 0.5s;
+  font-weight: 400;
+  padding-top: 15px;
+}
+.fullWidth {
+  width: 100%;
+}
+.sidepanel div.sideBarContainer {
+  display: flex;
+  padding-left: 10px;
+  justify-content: space-between;
+}
+
+.dashLogoContainer {
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  font-size: 18px;
+  font-weight: 500;
+  align-items: center;
+}
+
+.sidepanel a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+  margin: 15px;
+}
+
+.sidepanel a:hover {
+  color: #af0000;
+}
+
+a.activeSideItem {
+  color: #af0000;
+  font-weight: bold;
+}
+
+.sidepanel .closebtn {
+  font-size: 37px;
+}
+
+.openbtn {
+  font-size: 35px;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  /* padding: 10px 15px; */
+  border: none;
+  height: 50px;
+  margin: 40px 10px;
+}
+
+.openbtn:hover {
+  background-color: transparent;
+  color: #580000;
+}
+@media (max-width: 769px) {
+  .openbtn {
+    padding: 0;
+    margin: 45px 0px;
+  }
+}
+@media (max-width: 350px) {
+  .openbtn {
+    font-size: 28px;
+  }
+}

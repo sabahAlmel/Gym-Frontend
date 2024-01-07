@@ -26,7 +26,7 @@ export default function SideNav() {
           <section className={style.navItemsWrapper}>
             <ul
               className={style.ContentManagementItemsWrapper}
-              style={{ marginTop: 40, height: "800px" }}
+              style={{ marginTop: 40, height: "600px" }}
             >
               <NavLink
                 to="dashProducts"
@@ -51,6 +51,17 @@ export default function SideNav() {
                 Gym Plans
               </NavLink>
             </ul>
+            <NavLink
+              to="/"
+              exact={true}
+              className={({ isActive }) =>
+                isActive
+                  ? `${style.activeSideItem} ${style.sideBarItem}`
+                  : `${style.sideBarItem} ${style.sideBarSubItem}`
+              }
+            >
+              Home Page
+            </NavLink>
           </section>
         </section>
       </section>
