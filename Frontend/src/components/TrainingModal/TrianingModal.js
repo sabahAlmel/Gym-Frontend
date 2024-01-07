@@ -77,7 +77,7 @@ export const TrainingModal = (props) => {
             type="file"
             name="image"
             className={style.fileInput}
-            onChange={handleChange}
+            onChange={handleInputChange}
           />
         </section>
         <section className={style.btnContainer}>
