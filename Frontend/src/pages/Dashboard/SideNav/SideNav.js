@@ -39,6 +39,21 @@ export default function SideNav() {
               >
                 Products
               </NavLink>
+
+              <NavLink
+                to="trainingDash"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
+                activeclassname={style.activeSideItem}
+              >
+                Personnal Training
+              </NavLink>
+
+
+
               <NavLink
                 to="dashGymPlans"
                 exact={true}

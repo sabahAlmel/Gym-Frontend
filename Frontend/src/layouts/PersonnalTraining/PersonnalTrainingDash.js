@@ -1,195 +1,266 @@
-import React, { useEffect, useState } from "react";
-import style from "./PersonnalTrainingDash.module.css";
-import axios from 'axios'
-import { fetchTraining } from "../../db/trainingData";
+import React, { useState, useEffect } from "react";
+import { DataGrid, GridToolbar } from "@mui/x-data-grid";
+import styles from "./PersonnalTrainingDash.module.css";
+import { deleteData, fetchTraining } from "../../db/trainingData";
+import toast from "react-hot-toast";
+import { TrainigEditModal } from "../../components/TrainingModal/TrainingEditModal";
+import { TrainingModal } from "../../components/TrainingModal/TrianingModal";
+export default function TrainingDash() {
+  const [trainings, setTrainings] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [selectedRowData, setSelectedRowData] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth > 992);
 
-const PersonnalTrainingDash = () => {
 
-  const [items, setItems] = useState([]);
-  const [selectedItemId, setSelectedItemId] = useState(null);
-  const [newName, setNewName] = useState("");
-  const [newDescription, setNewDescription] = useState("");
-  const [newImageFile, setNewImageFile] = useState(null);
-
-  const resetFormFields = () => {
-    setNewName("");
-    setNewDescription("");
-    setNewImageFile(null);
-    setSelectedItemId(null);
+  const setTrainingImageUrl = (url, id) => {
+    setTrainings((prevTrainings) => {
+      return prevTrainings.map((training) =>
+        training.id === id ? { ...training, imageUrl: url } : training
+      );
+    });
   };
 
-  const handleCreate = async () => {
-    const formData = new FormData()
-    formData.append('name', newName)
-    formData.append('description', newDescription)
-    if (newImageFile)
-      formData.append('image', newImageFile)
+
+
+
+  useEffect(() => {
+    fetchData();
+  }, [isModalOpen || isEditing]);
+
+  useEffect(() => {
+    fetchData();
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth > 992);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+  
+  async function fetchData() {
     try {
-      const response = await axios.post(`${process.env.REACT_APP_PATH}training/add`, formData, {
-        headers: { 'Content-type': 'multipart/formData' }
-      })
-      if (response.data.message === 'Personnal Training added successfully') {
-        setItems((prevItems) => [...prevItems, response.data.data])
-        setNewName('')
-        setNewDescription('')
-        setNewImageFile(null)
+      const data = await fetchTraining();
+      if (data && data.data) {
+        setTrainings(data.data.data);
+        setIsLoading(false);
+      } else {
+        setTrainings([]);
+        console.error("Invalid or empty response:", data);
       }
-      else
-        console.error(response.data.message)
-    }
-    catch (error) {
-      console.log(error)
+    } catch (error) {
+      setTrainings([]);
+      console.log("Error fetching training data:", error);
     }
   }
+
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     try {
+  //       const response = await fetchTraining();
+  //       console.log('Fetched data:', response.data.data)
+  //       if (response) {
+  //         setTrainings(response.data.data)
+  //       }
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
+
+
+
+  const columns = [
+    {
+      field: "image",
+      headerName: "Image",
+      width: 90,
+      renderCell: (params) => (
+        <img
+        src={params.row.imageUrl || `${process.env.REACT_APP_PATH}${params.row.image}`}
+          alt="Image"
+          style={{ width: 50, height: 50, borderRadius: "50%" }}
+        />
+      ),
+    },
+    { field: "name", headerName: "Name", width: isDesktop ? 150 : 120 },
+    {
+      field: "description",
+      headerName: "Description",
+      width: isDesktop ? 400 : 300,
+    },
+    {
+      field: "Action",
+      headerName: "Actions",
+      width: isDesktop ? 180 : 140,
+      renderCell: (params) => (
+        <div>
+          <button
+            className={`${styles.btn} ${styles}`}
+            style={{
+              marginRight: "0.5rem",
+              fontFamily: "bold",
+              fontSize: "16px",
+              "&:hover": { color: "green" },
+            }}
+            onClick={() => handleEdit(params.row.id)}
+          >
+            Edit
+          </button>
+          <button
+            className={styles.btn}
+            style={{ fontFamily: "bold", fontSize: "16px" }}
+            onClick={() => handleDelete(params.row.id)}
+          >
+            Delete
+          </button>
+        </div>
+      ),
+    },
+  ];
+
+  const handleEdit = (id) => {
+    const selectedRow = trainings.find((row) => row.id === id);
+    setSelectedRowData(selectedRow);
+    setIsEditing(true);
+    setIsModalOpen(true);
+  };
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(`${process.env.REACT_APP_PATH}training/delete`, {
-        data: { _id: id }
-      })
+      toast("Loading...");
+      await deleteData(id);
+      toast.success("training Deleted Successfully");
+      fetchData();
+    } catch (error) {
+      console.error("Error deleting training:", error);
+      toast.error("Error deleting training");
     }
-    catch (error) {
-      console.log(error)
-    }
-  }
+  };
 
-  const handleEdit = async (item) => {
-    setSelectedItemId(item._id)
-    setNewName(item.name)
-    setNewDescription(item.description)
-    setNewImageFile(item.image)
-  }
+  const emptyRow = { id: -1, title: "Loading..." };
 
-  const handleUpdate = async () => {
-    console.log('before', selectedItemId)
-    if (selectedItemId) {
-      console.log('after', newImageFile)
-      const dataToSend = { _id: selectedItemId, name: newName, description: newDescription, image: newImageFile }
-      console.log(dataToSend)
-      console.log(newImageFile)
-      const response = await axios.patch(`${process.env.REACT_APP_PATH}training/update`, { image: newImageFile, ...dataToSend }, {
-        headers: { 'Content-type': 'multipart: form-data' }
-      })
-        .then((response) => {
-          if (response.data.message === 'Updated successfully') {
-            setItems((prevItems) => prevItems.map((item) => item._id === selectedItemId ? { ...item, name: newName, description: newDescription, image: response.data.data.image }
-              : item))
-            setNewName("")
-            setNewDescription("")
-            setNewImageFile(null)
-            setSelectedItemId(null)
-          }
-          else
-            console.error(response.data.message)
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-    }
-    else
-      console.error('No such ID to be updated')
-  }
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetchTraining()
-        if (response)
-          setItems(response.data.data)
-      }
-      catch (error) {
-        console.log(error)
-      }
-    }
-    fetchData()
-  }, [])
+  console.log("Type of trainings:", typeof trainings);
+const rowsWithEmptyRow = isLoading ? [emptyRow] : Array.isArray(trainings) ? trainings : [];
 
   return (
-    <section className={style.personnalTrainingContainer}>
-      <section className={style.personalTrainingHeader}>
-        <h2>Personal Trainings</h2>
-      </section>
-      <section className={style.personalTrainingFlex}>
-        <div className={style.addItem}>
-          <button className={style.buttonAdd} onClick={handleCreate}>+Add</button>
-        </div>
-        <table className={style.personnalTrainingTable}>
-          <thead className={style.tableHeader}>
-            <tr>
-              <th className={style.tableHeaderItem}>ID</th>
-              <th className={style.tableHeaderItem}>Name</th>
-              <th className={style.tableHeaderItem}>Description</th>
-              <th className={style.tableHeaderItem}>Image</th>
-              <th className={style.tableHeaderItem}>Operations</th>
-            </tr>
-          </thead>
-          <tbody className={style.tableContent}>
-            {
-              items.map((item, i) => (
-                <tr key={i}>
-                  <td>{item._id}</td>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
-                  <td>{item.image}</td>
-                  <td className={style.buttonSection}>
-                    <button className={style.buttonEdit} onClick={() => handleEdit(item)}>Edit</button>
-                    <button className={style.buttonDelete} onClick={() => handleDelete(item._id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
-          </tbody>
-        </table>
-        {selectedItemId ? (
-          <form className={style.formContainer}>
-            <div className={style.editForm}>
-              <input
-                type="text"
-                placeholder="New Name"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                className={style.inputField}
-              />
-              <input
-                type="text"
-                placeholder="New Description"
-                value={newDescription}
-                onChange={(e) => setNewDescription(e.target.value)}
-                className={style.inputField}
-              />
-              <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} className={style.fileInput} />
-              <button className={`${style.button} ${style.add}`} onClick={handleUpdate}>Update</button>
-              <button className={`${style.button} ${style.add}`} onClick={resetFormFields}>Cancel</button>
-            </div>
-          </form>
+    <div
+      style={{
+        width: "90%",
+        float: "left",
+        margin: "auto",
+        height: "650px",
+        marginBottom: "7rem",
+        marginBottom: "3rem",
+      }}
+    >
+      <h1 style={{ fontSize: 45, fontWeight: "bold", marginBottom: 30 }}>
+       Personnal Training
+      </h1>
+      <button
+        className={styles.btnAdd}
+        style={{
+          color: "white",
+          marginBottom: "2rem",
+          width: "12rem",
+          borderRadius: "5px",
+        }}
+        onClick={() => {
+          setIsEditing(false);
+          setIsModalOpen(true);
+        }}
+      >
+        Add Trainings
+      </button>
+      {isModalOpen &&
+        (isEditing ? (
+          <TrainigEditModal
+            setIsModalOpen={setIsModalOpen}
+            initialData={selectedRowData}
+            fetchData={fetchData}
+            setTrainingImageUrl={setTrainingImageUrl}
+          />
         ) : (
-          <form className={style.formContainer}>
-            <div className={style.editForm}>
-              <input
-                type="text"
-                placeholder="Name"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-                className={style.inputField}
-              />
-              <input
-                type="text"
-                placeholder="Description"
-                value={newDescription}
-                onChange={(e) => setNewDescription(e.target.value)}
-                className={style.inputField}
-              />
-              <input
-                type="file"
-                onChange={(e) => setNewImageFile(e.target.files[0])} className={style.fileInput} />
-              <button className={`${style.button} ${style.add}`} onClick={handleCreate}>Add</button>
-            </div>
-          </form>
-        )}
-      </section>
-    </section>
-  );
+          <TrainingModal
+            setIsModalOpen={setIsModalOpen}
+            fetchData={fetchData}
+            setTrainingImageUrl={setTrainingImageUrl}
+          />
+        ))}
+      <DataGrid
+        rows={rowsWithEmptyRow}
+        columns={columns}
+        pagination
+        pageSize={5}
+        rowsPerPageOptions={[5, 10, 20]}
+        components={{
+          Toolbar: CustomToolbar, // Use a custom toolbar component
+        }}
+        sx={{
+          color: "white",
+          // border:"none",
+          paddingTop: "1rem",
+          border: "1px solid white",
+          borderRadius: "17px",
+          "& .MuiDataGrid-root": {
+            backgroundColor: "white",
 
+            // Background color of the entire grid
+          },
+          "& .MuiDataGrid-columnHeader": {
+            // Background color of column headers
+            color: "white",
+            fontFamily: "Outfit",
+            fontSize: "19px",
+            // Text color of column headers
+          },
+          "& .MuiDataGrid-cell": {
+            borderBottom: "1px solid #ccc", // Border between cells
+            color: "white",
+            fontSize: "17px",
+            // Text color of cells
+          },
+          "& .MuiTablePagination-root": {
+            color: "white", // Text color of pagination
+          },
+          "& .MuiDataGrid-toolbar": {
+            color: "white",
+            backgroundColor: "white", // Background color of the toolbar
+          },
+          "& .MuiDataGrid-toolbarContainer": {
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            color: "white",
+            // color: 'blue',
+          },
+          "& .MuiButtonBase-root": {
+            color: "white", // Text color for buttons in the toolbar
+          },
+          "& .MuiPaginationItem-icon": {
+            color: "white", // Color of pagination icons
+          },
+          "& .MuiSvgIcon-root": {
+            color: "white",
+          },
+          "& .MuiDataGrid-row , & .MuiDataGrid-cell": {
+            maxHeight: "80px !important",
+            height: "80px !important",
+          },
+        }}
+      />
+    </div>
+  );
 }
 
-
-export default PersonnalTrainingDash
+const CustomToolbar = () => {
+  return (
+    <GridToolbar>{/* Add any custom elements or styling here */}</GridToolbar>
+  );
+};

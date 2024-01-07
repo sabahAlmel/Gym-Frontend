@@ -87,6 +87,8 @@ function App() {
             <Route path="/Dash" element={<Dashboard />}>
               <Route index element={<ProductsDash />} />
               <Route path="dashProducts" index element={<ProductsDash />} />
+              
+              <Route path="trainingDash" index element={<PersonnalTrainingDash/>} />
 
               <Route path="dashGymPlans" element={<GymPlan />} />
             </Route>
