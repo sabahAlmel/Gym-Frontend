@@ -78,6 +78,15 @@ const SideBar = () => {
           Gym Plans
         </NavLink>
         <NavLink
+          to="regimdash"
+          className={({ isActive }) =>
+            isActive ? `${style.activeSideItem} ` : ``
+          }
+          onClick={closeNav}
+        >
+          Diet plan
+        </NavLink>
+        <NavLink
           to="/"
           style={{ position: "absolute", bottom: 20 }}
           className={({ isActive }) =>

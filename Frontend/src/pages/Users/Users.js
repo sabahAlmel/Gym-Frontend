@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import styles from "./regimedash.module.css";
+import styles from "./Users.module.css";
 import axios from "axios";
 import { DataGrid, GridToolbar } from "@mui/x-data-grid";
 import { fetchRegime } from "../../db/regimeData";
 import { RegimeModal } from "../../components/RegimePlanModal/RegimePlanModal";
 import image from "../../assets/images/AboutUsImages/variant-1.png";
 import AddRegime from "../../components/AddRegime/AddRegime";
+import AddUser from "../../components/AddUser/AddUser";
 import UpdateRegime from "../../components/UpdateRegime/UpdateRegime";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function ToolbarGrid() {
+export default function Users() {
   const [items, setItems] = useState(null);
   const [selectedItemId, setSelectedItemId] = useState(null);
   const [newName, setNewName] = useState("");
@@ -19,7 +20,7 @@ export default function ToolbarGrid() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [item, setItem] = useState([]);
   const [isloading, setIsLoading] = useState(true);
-  const [isAddRegimeOpen, setIsAddRegimeOpen] = useState(false);
+  const [isAddUserOpen, setIsAddUserOpen] = useState(false);
   const [isUpdateRegimeOpen, setIsUpdateRegimeOpen] = useState(false);
 
   const [formData, setFormData] = useState({
@@ -28,18 +29,19 @@ export default function ToolbarGrid() {
     image: null,
   });
 
-  const fetchRegime = async () => {
+  const fetchUsers = async () => {
     try {
       const response = await axios.get(
-        `${process.env.REACT_APP_PATH}regime/read`
+        `${process.env.REACT_APP_PATH}users`
       );
       if (response) {
-        const transformedData = response.data.data.map((item, index) => ({
+        const transformedData = response.data.map((item, index) => ({
           id: item.id, 
-          name: item.name,
-          description: item.description,
+          firstName: item.firstName,
+          lastName: item.lastName,
+          email: item.email,
           image: item.image,
-     
+          // Add other properties as needed
         }));
         setItem(transformedData);
         setIsLoading(false);
@@ -53,7 +55,7 @@ export default function ToolbarGrid() {
       setIsLoading(false);
     }
   };
-// console.log(item)
+
   const handleSubmit = async () => {
     try {
       const formDataToSend = new FormData();
@@ -62,7 +64,7 @@ export default function ToolbarGrid() {
       });
 
       const response = await axios.post(
-        `${process.env.REACT_APP_PATH}regime/add`,
+        `${process.env.REACT_APP_PATH}users/add`,
         formDataToSend
       );
 
@@ -70,11 +72,14 @@ export default function ToolbarGrid() {
       // console.log("aaaaaaaaaaaaaaaaaaaa"+response.data.data)
 
       setFormData({
-        title: "",
-        description: "",
+        firstName: "",
+        lastName: "",
+        email:"",
+        password:"",
+        verifyPassword:""
         // image: null
       });
-      toast.success("Regime plan added successfully", {
+      toast.success("User added successfully", {
         position: "top-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -90,14 +95,11 @@ export default function ToolbarGrid() {
   };
 
   useEffect(() => {
-    fetchRegime();
-    handleSubmit();
-    handleDeletee();
+    fetchUsers()
   }, []);
 
   const columns = [
     // { field: 'id', headerName: 'id', width: 80 },
-    { field: "name", headerName: "Title", width: 140 },
     {
       field: "image",
       headerName: "Image",
@@ -110,33 +112,16 @@ export default function ToolbarGrid() {
         />
       ),
     },
-    {
-      field: "description",
-      headerName: "Description",
-      width: 780,
-      renderCell: (params) => (
-        <div className={styles.description}>{params.row.description}</div>
-      ),
-    },
+    { field: "firstName", headerName: "firstName", width: 270 },
+    { field: "lastName", headerName: "lastName", width: 270 },
+    { field: "email", headerName: "email", width: 270 },
+
     {
       field: 'Action',
     headerName: 'Actions',
     width: 140,
     renderCell: (params) => (
       <div>
-        <button
-          className={`${styles.btn} ${styles}`}
-          style={{
-            marginRight: "0.5rem",
-            fontFamily: "bold",
-            fontSize: "16px",
-            "&:hover": { color: "green" },
-          }}
-          onClick={() => handleEditt(params.row.id)}
-        >
-          Edit
-        </button>
-
           <button
             className={styles.btn}
             style={{ fontFamily: "bold", fontSize: "16px" }}
@@ -160,15 +145,16 @@ export default function ToolbarGrid() {
     try {
       console.log("Deleting item with ID:", id);
       const response = await axios.delete(
-        `${process.env.REACT_APP_PATH}regime/delete`,
+        `${process.env.REACT_APP_PATH}users/delete`,
         {
+
           data: { id: id },
         }
       );
-      if (response.data.message === "Deleted Successfully") {
-        setItem((prevItems) => prevItems.filter((item) => item.id !== id));
+      if (response.data.message === "deleted") {
+        await setItem((prevItems) => prevItems.filter((item) => item.id !== id));
         console.log("Regime plan deleted successfully");
-        toast.success("Regime plan deleted successfully", {
+        toast.success("User deleted successfully", {
           position: "top-right",
           autoClose: 3000,
           hideProgressBar: false,
@@ -183,52 +169,6 @@ export default function ToolbarGrid() {
       console.error("Error deleting item:", error.message);
     }
   };
-
-  const myCustomData = [
-    {
-      id: 1,
-      title: "Item 1",
-      description:
-        "John Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn Doe",
-      image: "path-to-image-1.jpg",
-    },
-    {
-      id: 2,
-      title: "Item 2",
-      description:
-        "John Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJoh",
-      image: "path-to-image-2.jpg",
-    },
-    {
-      id: 3,
-      title: "Item 3",
-      description:
-        "JohnJohn Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJoh",
-      image: "path-to-image-3.jpg",
-    },
-    {
-      id: 4,
-      title: "Item 4",
-      description:
-        "John Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJoh",
-      image: "path-to-image-4.jpg",
-    },
-    {
-      id: 5,
-      title: "Item 5",
-      description:
-        "John DoeJohn Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJoh",
-      image: "path-to-image-5.jpg",
-    },
-    {
-      id: 6,
-      title: "Item 6",
-      description:
-        "John Doe John DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJohn DoeJoh",
-      image: "path-to-image-6.jpg",
-    },
-    // Add more rows as needed
-  ];
 
   const resetFormFields = () => {
     setNewName("");
@@ -323,34 +263,15 @@ export default function ToolbarGrid() {
   // post data
   const handleAdd = (e) => {
     e.preventDefault();
-    setIsAddRegimeOpen(true);
+    setIsAddUserOpen(true);
   };
 
-  const handleUpdates = (e) => {
-    console.log("clickedd");
-    e.preventDefault();
-    setIsUpdateRegimeOpen(true);
-  };
+
   const handlecancel = (e) => {
     e.preventDefault();
-    setIsAddRegimeOpen(false);
+    setIsAddUserOpen(false);
   };
-  // fetch data
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetchRegime();
-  //       console.log('Fetched data:', response.data.data)
-  //       if (response) {
-  //         setItems(response.data.data)
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-  // const getRowId = (row) => row.id;
+
   const emptyRow = { id: -1, name: "Loading..." };
 
   const rowsWithEmptyRow = isloading ? [emptyRow] : item;
@@ -367,7 +288,7 @@ export default function ToolbarGrid() {
       }}
     >
       <h1 style={{ fontSize: 45, fontWeight: "bold", marginBottom: 30 }}>
-        Diet plans
+        Users
       </h1>
       <button
         className={styles.btnAdd}
@@ -381,7 +302,7 @@ export default function ToolbarGrid() {
         }}
         onClick={handleAdd}
       >
-        Add Plan
+        Add User
       </button>
       <DataGrid
         // getRowId={getRowId}
@@ -444,22 +365,15 @@ export default function ToolbarGrid() {
           },
         }}
       />
-      {isAddRegimeOpen && (
-        <AddRegime
+      {isAddUserOpen && (
+        <AddUser
           formData={formData}
           setFormData={setFormData}
-          onClose={() => setIsAddRegimeOpen(false)}
+          onClose={() => setIsAddUserOpen(false)}
           handleSubmit={handleSubmit}
         />
       )}
-      {isUpdateRegimeOpen && (
-        <UpdateRegime
-          initialItem={item}
-          setItem={setItem}
-          onClose={() => setIsUpdateRegimeOpen(false)}
-          handleUpdates={handleUpdates}
-        />
-      )}
+   
       <ToastContainer />
     </div>
   );
@@ -470,103 +384,3 @@ const CustomToolbar = () => {
     <GridToolbar>{/* Add any custom elements or styling here */}</GridToolbar>
   );
 };
-//   return (
-//     <div className={styles.regimeDashWrapper}>
-//       {isModalOpen ? <RegimeModal setIsModalOpen={setIsModalOpen} /> : ''}
-//       <h2 className={styles.h2}>Regime Plan</h2>
-//       <div className={styles.allItems}>
-//         <table className={styles.regimTable} >
-//           <thead className={styles.tableHeader}>
-//             <tr>
-//               <th className={styles.tableHeaderItem}>ID</th>
-//               <th className={styles.tableHeaderItem}>Name</th>
-//               <th className={styles.tableHeaderItem}>Description</th>
-//               <th className={styles.tableHeaderItem}>Image</th>
-//               <th className={styles.tableHeaderItem}>Actions</th>
-//             </tr>
-//           </thead>
-//           <tbody className={styles.tableContent}>
-//             {items.map((item) => (
-//               <tr key={item._id}>
-//                 <td className={styles.tableContent}>{item._id}</td>
-//                 <td className={styles.tableContent}>{item.name}</td>
-//                 <td className={styles.tableContent}>{item.description}</td>
-//                 <td className={styles.tableContent}>
-//                   <img src={item.image} alt={item.name} />
-//                 </td >
-//                 <td className={styles.buttonSection}>
-//                   <button className={`${styles.button} ${styles.buttonEdit}`} onClick={() => handleEdit(item)}>
-//                     Edit
-//                   </button>
-//                   <button className={`${styles.button} ${styles.buttonDelete}`} onClick={() => handleDelete(item._id)}>
-//                     Delete
-//                   </button>
-
-//                 </td>
-//               </tr>
-//             ))}
-//           </tbody>
-//         </table>
-//       </div>
-
-//       {/* show update form */}
-
-//       {selectedItemId ? (
-//         <form className={styles.formcontainer}>
-//           <div className={styles.editForm}>
-//             <input
-//               type="text"
-//               placeholder="New Name"
-//               value={newName}
-//               onChange={(e) => setNewName(e.target.value)}
-//               className={styles.inputField}
-
-//             />
-//             <input
-//               type="text"
-//               placeholder="New Description"
-//               value={newDescription}
-//               onChange={(e) => setNewDescription(e.target.value)}
-//               className={styles.inputField}
-
-//             />
-//             <input type="file" onChange={(e) => setNewImageFile(e.target.files[0])} className={styles.fileInput}
-//             />
-//             <button className={`${styles.button} ${styles.add}`} onClick={handleUpdate}>Update</button>
-//             <button className={`${styles.button} ${styles.add}`} onClick={resetFormFields}>Cancel</button>
-//           </div>
-//         </form>
-//       ) : (
-//         // show add form
-//         <form className={styles.formcontainer}>
-//           <div className={styles.editForm}>
-//             <input
-//               type="text"
-//               placeholder="Name"
-//               value={newName}
-//               onChange={(e) => setNewName(e.target.value)}
-//               className={styles.inputField}
-//             />
-//             <input
-//               type="text"
-//               placeholder="Description"
-//               value={newDescription}
-//               onChange={(e) => setNewDescription(e.target.value)}
-//               className={styles.inputField}
-
-//             />
-//             <input
-//               type="file"
-//               onChange={(e) => setNewImageFile(e.target.files[0])} className={styles.fileInput}
-//             />
-//             <button className={`${styles.button} ${styles.add}`} onClick={handleAdd}>Add</button>
-//           </div>
-//         </form>
-//       )}
-//     </div>
-//   );
-// }
-
-// export default Regimedash;
-
-// import { useDemoData } from '@mui/x-data-grid-generator';

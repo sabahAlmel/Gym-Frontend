@@ -23,6 +23,7 @@ import Forbidden from "./pages/403/Forbidden";
 import { HelmetProvider } from "react-helmet-async";
 import GymPlan from "./layouts/gymPlanDashboard/GymPlan";
 import ProductsDash from "./layouts/productDashboard/ProductDash";
+import Users from "./pages/Users/Users";
 
 import { ToastContainer } from "react-toastify";
 
@@ -87,8 +88,8 @@ function App() {
             <Route path="/Dash" element={<Dashboard />}>
               <Route index element={<ProductsDash />} />
               <Route path="dashProducts" index element={<ProductsDash />} />
-              
-              <Route path="trainingDash" index element={<PersonnalTrainingDash/>} />
+              <Route path="regimeDash" index element={<Regimedash />} />
+              <Route path="users" index element={<Users />} />
 
               <Route path="dashGymPlans" element={<GymPlan />} />
             </Route>
