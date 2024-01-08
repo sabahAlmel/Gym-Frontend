@@ -82,13 +82,18 @@ function App() {
                 isAllowed={user && user.role === "admin"}
                 redirectPath="/403"
               />
+              //  <Regimedash isOnDashboard/>
             }
           >
             <Route path="/Dash" element={<Dashboard />}>
               <Route index element={<ProductsDash />} />
               <Route path="dashProducts" index element={<ProductsDash />} />
-              
-              <Route path="trainingDash" index element={<PersonnalTrainingDash/>} />
+
+              <Route
+                path="trainingDash"
+                index
+                element={<PersonnalTrainingDash />}
+              />
 
               <Route path="dashGymPlans" element={<GymPlan />} />
             </Route>
@@ -98,7 +103,6 @@ function App() {
           <Route path="/403" element={<Forbidden />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
-        
       </div>
     </HelmetProvider>
   );
