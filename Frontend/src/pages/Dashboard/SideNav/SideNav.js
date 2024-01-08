@@ -29,6 +29,15 @@ export default function SideNav() {
               style={{ marginTop: 40, height: "600px" }}
             >
               <NavLink
+                to="users"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
+                activeclassname={style.activeSideItem}
+              >Users</NavLink>
+              <NavLink
                 to="dashProducts"
                 className={({ isActive }) =>
                   isActive
@@ -54,6 +63,17 @@ export default function SideNav() {
 
 
 
+              <NavLink
+                to="regimeDash"
+                className={({ isActive }) =>
+                  isActive
+                    ? `${style.activeSideItem} ${style.sideBarItem}`
+                    : `${style.sideBarItem} ${style.sideBarSubItem}`
+                }
+                activeclassname={style.activeSideItem}
+              >
+                Diet plan
+              </NavLink>
               <NavLink
                 to="dashGymPlans"
                 exact={true}

@@ -122,8 +122,9 @@ li {
   text-decoration: none;
 }
 
-.btn {
-  background-color: #dc0000;
+.btn{
+  background-color: #090909;
+  margin-top: 0.6rem;
   font-weight: 300;
   font-size: large;
   margin: 0 1rem;

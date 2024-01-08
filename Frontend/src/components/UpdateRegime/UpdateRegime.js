@@ -1,36 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import Styles from "./UpdateRegime.module.css";
 
-const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdates }) => {
+const UpdateRegime = ({ initialItem,setItem,onUpdate,onClose, onCancel, regimeData = {}, handleUpdates }) => {
   const [formData, setFormData] = useState({
-    title: regimeData.title || "",
-    description: regimeData.description || "",
-    image: null, 
+    title: initialItem.title || "",
+    description: initialItem.description || "",
+    image: initialItem.image, 
   });
+  console.log(formData)
+  
 
-  useEffect(() => {
 
+
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     [name]: value,
+  //   }));
+  // };
+  const handleInputChange =(name , value)=>{
     setFormData({
-      title: regimeData.title || "",
-      description: regimeData.description || "",
-      image: null,
-    });
-  }, []);
+      ...formData,
+      [name]:value,
+    })
+  }
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
-  };
-
-  const handleImageChange = (e) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      image: e.target.files[0],
-    }));
-  };
+  // const handleImageChange = (e) => {
+  //   setFormData((prevData) => ({
+  //     ...prevData,
+  //     image: e.target.files[0],
+  //   }));
+  // };
+  const handleImageChange=(e)=>{
+    const file= e.target.file[0];
+    if(file){
+      setFormData({
+        ...formData,
+        image:file
+      })
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,8 +66,8 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             name="title"
             className={Styles.inpt}
             value={formData.title}
-            onChange={handleInputChange}
-            required
+            onChange={(value)=>handleInputChange("title",value)}
+            required={false}
           />
 
           <label htmlFor="description" className={Styles.title}>Description:</label>
@@ -66,8 +76,8 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             name="description"
             className={Styles.inpt}
             value={formData.description}
-            onChange={handleInputChange}
-            required
+            onChange={(value)=>handleInputChange("description",value)}
+            required={false}
           />
 
           <label htmlFor="image" className={Styles.title}>Image:</label>
@@ -76,12 +86,14 @@ const UpdateRegime = ({ onUpdate,onClose, onCancel, regimeData = {}, handleUpdat
             type="file"
             id="image"
             name="image"
+            // defaultValue={formData.image}
             accept="image/*"
             onChange={handleImageChange}
+            required={false}
           />
 
           <div style={{ gap: "0rem", display: "flex", flexDirection: "column" }}>
-            <button type="submit" className={Styles.submitButton}>Update</button>
+            <button type="submit" className={Styles.submitButton} onClick={handleUpdates}>Update</button>
             <button type="button" onClick={handleCancel} className={Styles.cancelButton}>Cancel</button>
           </div>
         </form>
