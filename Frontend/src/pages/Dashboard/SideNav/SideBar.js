@@ -33,6 +33,15 @@ const SideBar = () => {
           </NavLink>
         </div>
         <NavLink
+          to="users"
+          className={({ isActive }) =>
+            isActive ? `${style.activeSideItem} ` : ``
+          }
+          onClick={closeNav}
+        >
+          Users
+        </NavLink>
+        <NavLink
           to="dashProducts"
           className={({ isActive }) =>
             isActive
@@ -50,6 +59,7 @@ const SideBar = () => {
         >
           Products
         </NavLink>
+        
         <NavLink
           to="trainingDash"
           className={({ isActive }) =>

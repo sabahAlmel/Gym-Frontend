@@ -48,9 +48,9 @@
       color: #333;
     }
     
-    input,
+    .file,
     textarea,
-    button {
+    .submitButton {
       margin-bottom: 15px;
       padding: 10px;
       border: 1px solid #ccc;
