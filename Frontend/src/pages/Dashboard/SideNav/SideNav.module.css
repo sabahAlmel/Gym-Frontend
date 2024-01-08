@@ -21,6 +21,7 @@
   height: 100%;
   overflow: hidden;
   transition: width 0.5s ease-out;
+  
 }
 .dashLogoContainer {
   position: relative;
@@ -29,6 +30,7 @@
   font-size: 18px;
   font-weight: 500;
   align-items: center;
+  
 }
 .expandArrow {
   position: absolute;
@@ -37,6 +39,7 @@
   font-size: 40px;
   cursor: pointer;
   transition: transform 0.3s ease-out;
+  
 }
 .rotateExpandArrow {
   transform: rotate(180deg);
@@ -46,6 +49,7 @@
   font-size: 40px;
   cursor: pointer;
   transition: transform 0.3s ease-out;
+ 
 }
 
 .sideBarItem {
