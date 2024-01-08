@@ -78,7 +78,7 @@ const SideBar = () => {
           Gym Plans
         </NavLink>
         <NavLink
-          to="regimdash"
+          to="regimeDash"
           className={({ isActive }) =>
             isActive ? `${style.activeSideItem} ` : ``
           }
