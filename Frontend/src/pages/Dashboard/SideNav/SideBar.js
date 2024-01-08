@@ -53,17 +53,8 @@ const SideBar = () => {
         <NavLink
           to="trainingDash"
           className={({ isActive }) =>
-            isActive
-              ? `${style.activeSideItem} `
-              : `${
-                  location.pathname === "/dash"
-                    ? style.activeSideItem
-                    : ({ isActive }) =>
-                        isActive ? `${style.activeSideItem} ` : ``
-                } 
-          `
+            isActive ? `${style.activeSideItem} ` : ``
           }
-          activeclassname={style.activeSideItem}
           onClick={closeNav}
         >
           Personnal Training
