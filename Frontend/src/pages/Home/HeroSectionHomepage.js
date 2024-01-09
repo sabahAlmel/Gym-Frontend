@@ -1,5 +1,6 @@
 import React from "react";
 import HeroSectionHomepageCss from "./HeroSectionHomapage.module.css";
+import { NavLink } from "react-router-dom";
 
 const HeroSectionHomepage = () => {
   return (
@@ -10,9 +11,9 @@ const HeroSectionHomepage = () => {
             work <span className={HeroSectionHomepageCss.spann}>harder </span>
             get stronger
           </h1>
-          <a href="/login" className={HeroSectionHomepageCss.button}>
+          <NavLink to="/login" className={HeroSectionHomepageCss.button}>
             join us
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>
