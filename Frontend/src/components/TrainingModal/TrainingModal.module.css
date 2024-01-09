@@ -1,0 +1,90 @@
+.modalForm {
+    position: fixed;
+    z-index: 1001;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+.modalForm > form {
+    background-color: var(--main-bg-clr);
+    border-radius: 20px;
+    padding: 3rem 0;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    gap: 3rem;
+    align-items: center;
+  }
+  .inputContainer {
+    width: 60%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  .input {
+    padding:0.5rem 1rem;
+    font-size: 16px;
+    color: white;
+    background-color: #000;
+    border-radius: 20px;
+    border: 1px solid var(--border-clr);
+    width: 100%;
+  }
+  .input:focus {
+    outline-color: var(--highlight-clr);
+  }
+  .textarea {
+    height: 100px;
+    border: none;
+    font-size: 16px;
+  }
+  .btnContainer {
+    display: flex;
+    gap: 1rem;
+  }
+  button {
+    border-radius: 20px;
+    padding: 0.5rem;
+    cursor: pointer;
+    border: none;
+  }
+  button:active {
+    border: none;
+  }
+  .cancelBtn {
+    color: #000;
+    border-bottom: 3px solid var(--red-btn-clr);
+  }
+  .cancelBtn:hover {
+    background-color: #a5a5a5;
+  }
+  .submitBtn {
+    background-color: var(--highlight-clr);
+    color: var(--bg-clr);
+    border-bottom: 3px solid var(--red-btn-clr);
+  }
+  .submitBtn:hover {
+    background-color: var(--hover-clr);
+  }
+  .imageInputContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .fileInput {
+    width: 60%;
+  }
+  .categoriesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 60%;
+    gap: 2rem;
+    justify-content: center;
+  }
+  .genre > label > input {
+    border-radius: 50%;
+  }

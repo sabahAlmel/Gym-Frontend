@@ -33,9 +33,9 @@
   width: 100%;
 }
 .container2 > form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .form-group {
@@ -61,14 +61,14 @@ label {
   flex-direction: column;
 }
 
-.formInputs{
-    border: 0;
-    border-bottom: 1px solid white;
-    outline: none;
+.formInputs {
+  border: 0;
+  border-bottom: 1px solid white;
+  outline: none;
 }
 
-.formInputs:focus{
-    border-color: red;
+.formInputs:focus {
+  border-color: red;
 }
 
 .formInputs,
@@ -99,8 +99,14 @@ textarea {
   transition: background-color 0.3s ease;
   width: 20%;
 }
-.btn:hover{
-    background-color: #7c0000;
+.btn:hover {
+  background-color: #7c0000;
+}
+a.btn {
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -127,6 +133,7 @@ textarea {
     color: white;
     font-size: 30px;
     margin-bottom: 0.5rem;
+    text-align: center;
   }
 
   .content {
@@ -139,20 +146,14 @@ textarea {
     padding-bottom: 1rem;
   }
 
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 0.5rem;
-  }
-
   .inline-input-group {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 2rem;
   }
 
   .label-input-group {
     width: 100%;
+    gap: 2rem;
   }
 
   textarea {
@@ -163,5 +164,4 @@ textarea {
   .btn {
     width: 100%;
   }
-  
 }

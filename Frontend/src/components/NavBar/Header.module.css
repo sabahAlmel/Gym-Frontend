@@ -1,22 +1,21 @@
-.headerContainer{
+.headerContainer {
   display: flex;
   justify-content: center;
-  background-color:var(--main-bg-clr);
+  background-color: var(--main-bg-clr);
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 2;
   width: 100%;
 }
 .navbar {
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: space-between;
   width: 90%;
   height: 70px;
   z-index: 1000;
-  background-color:#090909;
- 
-
+  background-color: #090909;
 }
 .menu {
   display: flex;
@@ -36,8 +35,6 @@
   transition: color 0.3s ease;
   /* Transition the color property for smooth effect */
 }
-
-
 
 .menu a:after {
   content: "";
@@ -62,7 +59,10 @@
 .menu.active {
   left: 0;
 }
-
+.menu.active li {
+  font-size: 35px;
+  margin-bottom: 40px;
+}
 
 .menuItem.activeNavItem:after {
   width: 100%;
@@ -70,25 +70,23 @@
   /* Change underline color to red when it's the active page */
 }
 
-
 @media screen and (max-width: 720px) {
   .mobile_btn {
     display: block;
     position: absolute;
     cursor: pointer;
-    right: 2.5rem; 
-    top: 50%; 
-    transform: translateY(-50%); 
+    right: 2.5rem;
+    top: 50%;
+    transform: translateY(-50%);
     z-index: 10;
   }
-  
 
   .menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     position: fixed;
-    left: -100%;  /* This line hides the menu off-screen */
+    left: -100%; /* This line hides the menu off-screen */
     right: 0;
     bottom: 0;
     top: 0;
@@ -98,8 +96,6 @@
     z-index: 10;
     transition: left 1s;
   }
-  
-  
 
   .active {
     left: 0;
@@ -108,7 +104,13 @@
   .navbar Link {
     font-size: 2rem;
   }
-  
+  .menu li {
+    font-size: 35px;
+    margin-bottom: 40px;
+  }
+  .btn {
+    font-size: 35px !important;
+  }
 }
 
 ul {
@@ -118,4 +120,15 @@ ul {
 li {
   color: var(--main-text-color);
   text-decoration: none;
+}
+
+.btn {
+  background-color: #dc0000;
+  margin-top: 0.6rem;
+  font-weight: 300;
+  font-size: large;
+  margin: 0 1rem;
+}
+.btn:hover {
+  background-color: #7c0000;
 }

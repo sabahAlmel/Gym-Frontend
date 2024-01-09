@@ -1,8 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./FormContactUs.module.css";
 import emailjs from "emailjs-com";
+import { UserContext } from "../../userContext/userContext";
+import { Link } from "react-router-dom";
 
 const FormContactUs = () => {
+  const { user } = useContext(UserContext);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,12 +27,12 @@ const FormContactUs = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
-      .sendForm(
-        "service_i5x4w2r",
-        "template_ebafout",
-        e.target,
-        "hL-eGHsw3g7UccNP5"
-      )
+      .sendForm
+      // "service_i5x4w2r",
+      // "template_ebafout",
+      // e.target,
+      // "hL-eGHsw3g7UccNP5"
+      ()
       .then(
         (result) => {
           console.log(result.text);
@@ -129,9 +132,15 @@ const FormContactUs = () => {
                 value={message}
                 onChange={handleChange}
               />
-              <button type="submit" className={styles.btn}>
-                Submit
-              </button>
+              {!user ? (
+                <Link to="/login" className={styles.btn}>
+                  Submit
+                </Link>
+              ) : (
+                <button type="submit" className={styles.btn}>
+                  Submit
+                </button>
+              )}
             </div>
           </div>
         </form>

@@ -3,45 +3,74 @@ import axios from "axios";
 export async function fetchTraining() {
   try {
     const data = await axios.get(`${process.env.REACT_APP_PATH}training/read`);
-    console.log('fetchTraining')
+    // console.log('fetchTraining')
     if (data) {
       console.log(data);
-      return data
+      return data;
     }
   } catch (error) {
     console.log(error);
   }
 }
 
-export const addTraining = async (createData) => {
+export const addTraining = async (trainingData) => {
   try {
-    const data = await axios.post(`${process.env.REACT_APP_PATH}training/add`, createData)
-    if (data)
-      return data
-  }
-  catch (error) {
-    console.log(error)
-  }
-}
+    const response = await axios.post(
+      `${process.env.REACT_APP_PATH}training/add`,
+      {
+        name: trainingData.name,
+        description: trainingData.description,
+        image: trainingData.image,
+      },
+      {
+        headers: { "Content-Type": "multipart/form-data" },
+      }
+    );
 
-export const editData = async (id, updateData) => {
+    if (response.status === 200) {
+      return response.status;
+    }
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const editData = async (id, data) => {
   try {
-    const data = await axios.post(`${process.env.REACT_APP_PATH}training/update/${id}`, updateData)
-    if (data)
-      return data
+    const response = await axios.patch(
+       `${process.env.REACT_APP_PATH}training/update`,
+    {
+      name: data.name,
+      description: data.description,
+      image: data.image,
+      id: id,
+    },
+    { headers: { "Content-Type": "multipart/form-data" } }
+  );
+  if (response.status === 200) {
+    console.log(response.data);
+    return response.status;
   }
-  catch (error) {
-    console.log(error)
-  }
+} catch (error) {
+  console.log(error);
 }
+};
 
 export const deleteData = async (id) => {
   try {
-    const data = await axios.post(`${process.env.REACT_APP_PATH}training/delete/${id}`)
-    if (data)
-      return data
+    const response = await axios.delete(
+      `${process.env.REACT_APP_PATH}training/delete`,
+      {
+        data: { id: id },
+      }
+    );
+
+    if (response.status === 200) {
+      return response.data;
+    }
+  } catch (error) {
+    console.error('Error in deleteData:', error);
+    throw error;
   }
-  catch (error) {
-    console.log(error)
-  }
-}
+};

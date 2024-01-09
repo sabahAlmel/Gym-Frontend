@@ -1,128 +1,28 @@
-.regimeDashWrapper{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
 
-h2{
-align-self: flex-start;
-margin: 5rem 0;
-
+.btn{
+  border-radius: 15px;
 }
-.regimTable {
-  width: 80%;
-  margin: 0 auto;
-  height: auto;
-  text-align: center;
+.btnAdd{
+background-color: red;
+border: none;
 }
-
-.tableHeader {
-  background-color:#222222;
+.btnAdd:hover{
+ background-color: rgb(182, 2, 2);
 }
-.addButton {
-  width:90%;
-  display: flex;
-  align-items: flex-end;
-  justify-content: end;
-}
-.addButto {
-  color: black;
-  font-weight: bold;
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-.addButto:hover{
-  background-color:gray;
-  font-weight: bolder;
-}
-
-.tableHeaderItem {
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 0.5rem;
-}
-
-.tableContent {
-  background-color: white;
-  color: black;
-}
-
-.buttonSection {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.buttonEdit {
-  background-color: green;
-}
-.buttonEdit:hover {
-  background-color:  rgb(29, 103, 29);
-}
-
-.buttonDelete {
-  background-color: red;
-}
-.buttonDelete:hover {
-  background-color: darkred;
-}
-
-.buttonEdit, .buttonDelete {
-  padding: 0.5rem;
-  font-weight: bold;
-  border-radius: 15%;
-  width: 50%;
-}
-
-table tbody tr td {
-  padding: 0.6rem;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-
-.formcontainer{
-  margin: 0 auto;
-}
-
-.editForm {
-  width: 80%;
-  margin: 0 auto;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.inputField {
-  width: 100%;
-  height: 2.5rem;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.fileInput {
-  width: auto;
-  height: 2rem;
-}
-.button {
-  padding: 10px 20px;
+.btn:first-of-type{
+  background-color:darkgreen;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
 }
 
-.add {
-  background-color: #4caf50;
-  color: white;
-  margin-right: 10px;
+.btn:first-of-type:hover{
+  background-color: rgb(0, 69, 0);
+}
+.btn:last-of-type{
+  background-color: red;
+  border: none;
+}
+.btn:last-of-type:hover{
+  background-color: rgb(182, 2, 2);
 }
 
-.add:hover {
-  background-color: #45a049;
-}
+  

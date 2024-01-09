@@ -6,7 +6,7 @@
   flex-direction: column;
   gap: 3rem;
 }
-.singleProductMainView{
+.singleProductMainView {
   width: 100%;
   background-color: var(--card-bg-clr);
 }
@@ -19,7 +19,7 @@
   color: var(--main-text-clr);
   font-family: "Outfit", sans-serif;
   position: relative;
-  padding-top: 5rem ;
+  padding-top: 5rem;
 }
 
 .productDetailsWrapper {
@@ -55,8 +55,8 @@
   font-size: 1.2em;
   margin-bottom: 3rem;
 }
-.productDescription > p{
-  font-size: 17px;
+.productDescription > p {
+  font-size: 2rem;
 }
 .productShareAndReviews {
   display: flex;
@@ -66,7 +66,7 @@
 .productReviewsWrapper {
   width: fit-content;
   height: fit-content;
-  align-self:left;
+  align-self: left;
   justify-content: flex-start;
   display: flex;
   border: 1px solid rgba(185, 185, 185, 0.541);
@@ -101,58 +101,60 @@
   width: 90%;
   margin: auto;
 }
-.similarProducts{
+.similarProducts {
   display: flex;
   gap: 5rem;
   flex-wrap: wrap;
 }
 
 @media (max-width: 1420px) {
-  .productDescription > p{
-    font-size: 14px;
+  .productDescription > p {
+    font-size: 1.7rem;
   }
-  
 }
 @media (max-width: 1100px) {
-  .productWrapper{
+  .productWrapper {
     flex-direction: column;
     height: 100%;
   }
-  .productDetailsWrapper{
+  .productDetailsWrapper {
     gap: 20px;
   }
-  .productImage{
+  .productImage {
     margin-bottom: 4rem;
     align-self: center;
   }
-  .productName{
-    font-size: 1em;
-  }
-  .singleProductPageContainer{
+
+  .singleProductPageContainer {
     height: 100%;
     padding: 4rem 2rem;
   }
-  .backButton{
+  .backButton {
     left: 10px;
   }
-  
 }
-@media (max-width:650px) {
-  .productImage{
-    width: 300px;
+@media (max-width: 650px) {
+  .productImage {
+    width: 220px;
   }
-  .productShareAndReviews{
+  .productShareAndReviews {
     flex-direction: column;
     gap: 4rem;
   }
-  .productDetailsWrapper{
+  .productDetailsWrapper {
     gap: 4rem;
   }
-  .similarProductsContainer{
+  .similarProductsContainer {
     align-items: center;
     gap: 20px;
   }
-  .similarProducts{
+  .similarProducts {
     justify-content: center;
+  }
+  .productName {
+    font-size: 2.3em;
+  }
+  .productDescription > p {
+    font-size: 1.3rem;
   }
 }

@@ -1,74 +1,98 @@
-
 .container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .columns {
-    display: flex;
-    flex-direction: row; /* Display columns in a row */
-    justify-content: space-around;
-    width: 100%;
+  display: flex;
+  flex-direction: row; /* Display columns in a row */
+  justify-content: space-around;
+  width: 100%;
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
-    margin-right: 1rem; /* Space between columns */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  margin-right: 1rem; /* Space between columns */
 }
 
 .title {
-    font-size: 48px;
-    font-weight: 500;
-    font-family: Outfit;
-    color: white;
-    word-wrap: break-word;
-    margin-bottom: 1rem; /* Space between title and reasons */
+  font-size: 48px;
+  font-weight: 500;
+  font-family: Outfit;
+  color: white;
+  word-wrap: break-word;
+  margin-bottom: 1rem; /* Space between title and reasons */
 }
 
 .icon {
-    width: 50px; /* Adjust the width as per your icon size */
-    height: 50px; /* Adjust the height as per your icon size */
-    margin-right: 10px; /* Space between icon and text */
+  width: 50px; /* Adjust the width as per your icon size */
+  height: 50px; /* Adjust the height as per your icon size */
+  margin-right: 10px; /* Space between icon and text */
 }
 
 .reason {
-    display: flex;
-    align-items: center;
-    margin-bottom: 2rem; /* Space between each reason pair */
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem; /* Space between each reason pair */
 }
 
 .text {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .text h3,
 .text p {
-    margin: 0.5rem 0; /* Consistent margin for both h3 and p elements */
+  margin: 0.5rem 0; /* Consistent margin for both h3 and p elements */
+}
+.rs {
+  text-decoration: none;
+  color: white;
+}
+.rs:hover {
+  color: red;
+}
+@media (max-width: 1130px) {
+  .container > h2 {
+    text-align: center;
+  }
+}
+@media (max-width: 920px) {
+  .container > h2 {
+    font-size: 2em;
+  }
+}
+@media screen and (max-width: 720px) {
+  .reason {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    margin-bottom: 2rem; /* Space between each reason pair */
+  }
+
+  .text h3,
+  .text p {
+    margin: 0; /* Reset margin for h3 and p elements */
+    padding: 0.5rem 0; /* Add padding for spacing between h3 and p elements */
+  }
+
+  .icon {
+    width: 50px; /* Adjust the width as per your icon size */
+    height: 50px; /* Adjust the height as per your icon size */
+    margin-bottom: 0.5rem; /* Space between icon and text */
+  }
 }
 
-@media screen and (max-width: 720px) {
-    .reason {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* Align items to the left */
-        margin-bottom: 2rem; /* Space between each reason pair */
-    }
-
-    .text h3,
-    .text p {
-        margin: 0; /* Reset margin for h3 and p elements */
-        padding: 0.5rem 0; /* Add padding for spacing between h3 and p elements */
-    }
-
-    .icon {
-        width: 50px; /* Adjust the width as per your icon size */
-        height: 50px; /* Adjust the height as per your icon size */
-        margin-bottom: 0.5rem; /* Space between icon and text */
-    }
+@media screen and (max-width: 550px) {
+  .columns {
+    flex-direction: column;
+  }
+  .reason {
+    text-align: center;
+    align-items: center;
+  }
 }

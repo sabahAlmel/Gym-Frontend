@@ -1,155 +1,164 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+.gymPlans {
+  background-color: var(--main-bg-clr);
+  color: var(--main-text-clr);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 5rem;
+}
 
+.gymPlan {
+  display: flex;
+  width: 84%;
+  justify-content: space-between;
+  height: 90%;
+}
 
-    .gymPlans {
-        background-color: var(--main-bg-clr);
-        color: var(--main-text-clr);
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 5rem;
-    }
+.gymPlansDescription {
+  /* width: 17%; */
+  height: 90%;
+}
 
-    .gymPlan {
-        display: flex;
-        width: 84%;
-        justify-content: space-between;
-        height: 90%;
-    }
+.gymPlanCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #222222;
+  width: 300px;
+  height: 370px;
+  border-radius: 12px;
+  padding: 1.5rem 2rem;
+}
+.gymPlanCard:nth-child(1) {
+  flex: 1;
+}
 
-    .gymPlansDescription {
-        /* width: 17%; */
-        height: 90%;
-    }
+.gymPlanType {
+  color: #f20505;
+  width: 100%;
+}
 
-    .gymPlanCard {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        background-color: #222222;
-        width: 300px;
-        height: 370px;
-        border-radius: 12px;
-        padding: 1.5rem 2rem;
+.gymPlanPrice {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 1rem;
+  margin-top: 1rem;
+  letter-spacing: 1.2px;
+}
+.price {
+  color: var(--red-text-clr);
+}
 
-    }
-    .gymPlanCard:nth-child(1){
-        flex: 1;
-    }
-    
+.membership,
+.gymPlanPrice {
+  font-size: 1.13em;
+  font-weight: 700;
+}
+.price,
+.gymPlanType {
+  font-size: 1em;
+  font-weight: 500;
+}
 
-    .gymPlanType {
-        color: #F20505;
-        width: 100%;
-    }
+button {
+  color: #ffffff;
+}
+button:hover {
+  background-color: #7c0000;
+}
 
-    .gymPlanPrice {
-        border-bottom: 1px solid #000000;
-        padding-bottom: 1rem;
-        margin-top: 1rem;
-        letter-spacing: 1.2px;
-    }
-    .price {
-        color: var(--red-text-clr);
-    }
+.check {
+  margin-top: 1.7rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
 
-    .membership,
-    .gymPlanPrice
-     {
-        font-size: 1.13em;
-        font-weight: 700;
-    }
-    .price,
-    .gymPlanType{
-        font-size: 1em;
-        font-weight: 500;
-    }
+.descriptionArray {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  text-align: left;
+}
 
-    button {
-        color: #FFFFFF;
-    }
+.descriptionText {
+  font-size: 14px;
+  font-weight: 400;
+  height: 4%;
+  width: 70%;
+  margin-left: 0.5rem;
+}
 
-    .check {
-        margin-top: 1.7rem;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        height:100%;
-        justify-content: space-between;
-    }
+.checkIcon {
+  width: 25px;
+  height: 25px;
+}
 
-    .descriptionArray {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-        text-align: left;
-    }
+.buttonSubscribe {
+  width: 100%;
+  height: 10%;
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+}
 
-    .descriptionText {
-        font-size: 12px;
-        font-weight: 400;
-        height: 4%;
-        width: 70%;
-        margin-left: 0.5rem;
-    }
-
-    .checkIcon {
-        width: 25px;
-        height: 25px;
-    }
-
-    .buttonSubscribe {
-        width: 100%;
-        height: 10%;
-        margin-top: 1rem;
-    }
-
-    .gymPlanButton {
-        margin-top: 0.5rem;
-        background-color: var(--red-text-clr);
-        border: none;
-        border-radius: 3rem;
-        font-size: 0.88rem;
-        font-weight: 500;
-        height: 1.88rem;
-        width: 6.7rem;
-    }
-
-
-
+.gymPlanButton {
+  margin-top: 0.5rem;
+  background-color: var(--red-text-clr);
+  border: none;
+  border-radius: 3rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  height: 1.88rem;
+  width: 6.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 @media screen and (max-width: 1260px) {
-
-    .gymPlan{
-        width: 100%;
-    }
-    .gymPlans{
-        flex-direction: column;
-        width: 100%;
-    }
-    .gymPlanDescriptionTitle{
-        width: 100%;
-        text-align: left;
-    }
+  .gymPlan {
+    width: 100%;
+  }
+  .gymPlans {
+    flex-direction: column;
+    width: 100%;
+  }
+  .gymPlanDescriptionTitle {
+    width: 100%;
+    text-align: left;
+  }
 }
-@media screen and (max-width: 1100px){
-    .descriptionText{
-        font-size: 10px;
-    }
-    .gymPlanCard{
-        width: 280px;
-    }
+@media screen and (max-width: 1130px) {
+  .gymPlanDescriptionTitle {
+    text-align: center;
+  }
+  .descriptionText {
+    font-size: 10px;
+  }
+  .gymPlanCard {
+    width: 280px;
+  }
 }
 @media (max-width: 920px) {
-    .gymPlan{
-        flex-direction: column;
-        align-items: center;
-        gap: 5rem;
-    }
-    .gymPlanCard{
-        width: 300px ;
-
-    }
+  .gymPlan {
+    flex-direction: column;
+    align-items: center;
+    gap: 5rem;
+  }
+  .gymPlans {
+    gap: 1rem;
+  }
+  .gymPlanDescriptionTitle {
+    font-size: 2em;
+  }
+}
+@media (max-width: 400px) {
+  .gymPlanCard {
+    width: 95%;
+  }
 }

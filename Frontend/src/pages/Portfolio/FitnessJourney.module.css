@@ -1,40 +1,39 @@
-
 .fitnessSection {
-    display: flex;
-    flex-direction: column;
-    gap: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
 }
 .fitnessSection > h2 {
-    text-align: center;
+  text-align: center;
 }
 .content {
-    display: flex;
-    justify-content: space-between;
-    gap: 7rem;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 7rem;
+  align-items: center;
 }
 
 .content > p {
-    width: 50%;
-    font-size: 1.43em;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    color: #FFFFFF;  
+  width: 50%;
+  font-size: 1.43em;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #ffffff;
 }
 .image {
- width: 50%;   
+  width: 50%;
 }
-@media (max-width:1200px) {
-    .content{
-        flex-direction: column-reverse;
-        width: 100%;
-        gap: 1.5rem;
-    }
-    .content p{
-        width: 100%;
-    }
-    .image{
-        width: 70%;
-    }
-    
+@media (max-width: 1200px) {
+  .content {
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: 1.5rem;
+  }
+  .content p {
+    width: 100%;
+    text-align: center;
+  }
+  .image {
+    width: 70%;
+  }
 }

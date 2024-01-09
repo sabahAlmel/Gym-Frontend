@@ -1,36 +1,35 @@
-
-
- .personalTrainingContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 3rem;
-    align-items:center;
+.personalTrainingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+  width: 100%;
+}
+.personalTrainingFlex {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+.personalTrainingHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.personalTrainingHeader > h2 {
+  font-size: 2em;
+}
+.personalTrainingHeader > p {
+  align-self: center;
+  font-size: 24px;
+}
+@media (max-width: 1130px) {
+  .personalTrainingFlex {
     width: 100%;
-}
-.personalTrainingFlex{
-    width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 3rem;
-
-}
-.personalTrainingHeader{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-}
-.personalTrainingHeader > h2{
-    font-size: 2em;
-}
-.personalTrainingHeader > p{
-align-self:center ;
-font-size: 24px;
-}
-@media (max-width:1100px) {
-    .personalTrainingFlex{
-        width: 100%;
-    }
-    
+  }
+  .personalTrainingHeader {
+    text-align: center;
+  }
 }
