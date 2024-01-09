@@ -35,11 +35,10 @@ export default function ToolbarGrid() {
       );
       if (response) {
         const transformedData = response.data.data.map((item, index) => ({
-          id: item.id, 
+          id: item.id,
           name: item.name,
           description: item.description,
           image: item.image,
-     
         }));
         setItem(transformedData);
         setIsLoading(false);
@@ -53,7 +52,7 @@ export default function ToolbarGrid() {
       setIsLoading(false);
     }
   };
-// console.log(item)
+  // console.log(item)
   const handleSubmit = async () => {
     try {
       const formDataToSend = new FormData();
@@ -91,8 +90,6 @@ export default function ToolbarGrid() {
 
   useEffect(() => {
     fetchRegime();
-    handleSubmit();
-    handleDeletee();
   }, []);
 
   const columns = [
@@ -119,23 +116,23 @@ export default function ToolbarGrid() {
       ),
     },
     {
-      field: 'Action',
-    headerName: 'Actions',
-    width: 140,
-    renderCell: (params) => (
-      <div>
-        <button
-          className={`${styles.btn} ${styles}`}
-          style={{
-            marginRight: "0.5rem",
-            fontFamily: "bold",
-            fontSize: "16px",
-            "&:hover": { color: "green" },
-          }}
-          onClick={() => handleEditt(params.row.id)}
-        >
-          Edit
-        </button>
+      field: "Action",
+      headerName: "Actions",
+      width: 140,
+      renderCell: (params) => (
+        <div>
+          <button
+            className={`${styles.btn} ${styles}`}
+            style={{
+              marginRight: "0.5rem",
+              fontFamily: "bold",
+              fontSize: "16px",
+              "&:hover": { color: "green" },
+            }}
+            onClick={() => handleEditt(params.row.id)}
+          >
+            Edit
+          </button>
 
           <button
             className={styles.btn}
@@ -151,9 +148,9 @@ export default function ToolbarGrid() {
 
   const handleEditt = (rowId) => {
     console.log(`Edit clicked for item with ID: ${rowId}`);
-    setIsUpdateRegimeOpen(true)
-    const selectedRow= item.find((row)=>row.id===rowId)
-    setItem(selectedRow)
+    setIsUpdateRegimeOpen(true);
+    const selectedRow = item.find((row) => row.id === rowId);
+    setItem(selectedRow);
   };
 
   const handleDeletee = async (id) => {

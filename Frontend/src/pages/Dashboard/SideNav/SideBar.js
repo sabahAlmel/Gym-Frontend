@@ -32,15 +32,7 @@ const SideBar = () => {
             &times;
           </NavLink>
         </div>
-        <NavLink
-          to="users"
-          className={({ isActive }) =>
-            isActive ? `${style.activeSideItem} ` : ``
-          }
-          onClick={closeNav}
-        >
-          Users
-        </NavLink>
+
         <NavLink
           to="dashProducts"
           className={({ isActive }) =>
@@ -59,7 +51,7 @@ const SideBar = () => {
         >
           Products
         </NavLink>
-        
+
         <NavLink
           to="trainingDash"
           className={({ isActive }) =>
@@ -86,6 +78,15 @@ const SideBar = () => {
           onClick={closeNav}
         >
           Diet plan
+        </NavLink>
+        <NavLink
+          to="users"
+          className={({ isActive }) =>
+            isActive ? `${style.activeSideItem} ` : ``
+          }
+          onClick={closeNav}
+        >
+          Users
         </NavLink>
         <NavLink
           to="/"
